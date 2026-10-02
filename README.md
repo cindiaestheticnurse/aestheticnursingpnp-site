@@ -12,5 +12,5 @@ Custom domain: `aestheticnursingpnp.com` (see `CNAME`). DNS is managed in Cloudf
 Forms send through EmailJS (lead template `template_igi8str`, brief template `template_jhitevp`)
 to cindiaestheticnurse@gmail.com. Settings live at the top of `home.js`.
 
-The Manual Builder is a separate private app at https://builder.aestheticnursingpnp.com (hosted on Render).
+The Manual Builder is a separate private app at https://theaestheticmanual.com (hosted on Render).
 The master manual template is NOT part of this repository.

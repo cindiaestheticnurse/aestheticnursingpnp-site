@@ -37,7 +37,7 @@
   const hasInj = () => INJ_IDS.some(id => S.menu.has(id));
   // shared with the State manuals tab and the Manual Builder: the picked state + menu ids
   window.BLUEPRINT = () => ({ state: S.state, menu: [...S.menu] });
-  const builderLink = () => "https://builder.aestheticnursingpnp.com/?" + new URLSearchParams(Object.assign(S.state && S.state !== "MULTI" ? { state: S.state } : {}, { menu: [...S.menu].join(",") })).toString();
+  const builderLink = () => "https://theaestheticmanual.com/?" + new URLSearchParams(Object.assign(S.state && S.state !== "MULTI" ? { state: S.state } : {}, { menu: [...S.menu].join(",") })).toString();
   const tabCount = () => GENERAL.length + S.menu.size + (hasInj() ? EMERG.filter(e => !S.menu.has(e.id)).length : 0);
   const itemById = (id) => { for (const g of MENU) { const f = g.items.find(i => i.id === id); if (f) return f; } };
   const modules = () => [...new Set([...S.menu].map(id => itemById(id)?.module).filter(Boolean))];
