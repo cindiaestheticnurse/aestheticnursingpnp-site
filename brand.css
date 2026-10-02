@@ -1,0 +1,487 @@
+/* Aesthetic Nursing P&P brand layer — shared by the homepage and the Binder Blueprint.
+   Palette (only these five):
+     Charcoal #2B2926  — dark sections, header/nav, primary body text on light
+     Dusty rose #B87E7E — CTAs, links on dark, accents (never large fills)
+     Soft ivory #F2EAE4 — page backgrounds, cards, panels
+     Deep rose #8A4F4F — links, small labels, CTA fills where contrast matters on ivory
+     Warm gray #6B665F — captions, secondary text, hairline borders (never body copy)
+   Contrast checks (WCAG): charcoal/ivory 12.2 · deep rose/ivory 5.3 · ivory on deep rose 5.3 ·
+   warm gray/ivory 4.8 · dusty rose/charcoal 4.4 (large text & accents only) */
+:root{
+  --bg:#F2EAE4; --paper:#F2EAE4; --paper-2:#F2EAE4;
+  --ink:#2B2926; --ink-2:#6B665F; --ink-3:#6B665F;
+  --line:rgba(107,102,95,.38); --line-2:rgba(107,102,95,.6);
+  --rose:#B87E7E; --rose-2:#B87E7E; --wine:#8A4F4F; --wine-ink:#8A4F4F;
+  --ok:#2B2926; --ok-bg:rgba(107,102,95,.12); --warn:#8A4F4F; --warn-bg:rgba(184,126,126,.12);
+  --alert:#8A4F4F; --alert-bg:rgba(184,126,126,.16);
+  --shadow:0 1px 2px rgba(43,41,38,.08), 0 10px 26px -14px rgba(43,41,38,.28);
+  --ivory:#F2EAE4; --charcoal:#2B2926; --dusty:#B87E7E; --deep:#8A4F4F; --gray:#6B665F;
+}
+/* Type — heavier body weight for contrast */
+body{font-family:"Jost",system-ui,sans-serif;font-weight:400;color:var(--ink);background:var(--bg)}
+h1,h2,h3,.pull,.quote,.case-body q,.faq-item button{font-family:"Cormorant Garamond",Georgia,serif;font-weight:500;letter-spacing:-.005em;color:var(--ink)}
+h1{line-height:1.08}
+h1 em,h2 em{font-weight:500;color:var(--deep)}
+b,strong{font-weight:500}
+.eyebrow,.label,.field label{font-family:"Jost",sans-serif;font-weight:600;letter-spacing:.28em;text-transform:uppercase}
+.eyebrow{color:var(--deep)}
+.label,.field label{color:var(--ink)}
+/* Warm gray is for captions only; body copy is charcoal */
+.muted,.lead,.small.muted,.section-head p,.intro,.hero p.lead,.stat-row span,.bigstats span,.money span,.flow .job,.way p,.extras .card p,.passes .card p,.process p,.faq-item .a,.case-body dd,.also div,.flag span{color:var(--ink)}
+.tiny,.cite,.note,.case-body dt,.offer .note,.flag .src,.cite a,.meter .tiny{color:var(--gray)}
+.lead{font-weight:400}
+a{color:var(--deep)} a:hover{color:var(--ink)}
+.cite a{color:var(--deep)}
+:focus-visible{outline:2px solid var(--deep);outline-offset:3px}
+/* Stat numbers: large type, deep rose on ivory */
+.stat-row b,.bigstats b,.money b,.outcome-list b,.spine-head b,.meter b,.process b{font-family:"Cormorant Garamond",Georgia,serif;font-weight:500;color:var(--deep)}
+.money b{color:var(--ink)}
+body,h1,h2,h3,.stat-row b,.bigstats b,.money b,.outcome-list b,.cred span,.meter b,.process b,.price,.p{font-variant-numeric:lining-nums}
+/* Cards & panels: ivory with warm-gray hairlines */
+.card,.panel,.offer,.hero-card,.way,.cases,.audit-list,.outcome-list,.flow,.process,.wizard,.choice,.chip,.signal,.tag,.pill,select,input[type=text],input[type=email],input[type=tel],textarea{background:var(--ivory)}
+.stat-row div,.bigstats div,.money div,.case-tabs,.case-fix,.spine,.steps li.current button,.flow li,.why,.flag,th{background:var(--ivory)}
+.case-fix{border-left-color:var(--dusty)}
+.offer{border-color:var(--ink)}
+.offer.most{box-shadow:inset 0 4px 0 var(--deep),var(--shadow);border-color:var(--deep)}
+.way{border-top-color:var(--dusty)}
+.way.feature{border-top-color:var(--deep);border-top-width:4px}
+.choice[aria-pressed="true"]{background:var(--ivory);border-color:var(--deep);box-shadow:inset 4px 0 0 var(--deep)}
+.chip[aria-pressed="true"]{background:var(--ink);border-color:var(--ink);color:var(--ivory)}
+.chip.auto{background:var(--ivory);border-color:var(--dusty);color:var(--deep)}
+.kw-banner{background:var(--ivory);border-color:var(--dusty)}
+.yn button{background:var(--ivory);color:var(--ink)}
+.yn button[aria-pressed="true"][data-v="yes"]{background:var(--ink);color:var(--ivory)}
+.yn button[aria-pressed="true"][data-v="no"]{background:var(--deep);color:var(--ivory)}
+.bar-row .track{background:rgba(107,102,95,.25)}
+.meter .bar{background:rgba(107,102,95,.25)}
+.tag.ok,.pill.ok{border-color:var(--ink);color:var(--ink);background:var(--ivory)}
+.tag.warn,.pill.warm{border-color:var(--deep);color:var(--deep);background:var(--ivory)}
+.pill.hot{border-color:var(--deep);color:var(--ivory);background:var(--deep)}
+.confirm{border-color:var(--ink);background:var(--ivory)}
+.verified{color:var(--ink);border-color:var(--ink)}
+
+/* Buttons — on ivory: deep rose fill + ivory text (5.3:1); secondary: charcoal outline */
+.btn{font-family:"Jost",sans-serif;font-weight:600;letter-spacing:.1em;text-transform:uppercase;border-radius:0;border:1px solid var(--ink);color:var(--ink);background:transparent;padding:.95rem 1.6rem}
+.btn:hover{background:var(--ink);border-color:var(--ink);color:var(--ivory)}
+.btn.primary{background:var(--deep);border-color:var(--deep);color:var(--ivory)}
+.btn.primary:hover{background:var(--ink);border-color:var(--ink);color:var(--ivory)}
+.btn.ghost{border-color:transparent;color:var(--deep)}
+.btn.ghost:hover{background:none;color:var(--ink)}
+.linkish{color:var(--deep)}
+
+/* Header / nav — charcoal bar, ivory links, dusty rose accent */
+.top{background:var(--charcoal);border-bottom:1px solid var(--gray);backdrop-filter:none}
+.top .wrap{min-height:84px}
+.brand-logo{height:56px;width:auto}
+.tabs{gap:0;flex-wrap:nowrap}
+.tabs .tab,.tabs a.tab{font-family:"Jost",sans-serif;font-weight:400;font-size:.95rem;letter-spacing:0;color:var(--ivory);text-transform:none;padding:.5rem .7rem;white-space:nowrap;background:none}
+.tabs .tab:hover,.tabs a.tab:hover,.tabs a.tab.hl,.tab[aria-current="page"]{color:var(--dusty)}
+.tab[aria-current="page"]::after{background:var(--dusty)}
+.top .btn.primary{background:var(--dusty);border-color:var(--dusty);color:var(--charcoal);font-weight:600}
+.top .btn.primary:hover{background:var(--ivory);border-color:var(--ivory);color:var(--charcoal)}
+.top :focus-visible{outline-color:var(--ivory)}
+
+/* Dark sections — charcoal base, ivory text, dusty rose accents at large sizes */
+.band.dark,.hero-dark,.site-foot{background:var(--charcoal);color:var(--ivory)}
+.band.dark h1,.band.dark h2,.band.dark h3,.hero-dark h1,.hero-dark h2,.band.dark .pull{color:var(--ivory)}
+.band.dark h1 em,.band.dark h2 em,.hero-dark h1 em{color:var(--dusty)}
+.band.dark .eyebrow,.hero-dark .eyebrow{color:var(--ivory)}
+.band.dark .muted,.band.dark .section-head p,.band.dark p,.band.dark li,.hero-dark .lead,.hero-dark p,.band.dark .flow p,.dcard p,.steps3 span{color:var(--ivory)}
+.band.dark .cite,.band.dark .tiny,.hero-dark .tiny,.hero-dark .cite{color:rgba(242,234,228,.85)}
+.band.dark a,.hero-dark a:not(.btn),.site-foot a{color:var(--ivory)}
+.band.dark a:not(.btn):hover,.hero-dark a:not(.btn):hover,.site-foot a:hover{color:var(--dusty)}
+.band.dark .bigstats,.hero-dark .stat-row{background:var(--gray);border-color:var(--gray)}
+.band.dark .bigstats div,.hero-dark .stat-row div{background:var(--charcoal)}
+.band.dark .bigstats b,.hero-dark .stat-row b,.dcard b.p,.steps3 b,.band.dark .flow .n{color:var(--dusty)}
+.band.dark .bigstats span,.hero-dark .stat-row span{color:var(--ivory)}
+.band.dark .flow,.dcard{background:var(--charcoal);border-color:var(--gray)}
+.band.dark .flow > div{border-color:var(--gray)}
+.band.dark .flow h3,.dcard h3{color:var(--ivory)}
+.dcard li::before{color:var(--dusty)}
+/* Buttons on charcoal: ivory fill + charcoal text (12.2:1); hover dusty rose */
+.band.dark .btn,.hero-dark .btn{border-color:var(--ivory);color:var(--ivory);background:transparent}
+.band.dark .btn:hover,.hero-dark .btn:hover{background:var(--ivory);color:var(--charcoal)}
+.band.dark .btn.primary,.hero-dark .btn.primary{background:var(--ivory);border-color:var(--ivory);color:var(--charcoal)}
+.band.dark .btn.primary:hover,.hero-dark .btn.primary:hover{background:var(--dusty);border-color:var(--dusty);color:var(--charcoal)}
+/* Light panels inside dark sections keep light-surface rules */
+.hero-dark .hero-card,.hero-dark .hero-card *,.contact .panel{color:var(--ink)}
+.hero-dark .hero-card .tiny{color:var(--gray)}
+.contact .panel p,.contact .panel label,.contact .panel span{color:var(--ink)}
+.contact .panel .tiny{color:var(--gray)}
+.contact .panel .btn{border-color:var(--ink);color:var(--ink);background:transparent}
+.contact .panel .btn:hover{background:var(--ink);color:var(--ivory)}
+.contact .panel .btn.primary{background:var(--deep);border-color:var(--deep);color:var(--ivory)}
+.contact .panel .btn.primary:hover{background:var(--ink);border-color:var(--ink);color:var(--ivory)}
+.contact .panel a:not(.btn){color:var(--deep)}
+.site-foot{border-top:1px solid var(--gray)}
+.site-foot p,.site-foot{color:rgba(242,234,228,.88)}
+.map{border-color:var(--gray);filter:none}
+.modal{background:rgba(43,41,38,.7)}
+.hero-dark{padding:clamp(2.5rem,6vw,4.5rem) 0}
+.hero-card img{aspect-ratio:4/3;object-fit:cover;width:100%;height:auto}
+
+.hero-card img{filter:none}
+
+@media (max-width:1240px){
+  .top .tabs{order:3;margin-left:0;width:100%;overflow-x:auto}
+  .top .wrap{flex-wrap:wrap;padding-top:.5rem;padding-bottom:.25rem;gap:.25rem}
+  .top .btn{margin-left:auto}
+}
+@media (max-width:900px){.brand-logo{height:42px}.top .wrap{min-height:64px}}
+.hero-dark .hero p.lead,.hero-dark .hero .lead{color:var(--ivory)}
+
+/* ---- More dusty rose (#B87E7E) — accents, rules, borders, graphics, tints ---- */
+::selection{background:var(--dusty);color:var(--charcoal)}
+.eyebrow::before{content:"";display:inline-block;width:30px;height:2px;background:var(--dusty);vertical-align:middle;margin:-2px .75rem 0 0}
+.band.dark .eyebrow,.hero-dark .eyebrow{color:var(--dusty)}
+.top{border-bottom:3px solid var(--dusty)}
+.site-foot{border-top:3px solid var(--dusty)}
+a:not(.btn):not(.tab):not(.way):not(.brand){text-decoration-color:var(--dusty);text-underline-offset:3px;text-decoration-thickness:1.5px}
+/* cards & panels get a dusty rose top rule */
+.card,.panel,.offer,.outcome-list,.money,.cases,.audit-list,.hero-card,.dcard,.flow,.process,.bigstats,.stat-row,.wizard,.signal{border-top:3px solid var(--dusty)}
+.offer.most{box-shadow:inset 0 5px 0 var(--dusty),var(--shadow);border-color:var(--dusty)}
+.way{border-top:4px solid var(--dusty)}
+.way:hover{border-top-color:var(--deep)}
+.way .go,.way small{color:var(--deep)}
+.way.feature{background:rgba(184,126,126,.16);border-top-color:var(--dusty)}
+.tablist li{border-left:4px solid var(--dusty)}
+.case-fix{background:rgba(184,126,126,.14);border-left:4px solid var(--dusty)}
+.case-tabs button[aria-selected="true"]{border-bottom-color:var(--dusty)}
+.case-tabs{border-bottom:1px solid var(--dusty)}
+.why{border-left-color:var(--dusty);background:rgba(184,126,126,.12)}
+/* data graphics */
+.bar-row .track i,.meter .bar i,.mg-bar>div{background:var(--dusty)}
+.bar-row .track{background:rgba(184,126,126,.22)}
+.meter .bar{background:rgba(184,126,126,.22)}
+.stat-row div,.bigstats div{box-shadow:inset 3px 0 0 var(--dusty)}
+.outcome-list div{box-shadow:inset 3px 0 0 rgba(184,126,126,.55)}
+/* list markers & small graphics */
+.offer li::before,.dcard li::before{color:var(--dusty);content:"—"}
+.creds li{border-bottom-color:rgba(184,126,126,.5)}
+.creds{border-top:2px solid var(--dusty)}
+.ce-list li{border-bottom:1px dotted var(--dusty)}
+.faq{border-top:2px solid var(--dusty)}
+.faq-item{border-bottom-color:rgba(184,126,126,.55)}
+.faq-item button span.i{color:var(--dusty);font-size:1.6rem}
+.faq-item.open button{color:var(--deep)}
+.tag,.pill{border-color:var(--dusty)}
+.tag.accent{border-color:var(--dusty);background:rgba(184,126,126,.16);color:var(--deep)}
+.steps li.current button{border-left-color:var(--dusty)}
+.spine-head{border-bottom:2px solid var(--dusty)}
+.audit-item{border-top-color:rgba(184,126,126,.45)}
+.yn{border-color:var(--dusty)}
+.yn button+button{border-left-color:var(--dusty)}
+.yn button:hover{background:rgba(184,126,126,.18)}
+.choice:hover{border-color:var(--dusty)}
+.chip:hover{border-color:var(--dusty)}
+select:focus,input:focus,textarea:focus{border-color:var(--dusty);box-shadow:0 0 0 2px rgba(184,126,126,.35)}
+/* quote strip gets a soft dusty rose tint */
+.quote{color:var(--ink)}
+.quote::before,.quote::after{color:var(--dusty)}
+#services .quote{border-top:2px solid var(--dusty);border-bottom:2px solid var(--dusty);padding:1.4rem 0;max-width:34ch}
+/* secondary buttons hover to dusty rose */
+.btn:not(.primary):not(.ghost):hover{background:var(--dusty);border-color:var(--dusty);color:var(--charcoal)}
+.band.dark .btn:not(.primary):hover,.hero-dark .btn:not(.primary):hover{background:var(--dusty);border-color:var(--dusty);color:var(--charcoal)}
+.band.dark .btn:not(.primary),.hero-dark .btn:not(.primary){border-color:var(--dusty)}
+/* dark sections: dusty rose rules */
+.band.dark .section-head{border-bottom:1px solid rgba(184,126,126,.5);padding-bottom:1.5rem}
+.band.dark .bigstats,.hero-dark .stat-row{border-top:3px solid var(--dusty)}
+.steps3 li{border-left:2px solid var(--dusty);padding-left:.8rem}
+.contact-lines a{color:var(--dusty) !important}
+.contact-lines a:hover{color:var(--ivory) !important}
+.map{border:2px solid var(--dusty)}
+.process b,.audit-item .num{color:var(--deep)}
+.process div{box-shadow:inset 0 3px 0 rgba(184,126,126,.0)}
+.hero-card .who img{box-shadow:0 0 0 2px var(--dusty)}
+.verified{border-color:var(--dusty);color:var(--deep)}
+
+/* Light hero (soft ivory), as in the original */
+.hero-light{padding:clamp(2.5rem,6vw,4.5rem) 0;background:var(--ivory)}
+.hero-light .lead{color:var(--ink)}
+
+/* ---- Dark-section versions of cards (binder, ways in, consulting) ---- */
+.band.dark .card,.band.dark .offer,.band.dark .way,.band.dark .tablist li{background:var(--charcoal);border-color:var(--gray);border-top:3px solid var(--dusty);color:var(--ivory);box-shadow:none}
+.band.dark .tablist li{border-top:1px solid var(--gray);border-left:4px solid var(--dusty)}
+.band.dark .tablist b,.band.dark .card h3,.band.dark .offer h3,.band.dark .way h3{color:var(--ivory)}
+.band.dark .tablist span,.band.dark .way small,.band.dark .way .go,.band.dark .offer .price,.band.dark .extras .card .price,.band.dark .offer .eyebrow{color:var(--dusty)}
+.band.dark .offer .price small{color:var(--ivory)}
+.band.dark .offer .note,.band.dark .tiny{color:rgba(242,234,228,.85);border-top-color:var(--gray)}
+.band.dark .offer.most{background:rgba(184,126,126,.14);border-color:var(--dusty);box-shadow:inset 0 5px 0 var(--dusty)}
+.band.dark .way.feature{background:rgba(184,126,126,.18)}
+.band.dark .way:hover{border-top-color:var(--ivory);box-shadow:0 10px 30px -14px rgba(0,0,0,.6)}
+.band.dark .tag{background:transparent;border-color:var(--dusty);color:var(--ivory)}
+.band.dark .tag.accent{background:rgba(184,126,126,.22);color:var(--ivory)}
+.band.dark .quote{color:var(--ivory)}
+.band.dark .binder img{border-color:var(--gray);box-shadow:0 12px 32px -14px rgba(0,0,0,.6)}
+
+/* ==== Header v2: light (soft ivory) bar, charcoal nav on ONE row, hamburger on small screens ==== */
+.top{background:var(--ivory);border-bottom:3px solid var(--dusty);position:sticky;top:0;z-index:40}
+.top .wrap{max-width:1320px;display:flex;flex-wrap:nowrap;align-items:center;gap:1.25rem;min-height:84px;padding-top:0;padding-bottom:0}
+.top .brand{flex:none}
+.top .brand-logo{height:44px;width:auto}
+.top .tabs{order:0;display:flex;flex-wrap:nowrap;align-items:center;gap:0;margin-left:auto;width:auto;overflow:visible}
+.top .tabs .tab,.top .tabs a.tab{color:var(--charcoal);font-size:.92rem;font-weight:500;padding:.5rem .55rem;white-space:nowrap}
+.top .tabs .tab:hover,.top .tabs a.tab:hover{color:var(--deep)}
+.top .tabs a.tab.hl,.top .tab[aria-current="page"]{color:var(--deep)}
+.top .tab[aria-current="page"]::after{background:var(--dusty);height:2px}
+.top .btn.primary{margin-left:.5rem;flex:none;background:var(--charcoal);border-color:var(--charcoal);color:var(--ivory);padding:.7rem 1.1rem;font-size:.78rem}
+.top .btn.primary:hover{background:var(--deep);border-color:var(--deep);color:var(--ivory)}
+.top :focus-visible{outline-color:var(--deep)}
+.menu-btn{display:none;flex:none;width:44px;height:44px;margin-left:auto;background:none;border:1px solid var(--charcoal);cursor:pointer;padding:0;align-items:center;justify-content:center;flex-direction:column;gap:5px}
+.menu-btn span{display:block;width:20px;height:2px;background:var(--charcoal);transition:transform .2s var(--ease),opacity .2s}
+.nav-open .menu-btn span:nth-child(1){transform:translateY(7px) rotate(45deg)}
+.nav-open .menu-btn span:nth-child(2){opacity:0}
+.nav-open .menu-btn span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
+/* compact desktop: keep one row */
+@media (max-width:1240px){
+  .top .wrap{flex-wrap:nowrap;gap:.75rem;padding-top:0;padding-bottom:0}
+  .top .tabs{order:0;width:auto;margin-left:auto;overflow:visible}
+  .top .brand-logo{height:38px}
+  .top .tabs .tab,.top .tabs a.tab{font-size:.86rem;padding:.5rem .45rem}
+  .top .btn.primary{margin-left:.25rem;padding:.65rem .9rem;font-size:.72rem}
+}
+/* tablet & phone: hamburger menu */
+@media (max-width:1200px){
+  .top .wrap{min-height:68px;position:relative}
+  .menu-btn{display:flex}
+  .top .btn.primary{margin-left:0;order:2}
+  .top .menu-btn{order:3;margin-left:0}
+  .top .brand{margin-right:auto}
+  .top .tabs{display:none;position:absolute;left:0;right:0;top:100%;margin:3px 0 0;flex-direction:column;align-items:stretch;background:var(--ivory);border-bottom:3px solid var(--dusty);box-shadow:0 18px 30px -18px rgba(43,41,38,.35);padding:.5rem clamp(1rem,3vw,2rem) 1rem}
+  .nav-open .tabs{display:flex}
+  .top .tabs .tab,.top .tabs a.tab{font-size:1rem;padding:.85rem .25rem;border-bottom:1px solid var(--line);text-align:left;width:100%}
+  .top .tab[aria-current="page"]::after{display:none}
+}
+@media (max-width:560px){
+  .top .brand-logo{height:32px}
+  .top .btn.primary{display:none}
+}
+
+/* ==== Dusty rose compliance pass: buttons, links, hover states, section highlights, icon accents ==== */
+/* Buttons — dusty rose fill with charcoal text (4.4:1), hover to deep rose with ivory text (5.3:1) */
+.btn.primary,.top .btn.primary,.band.dark .btn.primary,.hero-dark .btn.primary,.contact .panel .btn.primary{background:var(--dusty);border-color:var(--dusty);color:var(--charcoal);font-weight:600}
+.btn.primary:hover,.top .btn.primary:hover,.contact .panel .btn.primary:hover{background:var(--deep);border-color:var(--deep);color:var(--ivory)}
+.band.dark .btn.primary:hover,.hero-dark .btn.primary:hover{background:var(--ivory);border-color:var(--ivory);color:var(--charcoal)}
+.btn:not(.primary):not(.ghost){border-color:var(--dusty)}
+.btn:not(.primary):not(.ghost):hover{background:var(--dusty);border-color:var(--dusty);color:var(--charcoal)}
+.contact .panel .btn:not(.primary){border-color:var(--dusty)}
+.contact .panel .btn:not(.primary):hover{background:var(--dusty);color:var(--charcoal)}
+.btn.ghost:hover{color:var(--deep);text-decoration:underline;text-decoration-color:var(--dusty)}
+button.go{background:var(--dusty)!important;color:var(--charcoal)!important}
+/* Links — deep rose text on ivory (body links), dusty rose on charcoal; dusty rose underline everywhere */
+a:not(.btn):not(.tab):not(.way):not(.brand){color:var(--deep);text-decoration-color:var(--dusty)}
+.band.dark a:not(.btn),.site-foot a,.hero-dark a:not(.btn){color:var(--dusty)}
+.band.dark a:not(.btn):hover,.site-foot a:hover{color:var(--ivory)}
+.contact .panel a:not(.btn){color:var(--deep)}
+.contact-lines a{color:var(--dusty)!important}
+/* Hover states — dusty rose underline on nav, dusty rose borders on cards */
+.top .tabs .tab,.top .tabs a.tab{position:relative}
+.top .tabs .tab::before{content:"";position:absolute;left:.45rem;right:.45rem;bottom:.2rem;height:2px;background:var(--dusty);transform:scaleX(0);transition:transform .2s var(--ease)}
+.top .tabs .tab:hover::before,.top .tabs a.tab.hl::before{transform:scaleX(1)}
+.card:hover,.offer:hover,.panel:hover{border-color:var(--dusty)}
+.band.dark .card:hover,.band.dark .offer:hover{border-color:var(--dusty)}
+.case-tabs button:hover{color:var(--deep);box-shadow:inset 0 -3px 0 rgba(184,126,126,.5)}
+.faq-item button:hover{color:var(--deep)}
+/* Icon accents */
+.menu-btn{border-color:var(--dusty)}
+.menu-btn span{background:var(--charcoal)}
+.faq-item button span.i,.offer li::before,.dcard li::before,.eyebrow::before{color:var(--dusty)}
+@media (max-width:1200px){.top .tabs .tab::before{display:none}}
+
+/* ==== Typography matched to reference: Cormorant Garamond Light headlines + Jost Light body ==== */
+body{font-family:"Jost",system-ui,sans-serif;font-weight:300;font-size:clamp(1rem,.96rem + .2vw,1.12rem);line-height:1.65}
+h1,h2,h3,legend,.pull,.quote,.case-body q,.faq-item button{font-family:"Cormorant Garamond",Georgia,serif;font-weight:300;letter-spacing:0}
+h3,.faq-item button,legend{font-weight:400}
+h1 em,h2 em,h3 em{font-family:"Cormorant Garamond",Georgia,serif;font-style:italic;font-weight:300}
+.hero h1,#top h1{font-size:clamp(2.8rem,1.6rem + 4vw,5.4rem);line-height:1.05}
+h2.big{font-size:clamp(2.2rem,1.4rem + 2.6vw,3.6rem)}
+p,li,dd,.lead,.muted,.section-head p,.card p,.way p{font-weight:300}
+.lead,p.lead,.hero p.lead{font-size:clamp(1.12rem,1rem + .45vw,1.35rem);font-weight:300;line-height:1.6}
+b,strong,.choice b,.steps3 strong{font-weight:500}
+.eyebrow,.label,.field label{font-family:"Jost",sans-serif;font-weight:500;letter-spacing:.3em;font-size:.8rem}
+.top .tabs .tab,.top .tabs a.tab{font-family:"Jost",sans-serif;font-weight:400;font-size:1rem;letter-spacing:0}
+.btn{font-family:"Jost",sans-serif;font-weight:500;letter-spacing:.08em;font-size:.95rem;padding:1rem 1.8rem}
+.btn.primary,.top .btn.primary,.band.dark .btn.primary,.contact .panel .btn.primary{font-weight:500}
+.top .btn.primary{font-size:.85rem;padding:.8rem 1.2rem;letter-spacing:.08em}
+.stat-row b,.bigstats b,.money b,.outcome-list b,.spine-head b,.meter b,.process b,.dcard b.p,.offer .price,.passes .card b.p{font-family:"Cormorant Garamond",Georgia,serif;font-weight:300}
+.tiny,.cite,.note{font-weight:400}
+@media (max-width:1240px){.top .tabs .tab,.top .tabs a.tab{font-size:.9rem}.top .btn.primary{font-size:.75rem;padding:.7rem .95rem}}
+@media (max-width:1200px){.top .tabs .tab,.top .tabs a.tab{font-size:1.05rem}}
+#view-blueprint .hero h1{font-size:clamp(2.4rem,1.5rem + 2.6vw,4rem)}
+
+/* ==== Hero split: image left, copy right; credentials card separated below ==== */
+.hero.hero-split{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.05fr);gap:clamp(2rem,5vw,4.5rem);align-items:center;margin-bottom:0}
+.hero-media{margin:0;align-self:stretch}
+.hero-media img{width:100%;height:100%;min-height:420px;max-height:640px;aspect-ratio:1/1;object-fit:cover;display:block;border-top:3px solid var(--dusty);box-shadow:var(--shadow)}
+.hero-copy h1{font-size:clamp(2.6rem,1.5rem + 3.4vw,5rem)}
+.cred-strip{padding:0 0 clamp(2.5rem,5vw,4rem);background:var(--ivory)}
+.cred-card{display:grid;grid-template-columns:auto minmax(0,1fr);gap:clamp(1.25rem,3vw,2.5rem);align-items:center;background:var(--ivory);border:1px solid var(--line);border-top:3px solid var(--dusty);box-shadow:var(--shadow);padding:1.25rem clamp(1.25rem,3vw,2rem)}
+.cred-who{display:flex;align-items:center;gap:1rem;padding-right:clamp(1rem,3vw,2.5rem);border-right:1px solid var(--line)}
+.cred-who img{width:72px;height:72px;border-radius:50%;object-fit:cover;object-position:top;box-shadow:0 0 0 2px var(--dusty)}
+.cred-who b{display:block;font-family:"Cormorant Garamond",Georgia,serif;font-weight:400;font-size:1.35rem;line-height:1.1;white-space:nowrap}
+.cred-who .verified{display:inline-block;margin:.35rem 0 .2rem}
+.cred-who .tiny{display:block}
+.cred-list{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:0;margin:0}
+.cred-list div{padding:.25rem 1rem;border-left:1px solid var(--line)}
+.cred-list div:first-child{border-left:0}
+.cred-list dt{font-size:.8rem;color:var(--gray);font-weight:400;line-height:1.35}
+.cred-list dd{margin:.25rem 0 0;font-family:"Cormorant Garamond",Georgia,serif;font-size:1.45rem;font-weight:400;color:var(--deep);line-height:1.1;font-variant-numeric:lining-nums}
+@media (max-width:1000px){
+  .cred-card{grid-template-columns:1fr}
+  .cred-who{border-right:0;border-bottom:1px solid var(--line);padding:0 0 1rem}
+  .cred-list{grid-template-columns:repeat(2,minmax(0,1fr));row-gap:1rem}
+  .cred-list div:nth-child(3){border-left:0}
+}
+@media (max-width:900px){
+  .hero.hero-split{grid-template-columns:1fr}
+  .hero-media img{min-height:0;max-height:none;aspect-ratio:4/3}
+}
+@media (max-width:480px){
+  .cred-list{grid-template-columns:1fr}
+  .cred-list div{border-left:0;border-top:1px solid var(--line);padding:.7rem 0}
+  .cred-list div:first-child{border-top:0}
+}
+.hero-copy h1{font-size:clamp(2.4rem,1.4rem + 2.6vw,4.2rem)}
+.cred-list dd{white-space:nowrap;font-size:clamp(1.15rem,1rem + .4vw,1.45rem)}
+@media (max-width:900px){.hero-copy{order:-1}.hero-media img{aspect-ratio:16/10}}
+
+/* ==== Finding 01 on charcoal ==== */
+.finding-dark .finding-block{margin-top:0}
+.findings-more .finding-block:first-child{margin-top:0}
+#review{padding-bottom:clamp(3rem,6vw,5rem)}
+.finding-dark .card,.finding-dark .panel{background:var(--charcoal);border:1px solid var(--gray);border-top:3px solid var(--dusty);box-shadow:none}
+.finding-dark .card .n{color:var(--dusty)}
+.finding-dark .card h3{color:var(--ivory)}
+.finding-dark .card p,.finding-dark .muted,.finding-dark .bar-row,.finding-dark .bar-row span{color:rgba(242,234,228,.9)!important}
+.finding-dark .bar-row .track{background:rgba(242,234,228,.14)}
+.finding-dark .bar-row .track i{background:var(--dusty)}
+.finding-dark .bar-row b{color:var(--dusty)}
+.finding-dark .cite{color:rgba(242,234,228,.8)}
+.finding-dark .card:hover{border-color:var(--dusty)}
+#top .hero-copy h1{font-size:clamp(2.4rem,1.4rem + 2.6vw,4.2rem)}
+
+/* ==== Larger header logo ==== */
+.top .wrap{min-height:100px}
+.top .brand-logo{height:62px}
+@media (max-width:1400px){.top .brand-logo{height:54px}}
+@media (max-width:1240px){.top .wrap{min-height:88px}.top .brand-logo{height:46px}}
+@media (max-width:1200px){.top .wrap{min-height:84px}.top .brand-logo{height:52px}}
+@media (max-width:560px){.top .wrap{min-height:72px}.top .brand-logo{height:42px}}
+@media (max-width:380px){.top .brand-logo{height:36px}}
+#top.hero-light{padding-top:clamp(1.25rem,2.5vw,2rem)}
+
+/* ==== Landing hero: image, title, statement, buttons only; fits the first screen ==== */
+#top.hero-light{min-height:calc(100svh - 103px);display:flex;align-items:center;padding:clamp(1.25rem,2.5vw,2rem) 0 clamp(2rem,4vw,3rem)}
+#top.hero-light > .wrap{width:100%}
+#top .hero-split{align-items:center}
+#top .hero-media img{min-height:0;height:auto;max-height:calc(100svh - 170px);aspect-ratio:4/5}
+#top .hero-actions{display:flex;flex-wrap:wrap;gap:.9rem;margin-top:1.75rem}
+#top .hero-actions .btn{margin:0}
+.cred-strip{padding-top:clamp(2rem,4vw,3rem)}
+@media (max-width:1240px){#top.hero-light{min-height:calc(100svh - 91px)}}
+@media (max-width:900px){#top.hero-light{min-height:0;display:block}#top .hero-media img{max-height:none;aspect-ratio:16/10}}
+
+/* ==== Quote feature (end of dark "ways in") + How It Works in one row ==== */
+.quote-feature{display:grid;grid-template-columns:minmax(0,1.55fr) minmax(0,1fr);gap:clamp(1.5rem,4vw,3rem);align-items:center;margin-top:clamp(3rem,6vw,4.5rem)}
+.qf-quote{margin:0;text-align:center}
+.qf-quote .quote{margin:0 auto;max-width:none;padding:clamp(1.5rem,3.5vw,2.5rem) 0;border-top:2px solid var(--dusty);border-bottom:2px solid var(--dusty);color:var(--ivory);font-weight:300;font-size:clamp(1.8rem,1.2rem + 2vw,3rem)}
+.qf-quote figcaption{margin-top:1.1rem;font-family:"Jost",sans-serif;font-weight:500;font-size:.85rem;letter-spacing:.3em;text-transform:uppercase;color:var(--ivory)}
+.qf-img{width:100%;aspect-ratio:1/1;object-fit:cover;display:block;border:6px solid var(--ivory);box-shadow:0 18px 40px -18px rgba(0,0,0,.6)}
+.how-it-works .flow4{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:0;border:1px solid var(--line);border-top:3px solid var(--dusty);background:var(--ivory)}
+.how-it-works .flow4 > div{padding:clamp(1.25rem,2.5vw,2rem);border:0;border-right:1px solid var(--line)}
+.how-it-works .flow4 > div:last-child{border-right:0}
+.how-it-works .flow4 .n{font-family:"Jost",sans-serif;font-size:.85rem;letter-spacing:.2em;color:var(--deep)}
+.how-it-works .flow4 h3{font-size:clamp(1.5rem,1.2rem + .8vw,2rem);margin:.6rem 0 .5rem}
+.how-it-works .flow4 p{margin:0;color:var(--ink);font-size:1rem;line-height:1.6}
+@media (max-width:1000px){
+  .how-it-works .flow4{grid-template-columns:1fr 1fr}
+  .how-it-works .flow4 > div:nth-child(2){border-right:0}
+  .how-it-works .flow4 > div:nth-child(-n+2){border-bottom:1px solid var(--line)}
+}
+@media (max-width:760px){
+  .quote-feature{grid-template-columns:1fr}
+  .qf-img{aspect-ratio:4/3;max-width:520px;margin:0 auto}
+}
+@media (max-width:560px){
+  .how-it-works .flow4{grid-template-columns:1fr}
+  .how-it-works .flow4 > div{border-right:0;border-bottom:1px solid var(--line)}
+  .how-it-works .flow4 > div:last-child{border-bottom:0}
+}
+.qf-quote .quote{font-size:clamp(1.7rem,1.1rem + 1.6vw,2.6rem);text-wrap:balance}
+@media (min-width:1200px){.qf-quote .quote{white-space:nowrap;font-size:clamp(2rem,1rem + 1.35vw,2.55rem)}}
+
+/* ==== Dusty rose accent band for the quote ==== */
+.accent-rose{background:var(--dusty);color:var(--charcoal);padding:clamp(3rem,6vw,5rem) 0}
+.accent-rose .quote-feature{margin-top:0;align-items:stretch}
+.accent-rose .qf-quote{display:flex;flex-direction:column;justify-content:center;align-items:center;border-top:2px solid var(--charcoal);border-bottom:2px solid var(--charcoal);padding:clamp(1.5rem,3vw,2.5rem) 1rem}
+.accent-rose .qf-quote .quote{border:0;padding:0;color:var(--charcoal);font-weight:400}
+.accent-rose .qf-quote figcaption{color:var(--charcoal);margin-top:1.25rem}
+.accent-rose .qf-quote::before{content:"";display:block;width:48px;height:2px;background:var(--ivory);margin-bottom:1.5rem}
+.accent-rose .qf-img{aspect-ratio:4/3;height:100%;border-color:var(--ivory);box-shadow:0 18px 40px -20px rgba(43,41,38,.55)}
+@media (max-width:760px){.accent-rose .qf-img{height:auto}}
+.accent-rose .qf-quote .quote{order:0}
+.accent-rose .qf-quote::before{order:1;margin:1.5rem 0 0}
+.accent-rose .qf-quote figcaption{order:2}
+.accent-rose .qf-quote::before{order:-1;margin:0 0 1.5rem}
+.accent-rose .qf-quote::after{content:"";display:block;width:48px;height:2px;background:var(--ivory);order:1;margin:1.5rem 0 0}
+/* CE intro: paragraph starts on the heading's second line */
+#education .section-head{align-items:start}
+#education .section-head > p{margin-top:0}
+@media (max-width:900px){#education .section-head > p{margin-top:0}}
+
+/* ==== Cost recovery: four distinct tiles, Median most prominent ==== */
+.money{gap:10px;background:transparent;border:0;overflow:visible}
+.money div{padding:1.15rem 1.25rem;border:1px solid transparent;transition:transform .2s var(--ease)}
+.money div span{font-weight:500;letter-spacing:.14em}
+/* 1 Median: deep rose, largest, lifted */
+.money div:nth-child(1){background:var(--deep);box-shadow:0 0 0 3px var(--dusty),0 18px 34px -16px rgba(138,79,79,.75);transform:translateY(-4px);position:relative;z-index:1}
+.money div:nth-child(1) b{color:var(--ivory);font-size:2.6rem}
+.money div:nth-child(1) span{color:var(--ivory)}
+/* 2 Average: dusty rose tint */
+.money div:nth-child(2){background:rgba(184,126,126,.3);border-color:rgba(184,126,126,.55)}
+.money div:nth-child(2) b,.money div:nth-child(2) span{color:var(--charcoal)}
+/* 3 Highest: warm gray */
+.money div:nth-child(3){background:var(--gray)}
+.money div:nth-child(3) b,.money div:nth-child(3) span{color:var(--ivory)}
+/* 4 Total: ivory with charcoal outline */
+.money div:nth-child(4){background:var(--ivory);border-color:var(--charcoal)}
+.money div:nth-child(4) b,.money div:nth-child(4) span{color:var(--charcoal)}
+.finding-block .section-head{align-items:start}.finding-block .section-head h2{margin-top:0}
+.section-head.stacked{grid-template-columns:1fr;gap:.9rem}.section-head.stacked > p{max-width:none;margin:0}
+
+/* ==== WCAG 2.2 AA contrast pass ====
+   Dusty rose #B87E7E vs charcoal is 4.37:1 (just under the 4.5:1 AA minimum for normal text).
+   A 4.82:1 tint (#BD8786, 8% lighter) is used wherever dusty rose meets charcoal as text or behind charcoal text. */
+:root{--dusty-aa:#BD8786}
+.band.dark,.finding-dark,.site-foot,.hero-dark,.contact,.accent-rose,footer{--dusty:#BD8786}
+.btn.primary,.top .btn.primary,.band.dark .btn.primary,.contact .panel .btn.primary,.hero-dark .btn.primary,button.go,#startBtn,.btn.primary[disabled]{background:var(--dusty-aa)!important;border-color:var(--dusty-aa)!important;color:var(--charcoal)!important}
+.btn.primary:hover,.top .btn.primary:hover,.contact .panel .btn.primary:hover,#startBtn:hover{background:var(--deep)!important;border-color:var(--deep)!important;color:var(--ivory)!important}
+.band.dark .btn.primary:hover{background:var(--ivory)!important;border-color:var(--ivory)!important;color:var(--charcoal)!important}
+.btn:not(.primary):not(.ghost):hover{background:var(--dusty-aa)}
+/* Blueprint wizard: no horizontal scroll on phones (WCAG 1.4.10 Reflow) */
+.wizard{grid-template-columns:minmax(0,260px) minmax(0,1fr)}
+.wizard > *{min-width:0}
+.wizard select,.wizard input,.wizard textarea{max-width:100%}
+@media (max-width:900px){.wizard{grid-template-columns:minmax(0,1fr)}}
+/* Focus always visible (2.4.7 / 2.4.11) */
+:focus-visible{outline:3px solid var(--deep)!important;outline-offset:3px}
+.band.dark :focus-visible,.finding-dark :focus-visible,.contact :focus-visible,.site-foot :focus-visible,.accent-rose :focus-visible{outline-color:var(--ivory)!important}
+/* Minimum target size 24x24 (2.5.8) */
+.site-foot a,.contact-lines a,.cite a,.small a{display:inline-block;min-height:24px;line-height:24px}
+/* Respect reduced motion (2.3.3) */
+@media (prefers-reduced-motion:reduce){*,*::before,*::after{animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important;scroll-behavior:auto!important}}
+/* links on charcoal (footer, Why Now source) */
+footer a:not(.btn),.band.dark .cite a,.band.dark a:not(.btn):not(.way){color:var(--dusty-aa)!important}
+footer a:not(.btn):hover,.band.dark .cite a:hover{color:var(--ivory)!important}
+/* rose-tinted cards on charcoal: small labels in ivory */
+.band.dark .way.feature small,.band.dark .way.feature .go,.band.dark .offer.most .eyebrow,.band.dark .offer.most .price,.band.dark .offer.most .price small{color:var(--ivory)!important}
+/* 8-item nav: keep one row on desktop */
+@media (max-width:1440px) and (min-width:1201px){
+  .top .wrap{gap:.6rem}
+  .top .brand-logo{height:48px}
+  .top .tabs .tab,.top .tabs a.tab{font-size:.9rem;padding:.5rem .42rem}
+  .top .btn.primary{padding:.7rem .95rem;font-size:.74rem;margin-left:.25rem}
+}
+@media (min-width:1441px){.top .tabs .tab,.top .tabs a.tab{padding:.5rem .5rem}}
+@media (max-width:1440px) and (min-width:1321px){.top .brand-logo{height:58px}}
+[hidden]{display:none!important}

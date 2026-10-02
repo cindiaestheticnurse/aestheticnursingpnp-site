@@ -1,0 +1,98 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>The Binder Blueprint · Aesthetic Nursing P&amp;P</title>
+<meta name="description" content="A 90-second, state-specific binder blueprint for aesthetic practices. Built by Cindi Vokey, BSN, RN, CA BRN CE Provider #18009.">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Ccircle cx='16' cy='16' r='15' fill='%23F2EAE4' stroke='%238A4F4F' stroke-width='1.5'/%3E%3Cpath d='M9 24 L16 7 L23 24 M11.5 18 H20.5' stroke='%238A4F4F' stroke-width='2' fill='none'/%3E%3C/svg%3E">
+<link rel="stylesheet" href="styles.css">
+<link rel="stylesheet" href="../brand.css?v=31">
+</head>
+<body>
+<header class="top">
+  <div class="wrap">
+    <a class="brand" href="#" data-go="blueprint" aria-label="Aesthetic Nursing P&amp;P — Binder Blueprint"><img class="brand-logo" src="assets/logo-brand.png" alt="Aesthetic Nursing P&amp;P, Practice Solutions" width="314" height="52"></a>
+    <button class="menu-btn" type="button" aria-expanded="false" aria-controls="primary-nav" aria-label="Open menu"><span></span><span></span><span></span></button>
+    <nav id="primary-nav" class="tabs" aria-label="Sections">
+      <a class="tab" href="../">Home</a>
+      <button class="tab" data-go="blueprint" aria-current="page">Blueprint</button>
+      <a class="tab" href="https://builder.aestheticnursingpnp.com/">Manual Builder</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+<!-- ================= BLUEPRINT (client-facing) ================= -->
+<section class="view active" id="view-blueprint">
+  <div class="wrap">
+    <div class="hero">
+      <div>
+        <span class="eyebrow">The Binder Blueprint · About 90 seconds</span>
+        <h1 style="margin-top:.8rem">Your state. Your menu.<br><em>Your binder, mapped.</em></h1>
+        <p class="lead">Most Board cases aren't decided by what happened in the chair. Pick your state and what you offer, and see the binder an inspector would expect to open.</p>
+        <div class="hero-actions">
+          <a class="btn primary" href="#wizard" id="startBtn">Start with your state</a>
+          <span class="tiny">No patient details. Nothing leaves this page until you press send.</span>
+        </div>
+        <div class="stat-row" aria-label="From the 2026 accusation review">
+          <div><b>22 of 32</b><span>Board accusations cited missing or insufficient standardized procedures</span></div>
+          <div><b>7 of 32</b><span>involved documented patient harm. Most were decided on documentation.</span></div>
+          <div><b>$7,592</b><span>median cost recovery owed to the Board</span></div>
+        </div>
+        <p class="cite" style="margin-top:.5rem">From <a href="../#review">The Accusation Review · 2026</a>, a review of 32 publicly filed licensing Board accusations. Education only, not legal advice.</p>
+      </div>
+      <div class="hero-card">
+        <img src="assets/policy-writing.jpg" alt="A nurse signing a policy document with a fountain pen" width="700" height="525">
+        <div class="cred">
+          <span>Cindi Vokey, BSN, RN</span><span>18+ years</span>
+          <span>BRN-Approved CE Provider</span><span>CA BRN #18009</span>
+          <span>ISPAN Practice Compliance Committee</span><span>Chair, 2024–</span>
+        </div>
+      </div>
+    </div>
+
+    <div id="kwBanner" class="kw-banner" role="status"></div>
+
+    <div class="wizard" id="wizard">
+      <aside class="spine" aria-label="Progress">
+        <div class="spine-inner">
+        <div class="spine-head">
+          <b id="tabCount">4</b>
+          <span class="tiny">tabs in your binder so far</span>
+        </div>
+        <ol class="steps" id="steps"></ol>
+        </div>
+      </aside>
+      <div class="stage">
+        <div class="stage-body" id="stageBody" aria-live="polite"></div>
+        <div class="stage-foot" id="stageFoot">
+          <button class="btn ghost" id="backBtn">← Back</button>
+          <span class="tiny" id="stepHint"></span>
+          <button class="btn primary" id="nextBtn">Continue →</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= AUTOMATION (team-facing) ================= -->
+<!-- ================= THE EDGE ================= -->
+<!-- ================= STATE MANUALS (team-facing generator) ================= -->
+<!-- ================= FACT LEDGER ================= -->
+</main>
+
+<footer class="foot"><div class="wrap">
+  <span>Aesthetic Nursing Policy &amp; Procedures, Inc. · Cindi Vokey, BSN, RN · CA BRN CE Provider #18009 · San Diego, CA</span>
+  <span>Consulting and education services. Not a law firm and not legal advice. Rules vary by state.</span>
+</div></footer>
+<div class="toast" id="toast" role="status"></div>
+
+<script src="data.js"></script>
+<script src="app.js?v=4"></script>
+<script src="../titlecase.js?v=9"></script>
+<script src="../nav.js?v=11"></script>
+</body>
+</html>
