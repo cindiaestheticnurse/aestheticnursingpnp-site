@@ -3,7 +3,7 @@
   const $$ = (s, el = document) => [...el.querySelectorAll(s)];
   const esc = (t) => String(t).replace(/[&<>"]/g, c => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]));
   const INJ_IDS = MENU.find(g => g.group === "Aesthetic injectables").items.map(i => i.id);
-  const GENERAL = MENU.find(g => g.locked).items;
+  const GENERAL = MENU.find(g => g.locked).items.filter(i => !i.optional);
   const EMERG = MENU.find(g => g.auto).items;
 
   /* ---------------- state ---------------- */
@@ -175,7 +175,7 @@
       <p class="intro">Tap everything you offer, or plan to this year. Each one becomes a tab. Emergency protocols join the moment you inject. Yes, the fridge counts.</p>
       ${MENU.map((g, gi) => `<div class="menu-group"><header><h3>${g.group}</h3>${g.locked ? `<span class="tiny">${g.note}</span>` : g.auto ? `<span class="tiny">${g.note}</span>` : `<button class="linkish" data-all="${gi}">Select all</button>`}</header>
         <div class="chips">${g.items.map(it => {
-          if (g.locked) return `<span class="chip locked">${it.name}</span>`;
+          if (g.locked && !it.optional) return `<span class="chip locked">${it.name}</span>`;
           const auto = g.auto && hasInj() && !S.menu.has(it.id);
           return auto ? `<button class="chip auto" data-menu="${it.id}" aria-pressed="false" title="Added because you inject">${it.name} · auto</button>`
                       : `<button class="chip" data-menu="${it.id}" aria-pressed="${S.menu.has(it.id)}">${it.name}</button>`;
@@ -215,7 +215,7 @@
     const name = S.state === "MULTI" ? "multi-state" : STATE_NAMES[S.state];
     const mods = modules(); const sec = secondary(); const h = heat();
     const toc = [];
-    toc.push(`<li class="sec">General requirements</li>`); GENERAL.forEach(i => toc.push(`<li>${esc(i.name)}</li>`));
+    toc.push(`<li class="sec">General requirements</li>`); MENU.find(gr => gr.locked).items.filter(i => !i.optional || S.menu.has(i.id)).forEach(i => toc.push(`<li>${esc(i.name)}</li>`));
     MENU.filter(gr => !gr.locked).forEach(gr => {
       const items = gr.items.filter(i => S.menu.has(i.id) || (gr.auto && hasInj()));
       if (items.length) { toc.push(`<li class="sec">${esc(gr.group)}</li>`); items.forEach(i => toc.push(`<li>${esc(i.name)}</li>`)); }

@@ -67,7 +67,7 @@ window.MENU = [
     { id: "bbp", name: "Blood Borne Pathogens & Exposure Control Plan with Sharps Injury Log" },
     { id: "up",  name: "Universal Precautions" },
     { id: "hipaa", name: "HIPAA Privacy & Security" },
-    { id: "gfe", name: "General Aesthetic Medical & GFE Guidelines" },
+    { id: "gfe", name: "General Aesthetic Medical & GFE Guidelines", optional: true },
     { id: "form",name: "Drug & Device Formulary" } ] },
   { group: "Aesthetic injectables", items: [
     { id: "neuro", name: "Neuromodulator Treatments", tag: "neuro" },
