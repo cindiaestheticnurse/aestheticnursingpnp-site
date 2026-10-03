@@ -485,4 +485,3 @@ footer a:not(.btn):hover,.band.dark .cite a:hover{color:var(--ivory)!important}
 @media (min-width:1441px){.top .tabs .tab,.top .tabs a.tab{padding:.5rem .5rem}}
 @media (max-width:1440px) and (min-width:1321px){.top .brand-logo{height:58px}}
 [hidden]{display:none!important}
-@media (min-width:481px){.cred-list dt{min-height:2.7em}}

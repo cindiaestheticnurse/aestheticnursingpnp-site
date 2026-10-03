@@ -1,5 +1,0 @@
-User-agent: *
-Allow: /
-Disallow: /assets/The-Accusation-Review-Findings-Brief.pdf
-
-Sitemap: https://aestheticnursingpnp.com/sitemap.xml
