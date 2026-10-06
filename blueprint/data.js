@@ -38,16 +38,16 @@ window.BRAND = {
 };
 
 window.OFFERS = {
-  audit:     { name: "Compliance Readiness Audit", price: "$1,500 one-time", note: "Credited toward a Custom Manual booked within 60 days.", includes: ["Pre-audit document review","90-minute walkthrough with owner & medical director","Scored gap report across 10 risk areas","Prioritized 30-day correction plan"], src: "redesign" },
-  manual:    { name: "Custom State-Specific Manual", price: "From $4,500 single location", note: "IV therapy, GLP-1/weight management and hormone modules +$750 each.", includes: ["Standardized procedures that meet your state's criteria","Treatment protocols, drug & device formulary","Delegation, supervision & provider competencies","Consent, charting, adverse-event & inspection-response protocols","Two team trainings with competency sign-offs","Staff CE plan mapped to your manual"], src: "redesign" },
-  partner:   { name: "Compliance Partner", price: "$495 / month", note: "$4,950 billed annually (two months free).", includes: ["State regulatory alerts with plain-language action steps","Annual manual update","Quarterly self-audit & review call","Monthly office hours for owners and leads","New-hire competency onboarding kit","Owner Annual All-Access CE pass"], src: "redesign" },
-  growth:    { name: "Growth-Ready: Expansion & Acquisition", price: "From $7,500 / location", note: "Coordinated with your healthcare attorney.", includes: ["Multi-state gap analysis","Harmonized documents across locations","A due-diligence evidence file"], src: "redesign" },
+  audit:     { name: "Compliance Readiness Audit", price: "Pricing to be announced", note: "Credited toward a Custom Manual booked within 60 days.", includes: ["Pre-audit document review","90-minute walkthrough with owner & medical director","Scored gap report across 10 risk areas","Prioritized 30-day correction plan"], src: "redesign" },
+  manual:    { name: "Custom State-Specific Manual", price: "Pricing to be announced", note: "", includes: ["Standardized procedures that meet your state's criteria","Treatment protocols, drug & device formulary","Delegation, supervision & provider competencies","Consent, charting, adverse-event & inspection-response protocols","Two team trainings with competency sign-offs","Staff CE plan mapped to your manual"], src: "redesign" },
+  partner:   { name: "Compliance Partner", price: "Pricing to be announced", note: "", includes: ["State regulatory alerts with plain-language action steps","Annual manual update","Quarterly self-audit & review call","Monthly office hours for owners and leads","New-hire competency onboarding kit","Owner Annual All-Access CE pass"], src: "redesign" },
+  growth:    { name: "Growth-Ready: Expansion & Acquisition", price: "Pricing to be announced", note: "Coordinated with your healthcare attorney.", includes: ["Multi-state gap analysis","Harmonized documents across locations","A due-diligence evidence file"], src: "redesign" },
   probation: { name: "Investigation & Probation Support", price: "By consult", note: "For nurses and providers facing a Board complaint, investigation or accusation, or on probation. Coordinated with your attorney.", includes: ["Cindi reviews your situation personally","Coordinated with your attorney"], src: "redesign" },
-  accel:     { name: "RN-to-Owner Accelerator", price: "Cohort $3,997 · Private $8,500", note: "12 weeks. Cohort limited to 12 nurses. Private includes a Custom Practice Specific Manual.", includes: ["An Owner's Compliance Roadmap for your state","A Starter Policy & Consent Set","A Medical Director Agreement Checklist","An Inspection-Response Protocol","A 90-Day Launch Plan, reviewed one-on-one","A year of Annual All-Access CE"], src: "redesign" },
+  accel:     { name: "RN-to-Owner Accelerator", price: "Pricing to be announced", note: "12 weeks. Cohort limited to 12 nurses. Private includes a Custom Practice Specific Manual.", includes: ["An Owner's Compliance Roadmap for your state","A Starter Policy & Consent Set","A Medical Director Agreement Checklist","An Inspection-Response Protocol","A 90-Day Launch Plan, reviewed one-on-one","A year of Annual All-Access CE"], src: "redesign" },
   ce_all:    { name: "Annual All-Access CE", price: "$599 / year", note: "Every current and future course, instant certificates, and the Employment Compliance bundle.", includes: ["CE from a CA BRN-Approved Provider (CEP #18009)","Self-paced, 24/7, instant certificates"], src: "redesign" },
   ce_team:   { name: "Practice Team Pass", price: "$1,495 / year, up to 5 staff", note: "All-Access for your clinical team, a completion log for your binder, and a quarterly live Q&A.", includes: ["All-Access for up to 5 staff","Completion log for your binder","Quarterly live Q&A"], src: "redesign" },
   ce_bundle: { name: "Practice Compliance CE bundle", price: "$360", note: "One of four bundles: Compliance Essentials $150 · Regulatory Guidelines $210 · Practice Compliance $360 · Employment $109.", includes: [], src: "redesign" },
-  digital:   { name: "Digital, Marketing & Privacy Review", price: "$1,250 add-on", note: "E-consent and intake, EMR workflows, telehealth and GLP-1 claims, before-and-afters, AI consult tools and HIPAA vendor agreements.", includes: [], src: "redesign" }
+  digital:   { name: "Digital, Marketing & Privacy Review", price: "Pricing to be announced", note: "E-consent and intake, EMR workflows, telehealth and GLP-1 claims, before-and-afters, AI consult tools and HIPAA vendor agreements.", includes: [], src: "redesign" }
 };
 
 window.CE_COURSES = {
@@ -187,11 +187,12 @@ window.ROLES = [
 window.LICENSES = ["RN","NP","PA","MD / DO","LVN / LPN","Esthetician"];
 window.LOCATIONS = [ {id:"1",label:"1 location"}, {id:"2-3",label:"2–3 locations"}, {id:"4+",label:"4+ locations"} ];
 window.GOALS = [
-  { id: "inspect", label: "Be inspection-ready", sub: "Hand a surveyor the binder without flinching." },
-  { id: "add",     label: "Add a service line", sub: "IV, GLP-1, hormones, a new device." },
-  { id: "expand",  label: "Expand, add investors or sell", sub: "Due diligence reads the binder first." },
-  { id: "ce",      label: "Just my CE / my team's CE", sub: "Renewal is coming up." },
-  { id: "marketing",label:"Check my marketing & privacy", sub: "Before-and-afters, GLP-1 claims, e-consent." }
+  { id: "inspect", label: "Be Inspection-Ready", sub: "Hand a surveyor the binder without flinching." },
+  { id: "add",     label: "Add a Service Line", sub: "IV, GLP-1, hormones, a new device." },
+  { id: "expand",  label: "Expand, Add Investors or Sell", sub: "Due diligence reads the binder first." },
+  { id: "ce",      label: "Just My CE / My Team's CE", sub: "Renewal is coming up." },
+  { id: "marketing",label:"Check My Marketing & Privacy", sub: "Before-and-afters, GLP-1 claims, e-consent." },
+  { id: "manual",  label: "Policies & Procedure Manual", sub: "My practice needs evidence-based, Board compliant guidelines." }
 ];
 window.TIMING = [
   { id: "now",     label: "A letter or an inspection is already here", heat: 3 },

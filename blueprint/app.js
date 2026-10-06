@@ -48,7 +48,7 @@
     const h = CE.NOREQ.includes(code) ? "No required CE" : (CE.HRS[code] || "See board");
     if (CE.NO.includes(code)) return { status: "CA BRN CE not accepted", cls: "warn", hours: h, line: `${n} lists specific national or in-state approvers. California BRN approval alone doesn't count there. ANCC-accredited courses are the safer route.` };
     if (CE.CHECK.includes(code)) return { status: "Check first", cls: "warn", hours: h, line: `${n} is conditional. The rule is unclear or the sources conflict. Confirm with the board before you count a course.` };
-    if (code === "CA") return { status: "Home board", cls: "accent", hours: h, line: "California: 30 contact hours every two years, from a BRN provider or a nationally accredited one. Every course on aestheticnursingces.com is from CA BRN Provider #18009." };
+    if (code === "CA") return { status: "", cls: "accent", hours: h, line: "California: 30 contact hours every two years, from a BRN provider or a nationally accredited one. Every course on aestheticnursingces.com is from CA BRN Provider #18009." };
     if (CE.NOREQ.includes(code)) return { status: "CE not required", cls: "", hours: h, line: `${n} doesn't require CE for routine RN renewal. If you hold another license, that state's rule applies.` };
     return { status: "Accepts CA BRN CE", cls: "ok", hours: h, line: `${n} accepts CE from California BRN providers. Renewal: ${h}. Some mandated topics may need an in-state course.` };
   }
@@ -94,7 +94,7 @@
     { key: "growth", when: "4+ locations, multiple states, or goal is expand / sell", test: () => S.loc === "4+" || S.state === "MULTI" || S.goal === "expand", owner: "Cindi + your healthcare attorney", why: "More doors means more binders that have to match. Growth-Ready harmonizes them and builds the diligence file." },
     { key: "ce_team", when: "Goal is CE, and you're an owner or manager", test: () => S.goal === "ce" && (S.role === "owner" || S.role === "manager"), owner: "Automated · LMS", why: "One pass for the clinical team, plus a completion log for the binder." },
     { key: "ce_all", when: "Goal is CE", test: () => S.goal === "ce", owner: "Automated · LMS", why: "Every current and future course, with instant certificates." },
-    { key: "manual", when: "Goal is add a service line, or Q01/Q02 is not a yes, or 3+ gaps", test: () => S.goal === "add" || ["q01", "q02"].some(id => auditAns(id) && auditAns(id) !== "yes") || gaps().length >= 3, owner: "Cindi", why: "Your answers point to the documents themselves, not just a review of them. A manual written for your state and your menu closes that." },
+    { key: "manual", when: "Goal is add a service line, or Q01/Q02 is not a yes, or 3+ gaps", test: () => S.goal === "manual" || S.goal === "add" || ["q01", "q02"].some(id => auditAns(id) && auditAns(id) !== "yes") || gaps().length >= 3, owner: "Cindi", why: "Your answers point to the documents themselves, not just a review of them. A manual written for your state and your menu closes that." },
     { key: "audit", when: "1–2 gaps, or goal is marketing & privacy", test: () => gaps().length >= 1 || S.goal === "marketing", owner: "Cindi", why: "You're close. The audit finds the last gaps and gives you a 30-day plan, and the fee is credited toward a manual within 60 days." },
     { key: "partner", when: "No gaps", test: () => true, owner: "Cindi + team", why: "Your binder holds up today. The Partner keeps it that way when your state's rules change." }
   ];
@@ -141,7 +141,7 @@
     const ce = ceStatus(code); const d = DEEP[code];
     const name = code === "MULTI" ? "Multiple states" : STATE_NAMES[code];
     return `<div class="signal">
-      <div class="row"><span class="tag accent">${esc(name)}</span><span class="tag ${ce.cls}">${esc(ce.status)}</span><span class="tag">${esc(ce.hours)}</span>${d ? `<span class="tag">Aesthetic guidance · ${esc(d[0])}</span>` : ""}</div>
+      <div class="row"><span class="tag accent">${esc(name)}</span>${ce.status ? `<span class="tag ${ce.cls}">${esc(ce.status)}</span>` : ""}<span class="tag">${esc(ce.hours)}</span>${d ? `<span class="tag">Aesthetic guidance · ${esc(d[0])}</span>` : ""}</div>
       ${d ? `<q>${esc(d[3])}</q><p>${esc(d[4])}</p><p class="small muted"><b>Why now:</b> ${esc(d[2])}</p>` : `<p>${esc(ce.line)}</p>`}
       ${d ? `<p class="small muted">${esc(ce.line)}</p>` : ""}
       <p class="tiny">${d ? "Board-site review, Sept 2026. A draft answer, checked against the board source before you rely on it." : "51-jurisdiction CE review, Sept 2026."} Education, not legal advice.</p>
@@ -220,7 +220,7 @@
       const items = gr.items.filter(i => S.menu.has(i.id) || (gr.auto && hasInj()));
       if (items.length) { toc.push(`<li class="sec">${esc(gr.group)}</li>`); items.forEach(i => toc.push(`<li>${esc(i.name)}</li>`)); }
     });
-    const modLine = (r.key === "manual" || r.key === "growth") && mods.length ? `<div class="why"><b>Modules for your menu:</b> ${mods.map(esc).join(", ")} · +$750 each.</div>` : "";
+    const modLine = (r.key === "manual" || r.key === "growth") && mods.length ? `<div class="why"><b>Modules for your menu:</b> ${mods.map(esc).join(", ")}.</div>` : "";
     return `<span class="voice">Your blueprint</span>
       <div class="result-head">
         <div><h2>Your ${esc(name)} binder: <em>${tabCount()} tabs.</em></h2>
@@ -241,7 +241,7 @@
             <div class="why">${esc(r.why)}</div>
             ${modLine}
             ${o.includes.length ? `<ul>${o.includes.map(i => `<li>${esc(i)}</li>`).join("")}</ul>` : ""}
-            <p class="tiny">${esc(o.note)}</p>
+            ${o.note ? `<p class="tiny">${esc(o.note)}</p>` : ""}
             <a class="btn primary" href="#sendForm" style="margin-top:.6rem">Book the free 30-minute call</a>
             ${sec.length || wantsDigital() ? `<div class="also"><span class="label">Also worth a look</span>
               ${sec.map(c => `<div><span>${esc(c.name)}</span><span class="muted">${esc(c.meta)}</span></div>`).join("")}
@@ -388,7 +388,7 @@
     ["locations", "enum", "1 / 2–3 / 4+", "Supervision flag, Growth-Ready route"],
     ["menu", "multi", "44 fields from the Customized Policies list", "Tab list, modules, CE suggestions"],
     ["tab_count", "derived", "General 4 + menu + emergency (auto with injectables)", "The number on the binder spine"],
-    ["modules", "derived", "IV therapy / GLP-1 / Hormone", "+$750 each on Manual or Growth-Ready"],
+    ["modules", "derived", "IV therapy / GLP-1 / Hormone", "Added to Manual or Growth-Ready; pricing to be announced"],
     ["audit.q01…q15", "yes / no / unsure", "7 of the 15 self-audit items", "Readiness score, gaps, Manual vs Audit"],
     ["goal", "enum", GOALS.map(g => g.label).join(" / "), "Routing rules 3–7"],
     ["timing", "enum", TIMING.map(t => t.label).join(" / "), "Priority: Hot / Warm / Nurture"],

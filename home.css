@@ -259,3 +259,5 @@ input[type=tel]{background:var(--paper);border:1px solid var(--line-2);padding:.
 .cmp-wrap .cmp tbody th span{display:block;text-transform:none;letter-spacing:0}
 .cmp-wrap .cmp thead th:not(.cmp-us){background:transparent}
 @media (max-width:720px){.cmp-wrap .cmp td::after{color:#2B2926;font-size:12px}}
+
+.price.tba,.p.tba{font-size:1.15rem;line-height:1.3}
