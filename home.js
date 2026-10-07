@@ -87,7 +87,7 @@
   // Contact form
   const states = ['Alabama','Alaska','Arizona','Arkansas','California','Colorado','Connecticut','Delaware','Florida','Georgia','Hawaii','Idaho','Illinois','Indiana','Iowa','Kansas','Kentucky','Louisiana','Maine','Maryland','Massachusetts','Michigan','Minnesota','Mississippi','Missouri','Montana','Nebraska','Nevada','New Hampshire','New Jersey','New Mexico','New York','North Carolina','North Dakota','Ohio','Oklahoma','Oregon','Pennsylvania','Rhode Island','South Carolina','South Dakota','Tennessee','Texas','Utah','Vermont','Virginia','Washington','West Virginia','Wisconsin','Wyoming','Multiple states'];
   $('#c_state').insertAdjacentHTML('beforeend', states.map(s=>`<option>${s}</option>`).join(''));
-  const interests = ['Not sure yet','Compliance Readiness Audit','Custom State-Specific Manual','Compliance Partner','Growth-Ready: Expansion & Acquisition','Investigation & Probation Support','RN-to-Owner Accelerator','Practice Team Pass (CE)','Self-audit follow-up'];
+  const interests = ['Not sure yet','Compliance Readiness Audit','Custom State-Specific Manual','Compliance Partner','Growth-Ready: Expansion & Acquisition','Licensing & Probation Support','RN-to-Owner Accelerator','Practice Team Pass (CE)','Self-audit follow-up'];
   $('#c_interest').innerHTML = interests.map(s=>`<option>${esc(s)}</option>`).join('');
   document.querySelectorAll('[data-interest]').forEach(a=>a.addEventListener('click',()=>{ $('#c_interest').value = a.dataset.interest; }));
   const form = $('#consultForm');
