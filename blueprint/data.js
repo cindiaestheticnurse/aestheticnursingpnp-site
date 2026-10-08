@@ -103,6 +103,7 @@ window.MENU = [
     { id: "fprp", name: "Female PRP/PRF Shot Procedure" },
     { id: "mprp", name: "Male PRP/PRF Shot Procedure" },
     { id: "iv",   name: "IV Therapy with Additives & Injections (includes NAD)", module: "IV therapy" },
+    { id: "vit",  name: "Vitamin & Supplemental Injections" },
     { id: "trt",  name: "HRT Testosterone Injections", module: "Hormone" },
     { id: "pel",  name: "HRT Pellet Procedure", module: "Hormone" },
     { id: "glp",  name: "GLP-1 Compounds", module: "GLP-1 / weight management" } ] },
