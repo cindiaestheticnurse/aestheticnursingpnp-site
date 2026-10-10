@@ -30,7 +30,7 @@ window.SOURCES = {
 window.BRAND = {
   company: "Aesthetic Nursing Policy & Procedures, Inc.",
   founder: "Cindi Vokey, BSN, RN",
-  provider: "CA BRN CE Provider #18009",
+  provider: "CA BRN-Approved CE Provider #18009",
   years: "18+ years in aesthetic nursing",
   city: "San Diego, CA",
   disclaimer: "Consulting and education services. Not a law firm and not legal advice.",
@@ -44,7 +44,7 @@ window.OFFERS = {
   growth:    { name: "Growth-Ready: Expansion & Acquisition", price: "Ask about", note: "Coordinated with your healthcare attorney.", includes: ["Multi-state gap analysis","Harmonized documents across locations","A due-diligence evidence file"], src: "redesign" },
   probation: { name: "Licensing & Probation Support", price: "By consult", note: "For nurses and providers facing a Board complaint, investigation or accusation, or on probation. Coordinated with your attorney.", includes: ["Cindi reviews your situation personally","Coordinated with your attorney"], src: "redesign" },
   accel:     { name: "RN-to-Owner Accelerator", price: "$4,500 cohort or $6,500 private, 12 weeks", note: "12 weeks. Cohort limited to 12 nurses. Private includes a Custom Practice Specific Manual.", includes: ["An Owner's Compliance Roadmap for your state","A Customized Practice Manual","A Medical Director Agreement Checklist","An Inspection-Response Protocol","A 90-Day Launch Plan, reviewed one-on-one","A year of Annual All-Access CE"], src: "redesign" },
-  ce_all:    { name: "Annual All-Access CE", price: "$599 / year", note: "Every current and future course, instant certificates, and the Employment Compliance bundle.", includes: ["CE from a CA BRN-Approved Provider (CEP #18009)","Self-paced, 24/7, instant certificates"], src: "redesign" },
+  ce_all:    { name: "Annual All-Access CE", price: "$599 / year", note: "Every current and future course, instant certificates, and the Employment Compliance bundle.", includes: ["CE from a CA BRN-Approved CE Provider (#18009)","Self-paced, 24/7, instant certificates"], src: "redesign" },
   ce_team:   { name: "Practice Team Pass", price: "$1,495 / year, up to 5 staff", note: "All-Access for your clinical team, a completion log for your binder, and a quarterly live Q&A.", includes: ["All-Access for up to 5 staff","Completion log for your binder","Quarterly live Q&A"], src: "redesign" },
   ce_bundle: { name: "Practice Compliance CE bundle", price: "$360", note: "One of four bundles: Compliance Essentials $150 · Regulatory Guidelines $210 · Practice Compliance $360 · Employment $109.", includes: [], src: "redesign" },
   digital:   { name: "Digital, Marketing & Privacy Review", price: "Ask about", note: "E-consent and intake, EMR workflows, telehealth and GLP-1 claims, before-and-afters, AI consult tools and HIPAA vendor agreements.", includes: [], src: "redesign" }
