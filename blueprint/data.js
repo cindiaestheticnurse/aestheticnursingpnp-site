@@ -204,7 +204,7 @@ window.TIMING = [
 
 /* ---------- Keyword entry points (TVGA Signals) — prefill the blueprint from a DM link ---------- */
 window.KEYWORDS = {
-  MAP:       { asset: "The 51-state CE acceptance map: 43 accept CA BRN, 6 check first, 2 don't", next: "ce_all", prefill: { goal: "ce" } },
+  MAP:       { asset: "The 51-jurisdiction CE acceptance map: 43 Accepted, 6 Check First, 2 Not Accepted", next: "ce_all", prefill: { goal: "ce" } },
   STATE:     { asset: "That state's board line, hours and mandated topics", next: "ce_all", prefill: {} },
   BINDER:    { asset: "Quarterly self-audit categories, one page", next: "audit", prefill: { goal: "inspect" } },
   REVIEW:    { asset: "Intake form for a nurse to read your binder the way an inspector would", next: "audit", prefill: { goal: "inspect" } },

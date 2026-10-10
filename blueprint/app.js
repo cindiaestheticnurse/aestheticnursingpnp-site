@@ -43,14 +43,14 @@
   const modules = () => [...new Set([...S.menu].map(id => itemById(id)?.module).filter(Boolean))];
 
   function ceStatus(code) {
-    if (code === "MULTI") return { status: "Multiple boards", cls: "warn", hours: "Varies by state", line: "Each state's board applies to the nurses licensed there." };
+    if (code === "MULTI") return { status: "Multiple Boards", cls: "warn", hours: "Varies by state", line: "Each state's board applies to the nurses licensed there." };
     const n = STATE_NAMES[code];
     const h = CE.NOREQ.includes(code) ? "No required CE" : (CE.HRS[code] || "See board");
-    if (CE.NO.includes(code)) return { status: "CA BRN CE not accepted", cls: "warn", hours: h, line: `${n} lists specific national or in-state approvers. California BRN approval alone doesn't count there. ANCC-accredited courses are the safer route.` };
-    if (CE.CHECK.includes(code)) return { status: "Check first", cls: "warn", hours: h, line: `${n} is conditional. The rule is unclear or the sources conflict. Confirm with the board before you count a course.` };
-    if (code === "CA") return { status: "", cls: "accent", hours: h, line: "California: 30 contact hours every two years, from a BRN provider or a nationally accredited one. Every course on aestheticnursingces.com is from a CA BRN-Approved CE Provider (#18009)." };
-    if (CE.NOREQ.includes(code)) return { status: "Accepted (CE not required)", cls: "ok", hours: h, line: `${n} doesn't require CE for routine RN renewal. If you hold another license, that state's rule applies.` };
-    return { status: "Accepts CA BRN CE", cls: "ok", hours: h, line: `${n} accepts CE from California BRN providers. Renewal: ${h}. Some mandated topics may need an in-state course.` };
+    if (CE.NO.includes(code)) return { status: "Not Accepted", cls: "warn", hours: h, line: `${n} lists specific national or in-state approvers. California BRN approval alone doesn't count there. ANCC-accredited courses are the safer route.` };
+    if (CE.CHECK.includes(code)) return { status: "Check First", cls: "warn", hours: h, line: `${n} is conditional. The rule is unclear or the sources conflict. Confirm with the board before you count a course.` };
+    if (code === "CA") return { status: "Accepted", cls: "ok", hours: h, line: "California: 30 contact hours every two years, from a BRN provider or a nationally accredited one. Every course on aestheticnursingces.com is from a CA BRN-Approved CE Provider (#18009)." };
+    if (CE.NOREQ.includes(code)) return { status: "Accepted", cls: "ok", hours: h, line: `${n} doesn't require CE for routine RN renewal, so it's listed as Accepted. If you hold another license, that state's rule applies.` };
+    return { status: "Accepted", cls: "ok", hours: h, line: `${n} accepts CE from California BRN providers. Renewal: ${h}. Some mandated topics may need an in-state course.` };
   }
 
   const auditAns = (id) => S.audit[id]; // "yes" | "no" | "unsure"
