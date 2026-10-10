@@ -126,13 +126,13 @@ window.ALWAYS_INCLUDED = [
   "Annual review section"
 ];
 
-/* ---------- CE acceptance, 51 jurisdictions (TVGA / board-site review, Sept 2026) ---------- */
+/* ---------- CE acceptance, 51 jurisdictions (TVGA / board-site review, Sept 2026; rechecked Oct 10, 2026) ---------- */
 window.CE = {
-  ACC: ["AL","AZ","AR","CA","CO","CT","DC","GA","ID","IL","IN","IA","KS","KY","LA","ME","MA","MI","MN","MS","MO","MT","NE","NV","NH","NM","NY","NC","ND","OH","OR","PA","RI","SC","SD","TN","TX","UT","VT","VA","WA","WV","WI","WY"],
-  CHECK: ["AK","FL","HI","NJ","OK"],
+  ACC: ["AL","AZ","AR","CA","CO","CT","DC","GA","ID","IL","IN","IA","KS","KY","LA","ME","MA","MI","MN","MS","MO","MT","NE","NV","NH","NM","NY","NC","ND","OH","OR","PA","RI","SC","SD","TN","TX","UT","VT","VA","WA","WV","WI"],
+  CHECK: ["AK","FL","HI","NJ","OK","WY"],
   NO: ["DE","MD"],
-  NOREQ: ["AZ","CO","ID","IN","ME","MS","MO","MT","NY","SD","VT","WI","WY"],
-  HRS: {AL:"24 hrs / 2 yrs",AR:"15 hrs / 2 yrs",CA:"30 hrs / 2 yrs",DC:"24 hrs / 2 yrs",GA:"30 hrs / 2 yrs",IL:"20 hrs / 2 yrs",KS:"30 hrs / 2 yrs",KY:"14 hrs / yr",LA:"30 hrs / 2 yrs",MA:"15 hrs / 2 yrs",MI:"25 hrs / 2 yrs",MN:"24 hrs / 2 yrs",NE:"20 hrs / 2 yrs + practice",NV:"30 hrs / 2 yrs",NH:"30 hrs / 2 yrs",NM:"30 hrs / 2 yrs",NC:"Options, e.g. 30 hrs / 2 yrs",OH:"24 hrs / 2 yrs",OR:"Practice hours",PA:"30 hrs / 2 yrs",RI:"10 hrs / 2 yrs",SC:"30 hrs / 2 yrs",TN:"2 of 14 options / 2 yrs",TX:"20 hrs / 2 yrs",UT:"30 hrs / 2 yrs",VA:"Options, e.g. 30 hrs / 2 yrs",WA:"45 hrs / 3 yrs + practice",WV:"12 hrs / 2 yrs",CT:"See CT DPH page",IA:"Sources conflict",ND:"Sources conflict"}
+  NOREQ: ["AZ","CO","ID","IN","ME","MS","MO","MT","NY","SD","VT","WI"],
+  HRS: {AL:"24 hrs / 2 yrs",AR:"15 hrs / 2 yrs",CA:"30 hrs / 2 yrs",DC:"24 hrs / 2 yrs",GA:"30 hrs / 2 yrs",IL:"20 hrs / 2 yrs",KS:"30 hrs / 2 yrs",KY:"14 hrs / yr",LA:"30 hrs / 2 yrs",MA:"15 hrs / 2 yrs",MI:"25 hrs / 2 yrs",MN:"24 hrs / 2 yrs",NE:"20 hrs / 2 yrs + practice",NV:"30 hrs / 2 yrs",NH:"30 hrs / 2 yrs",NM:"30 hrs / 2 yrs",NC:"Options, e.g. 30 hrs / 2 yrs",OH:"24 hrs / 2 yrs",OR:"Practice hours",PA:"30 hrs / 2 yrs",RI:"10 hrs / 2 yrs",SC:"30 hrs / 2 yrs",TN:"2 of 14 options / 2 yrs",TX:"20 hrs / 2 yrs",UT:"30 hrs / 2 yrs",VA:"Options, e.g. 30 hrs / 2 yrs",WA:"8 hrs + 96 practice hrs / yr",WY:"One option: 40 CE hrs or 400 practice hrs / 2 yrs",HI:"One competency activity / renewal",OK:"One of 5 options, e.g. 24 hrs / 2 yrs",FL:"24 hrs / 2 yrs",WV:"12 hrs / 2 yrs",CT:"See CT DPH page",IA:"36 hrs / renewal",ND:"12 hrs / 2 yrs"}
 };
 
 window.STATE_NAMES = {AL:"Alabama",AK:"Alaska",AZ:"Arizona",AR:"Arkansas",CA:"California",CO:"Colorado",CT:"Connecticut",DE:"Delaware",DC:"District of Columbia",FL:"Florida",GA:"Georgia",HI:"Hawaii",ID:"Idaho",IL:"Illinois",IN:"Indiana",IA:"Iowa",KS:"Kansas",KY:"Kentucky",LA:"Louisiana",ME:"Maine",MD:"Maryland",MA:"Massachusetts",MI:"Michigan",MN:"Minnesota",MS:"Mississippi",MO:"Missouri",MT:"Montana",NE:"Nebraska",NV:"Nevada",NH:"New Hampshire",NJ:"New Jersey",NM:"New Mexico",NY:"New York",NC:"North Carolina",ND:"North Dakota",OH:"Ohio",OK:"Oklahoma",OR:"Oregon",PA:"Pennsylvania",RI:"Rhode Island",SC:"South Carolina",SD:"South Dakota",TN:"Tennessee",TX:"Texas",UT:"Utah",VT:"Vermont",VA:"Virginia",WA:"Washington",WV:"West Virginia",WI:"Wisconsin",WY:"Wyoming"};
@@ -161,7 +161,7 @@ window.DEEP = {
   UT:["None found",3,"Relaxed ownership; the rule definitions accept CE approved by any state board.","Can a nurse own a med spa in Utah?","Utah is one of the more relaxed ownership states: non-physicians may own the business with a physician director overseeing clinical work. Utah's rule definitions include CE approved by any state board of nursing."],
   TX:["Specific",1,"Jenifer's Law (HB 3749, effective Sept 1, 2025): only RNs or above may give elective IV therapy. TMB Rule 169.28 requires written delegation.","Can LVNs do IV therapy in a Texas med spa?","No. Under Jenifer's Law (HB 3749, effective September 1, 2025), elective IV therapy outside a licensed facility must be ordered by a physician, APRN or PA and given by an RN or above. TMB Rule 169.28 requires all delegation in writing. Texas human trafficking CE must be BON-approved."],
   VA:["None found",3,"No aesthetic-specific guidance. The CE angle leads.","Does California CE count in Virginia?","Yes. Virginia accepts CE from \"a state or federal government agency,\" and the CA BRN is one. RN options include 30 hours, or 15 hours plus 640 practice hours, every two years."],
-  WA:["General",1,"The health department is reviewing rules for injectables, microneedling, IV hydration and energy devices.","What are Washington's new med spa rules for injectables?","As of 2026, Washington's health department is reviewing rules for injectables, microneedling, IV hydration and energy devices; nothing is final yet. Today, the scope decision tree asks whether practice-setting policies support the activity. CE: 45 hours plus 531 practice hours every three years."]
+  WA:["General",1,"The health department is reviewing rules for injectables, microneedling, IV hydration and energy devices.","What are Washington's new med spa rules for injectables?","As of 2026, Washington's health department is reviewing rules for injectables, microneedling, IV hydration and energy devices; nothing is final yet. Today, the scope decision tree asks whether practice-setting policies support the activity. CE: 8 hours plus 96 practice hours every year."]
 };
 
 /* ---------- Self-audit (verbatim items from the redesign's 15-question audit), mapped to the 32-accusation review ---------- */
@@ -204,7 +204,7 @@ window.TIMING = [
 
 /* ---------- Keyword entry points (TVGA Signals) — prefill the blueprint from a DM link ---------- */
 window.KEYWORDS = {
-  MAP:       { asset: "The 51-state CE acceptance map: 44 accept CA BRN, 5 check first, 2 don't", next: "ce_all", prefill: { goal: "ce" } },
+  MAP:       { asset: "The 51-state CE acceptance map: 43 accept CA BRN, 6 check first, 2 don't", next: "ce_all", prefill: { goal: "ce" } },
   STATE:     { asset: "That state's board line, hours and mandated topics", next: "ce_all", prefill: {} },
   BINDER:    { asset: "Quarterly self-audit categories, one page", next: "audit", prefill: { goal: "inspect" } },
   REVIEW:    { asset: "Intake form for a nurse to read your binder the way an inspector would", next: "audit", prefill: { goal: "inspect" } },
