@@ -37,7 +37,7 @@
   const hasInj = () => INJ_IDS.some(id => S.menu.has(id));
   // shared with the State manuals tab and the Manual Builder: the picked state + menu ids
   window.BLUEPRINT = () => ({ state: S.state, menu: [...S.menu] });
-  const builderLink = () => "https://theaestheticmanual.com/?" + new URLSearchParams(Object.assign(S.state && S.state !== "MULTI" ? { state: S.state } : {}, { menu: [...S.menu].join(",") })).toString();
+  const builderLink = () => "../manual-builder/?" + new URLSearchParams(Object.assign(S.state && S.state !== "MULTI" ? { state: S.state } : {}, { menu: [...S.menu].join(",") })).toString() + "#waitlist";
   const tabCount = () => GENERAL.length + S.menu.size + (hasInj() ? EMERG.filter(e => !S.menu.has(e.id)).length : 0);
   const itemById = (id) => { for (const g of MENU) { const f = g.items.find(i => i.id === id); if (f) return f; } };
   const modules = () => [...new Set([...S.menu].map(id => itemById(id)?.module).filter(Boolean))];
@@ -251,7 +251,7 @@
       </div>
       <div class="panel" style="margin-top:1.5rem"><h3>Your binder, tab by tab</h3><ol class="toc">${toc.join("")}</ol>
         <p class="tiny" style="margin-top:.8rem">Every P&amp;P includes: ${ALWAYS_INCLUDED.map(esc).join(" · ")}.</p>
-        <div style="display:flex;gap:1rem;align-items:center;flex-wrap:wrap;margin-top:1rem"><a class="btn primary" id="buildManual" href="${esc(builderLink())}">Build this manual</a><span class="tiny">Opens the Manual Builder with ${S.state && S.state !== "MULTI" ? esc(STATE_NAMES[S.state]) + " and " : ""}only these tabs selected.</span></div></div>
+        <div style="display:flex;gap:1rem;align-items:center;flex-wrap:wrap;margin-top:1rem"><a class="btn primary" id="buildManual" href="${esc(builderLink())}">Get My Manual When It Opens</a><span class="tiny">The Manual Builder Opens Soon. Join the Waitlist and Your ${S.state && S.state !== "MULTI" ? esc(STATE_NAMES[S.state]) + " Edition and " : ""}Tabs Are Saved With Your Request.</span></div></div>
       <p class="kudos">${esc(kudos())}</p>
       <form id="sendForm" class="send" novalidate>
         <div class="full"><h3>Send me this blueprint</h3><p class="small muted" style="margin:.3rem 0 0">Cindi replies within two business days to schedule the free 30-minute call. Free, no pitch. You get a written next step: a course, an audit, or nothing at all.</p></div>
