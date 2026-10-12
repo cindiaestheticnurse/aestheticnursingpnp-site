@@ -490,3 +490,19 @@ footer a:not(.btn):hover,.band.dark .cite a:hover{color:var(--ivory)!important}
 /* Legal Nurse Consultant: two lines in the 4-up desktop row, one line on mobile like the other labels */
 @media (max-width:1000px){.cred-list br.cred-br{display:none}}
 @media (min-width:1001px){.cred-list dt{white-space:nowrap}.cred-list div{padding:.25rem .85rem}.cred-list dd{font-size:clamp(1rem,.35rem + 1vw,1.3rem)}}
+
+/* ==== Client Login link (portal at theaestheticmanual.com/account) ==== */
+.top .tabs a.tab.login{margin-left:.35rem;border:1px solid var(--dusty);padding:.4rem .7rem;font-size:.8rem;letter-spacing:.02em}
+.top .tabs a.tab.login:hover{background:var(--dusty);color:var(--charcoal)}
+@media (max-width:1240px){.top .tabs a.tab.login{padding:.35rem .55rem;font-size:.76rem}}
+@media (max-width:1200px){.top .tabs a.tab.login{margin:.5rem 0 0;border:1px solid var(--dusty);padding:.85rem .75rem;font-size:1rem;text-align:left}}
+@media (max-width:1320px) and (min-width:1201px){
+  .top .wrap{gap:.6rem}
+  .top .tabs .tab,.top .tabs a.tab{padding:.5rem .4rem}
+}
+@media (max-width:1280px) and (min-width:1201px){
+  .top .brand-logo{height:34px}
+  .top .tabs .tab,.top .tabs a.tab{font-size:.8rem;padding:.5rem .3rem}
+  .top .tabs a.tab.login{padding:.3rem .45rem;font-size:.72rem;margin-left:.2rem}
+  .top .btn.primary{padding:.6rem .75rem;font-size:.7rem}
+}
