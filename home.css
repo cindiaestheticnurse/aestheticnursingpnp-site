@@ -123,6 +123,12 @@ h2.big{font-size:clamp(2rem,1.4rem + 2.2vw,3.2rem)}
 .ce-list{list-style:none;margin:0;padding:0}
 .ce-list li{display:flex;justify-content:space-between;gap:1rem;padding:.55rem 0;border-bottom:1px dotted var(--line-2);font-size:var(--t-sm)}
 .ce-list li span:last-child{white-space:nowrap;color:var(--wine)}
+.ce-grid-all{grid-template-columns:repeat(2,1fr)}
+.ce-list li a{display:flex;justify-content:space-between;gap:1rem;width:100%;color:var(--ink);text-decoration:none}
+.ce-list li a span:first-child{color:var(--ink)}
+.ce-list li a span:first-child{text-decoration:underline;text-decoration-color:transparent;text-underline-offset:3px;transition:text-decoration-color .15s}
+.ce-list li a:hover span:first-child,.ce-list li a:focus-visible span:first-child{text-decoration-color:var(--dusty);color:var(--deep)}
+.ce-list li a:focus-visible{outline:2px solid var(--deep);outline-offset:2px}
 .passes{display:grid;grid-template-columns:repeat(3,1fr);gap:1rem;margin-top:1rem}
 .passes .card b.p{font-family:var(--display);font-weight:500;font-size:1.5rem;color:var(--wine);display:block;margin:.1rem 0 .4rem}
 .passes .card p{font-size:var(--t-sm);color:var(--ink-2);margin:0}
