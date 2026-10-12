@@ -126,10 +126,10 @@ window.ALWAYS_INCLUDED = [
   "Annual review section"
 ];
 
-/* ---------- CE acceptance, 51 jurisdictions (TVGA / board-site review, Sept 2026; rechecked Oct 10, 2026) ---------- */
+/* ---------- CE acceptance, 51 jurisdictions (TVGA / board-site review, Sept 2026; rechecked Oct 10, 2026; WY to Accepted Oct 12, 2026) ---------- */
 window.CE = {
-  ACC: ["AL","AZ","AR","CA","CO","CT","DC","GA","ID","IL","IN","IA","KS","KY","LA","ME","MA","MI","MN","MS","MO","MT","NE","NV","NH","NM","NY","NC","ND","OH","OR","PA","RI","SC","SD","TN","TX","UT","VT","VA","WA","WV","WI"],
-  CHECK: ["AK","FL","HI","NJ","OK","WY"],
+  ACC: ["AL","AZ","AR","CA","CO","CT","DC","GA","ID","IL","IN","IA","KS","KY","LA","ME","MA","MI","MN","MS","MO","MT","NE","NV","NH","NM","NY","NC","ND","OH","OR","PA","RI","SC","SD","TN","TX","UT","VT","VA","WA","WV","WI","WY"],
+  CHECK: ["AK","FL","HI","NJ","OK"],
   NO: ["DE","MD"],
   NOREQ: ["AZ","CO","ID","IN","ME","MS","MO","MT","NY","SD","VT","WI"],
   HRS: {AL:"24 hrs / 2 yrs",AR:"15 hrs / 2 yrs",CA:"30 hrs / 2 yrs",DC:"24 hrs / 2 yrs",GA:"30 hrs / 2 yrs",IL:"20 hrs / 2 yrs",KS:"30 hrs / 2 yrs",KY:"14 hrs / yr",LA:"30 hrs / 2 yrs",MA:"15 hrs / 2 yrs",MI:"25 hrs / 2 yrs",MN:"24 hrs / 2 yrs",NE:"20 hrs / 2 yrs + practice",NV:"30 hrs / 2 yrs",NH:"30 hrs / 2 yrs",NM:"30 hrs / 2 yrs",NC:"Options, e.g. 30 hrs / 2 yrs",OH:"24 hrs / 2 yrs",OR:"Practice hours",PA:"30 hrs / 2 yrs",RI:"10 hrs / 2 yrs",SC:"30 hrs / 2 yrs",TN:"2 of 14 options / 2 yrs",TX:"20 hrs / 2 yrs",UT:"30 hrs / 2 yrs",VA:"Options, e.g. 30 hrs / 2 yrs",WA:"8 hrs + 96 practice hrs / yr",WY:"One option: 40 CE hrs or 400 practice hrs / 2 yrs",HI:"One competency activity / renewal",OK:"One of 5 options, e.g. 24 hrs / 2 yrs",FL:"24 hrs / 2 yrs",WV:"12 hrs / 2 yrs",CT:"See CT DPH page",IA:"36 hrs / renewal",ND:"12 hrs / 2 yrs"}
@@ -204,7 +204,7 @@ window.TIMING = [
 
 /* ---------- Keyword entry points (TVGA Signals) — prefill the blueprint from a DM link ---------- */
 window.KEYWORDS = {
-  MAP:       { asset: "The 51-jurisdiction CE acceptance map: 43 Accepted, 6 Check First, 2 Not Accepted", next: "ce_all", prefill: { goal: "ce" } },
+  MAP:       { asset: "The 51-jurisdiction CE acceptance map: 44 Accepted, 5 Check First, 2 Not Accepted", next: "ce_all", prefill: { goal: "ce" } },
   STATE:     { asset: "That state's board line, hours and mandated topics", next: "ce_all", prefill: {} },
   BINDER:    { asset: "Quarterly self-audit categories, one page", next: "audit", prefill: { goal: "inspect" } },
   REVIEW:    { asset: "Intake form for a nurse to read your binder the way an inspector would", next: "audit", prefill: { goal: "inspect" } },
