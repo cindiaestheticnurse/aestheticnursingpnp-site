@@ -68,7 +68,7 @@ window.MENU = [
     { id: "up",  name: "Universal Precautions" },
     { id: "hipaa", name: "HIPAA Privacy & Security" },
     { id: "gfe", name: "General Aesthetic Medical & GFE Guidelines", optional: true },
-    { id: "form",name: "Drug & Device Formulary" } ] },
+    { id: "form",name: "Drug & Device Formulary", optional: true } ] },
   { group: "Aesthetic injectables", items: [
     { id: "neuro", name: "Neuromodulator Treatments", tag: "neuro" },
     { id: "hyper", name: "Neuromodulator Treatments for Hyperhidrosis", tag: "neuro" },
@@ -82,7 +82,7 @@ window.MENU = [
     { id: "prp",   name: "PRP/PRF Aesthetic Injections" },
     { id: "ezgel", name: "EZ Gel Treatments" },
     { id: "kyb",   name: "Kybella Treatments" } ] },
-  { group: "Emergency & adverse events", auto: "injectables", note: "Added automatically when you inject.", items: [
+  { group: "Emergency & adverse events", items: [
     { id: "vo",  name: "Vascular Occlusion Protocol" },
     { id: "ae",  name: "Adverse Event Protocols (granulomas, nodules & biofilm, infection, syncope, reactions)" } ] },
   { group: "Non-invasive aesthetic", items: [

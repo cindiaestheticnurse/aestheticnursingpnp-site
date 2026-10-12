@@ -4,7 +4,7 @@
   const esc = (t) => String(t).replace(/[&<>"]/g, c => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]));
   const INJ_IDS = MENU.find(g => g.group === "Aesthetic injectables").items.map(i => i.id);
   const GENERAL = MENU.find(g => g.locked).items.filter(i => !i.optional);
-  const EMERG = MENU.find(g => g.auto).items;
+  const EMERG = (MENU.find(g => g.auto) || { items: [] }).items;
 
   /* ---------------- state ---------------- */
   const S = {
@@ -172,7 +172,7 @@
     // 2 — MENU (fields from the customized P&P list)
     () => `<span class="voice">Walk-Through · the menu</span>
       <h2>Walk me through your menu.</h2>
-      <p class="intro">Tap everything you offer, or plan to this year. Each one becomes a tab. Emergency protocols join the moment you inject. Yes, the fridge counts.</p>
+      <p class="intro">Tap everything you offer, or plan to this year. Each one becomes a tab. Yes, the fridge counts.</p>
       ${MENU.map((g, gi) => `<div class="menu-group"><header><h3>${g.group}</h3>${g.locked ? `<span class="tiny">${g.note}</span>` : g.auto ? `<span class="tiny">${g.note}</span>` : `<button class="linkish" data-all="${gi}">Select all</button>`}</header>
         <div class="chips">${g.items.map(it => {
           if (g.locked && !it.optional) return `<span class="chip locked">${it.name}</span>`;
@@ -387,7 +387,7 @@
     ["licenses", "multi", LICENSES.join(" / "), "Scope flags (e.g. LVN + IV in Texas)"],
     ["locations", "enum", "1 / 2–3 / 4+", "Supervision flag, Growth-Ready route"],
     ["menu", "multi", "44 fields from the Customized Policies list", "Tab list, modules, CE suggestions"],
-    ["tab_count", "derived", "General 4 + menu + emergency (auto with injectables)", "The number on the binder spine"],
+    ["tab_count", "derived", "General 3 + menu", "The number on the binder spine"],
     ["modules", "derived", "IV therapy / GLP-1 / Hormone", "Added to Manual or Growth-Ready; pricing to be announced"],
     ["audit.q01…q15", "yes / no / unsure", "7 of the 15 self-audit items", "Readiness score, gaps, Manual vs Audit"],
     ["goal", "enum", GOALS.map(g => g.label).join(" / "), "Routing rules 3–7"],
