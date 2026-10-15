@@ -177,7 +177,7 @@
       form.querySelectorAll('.mb-intake-only').forEach(e => e.hidden = on);
       $('#mbSubmit').textContent = on ? 'Build My Manual' : 'Submit for Cindi’s Review';
     };
-    if (qp.get('build') === '1') setMode(true);
+    if (qp.get('build') === '1') { setMode(true); $('#mbTrial').hidden = false; }
     if (BUILDER) fetch(BUILDER + '/api/config', { cache:'no-store' }).then(r => r.json()).then(c => { if (c.ordering_open) setMode(true); }).catch(()=>{});
     // Carry over Binder Blueprint selections (?state=CA&menu=neuro,ha)
     const NAMES = window.STATE_NAMES || {};
@@ -256,7 +256,7 @@
       const fd = new FormData();
       Object.entries({ practice_name:val('practice'), buyer_name:val('name'), email:val('email'), phone:val('phone'), medical_director:val('medical_director'),
         provider_name:val('provider_name'), address1:val('address1'), address2:val('address2'), city:val('city'), region:val('region'), zip:val('zip'),
-        state:val('state'), ack:'1', cover:'classic', menu:menu.join(','), owner:val('owner'), oversight:val('oversight'),
+        state:val('state'), trial_code:val('trial_code'), ack:'1', cover:'classic', menu:menu.join(','), owner:val('owner'), oversight:val('oversight'),
         providers:checked('prov').join(', '), services:checked('svc').join(', '), documents:checked('docs').join(', '), flags:flags.join(' | ') })
         .forEach(([k, v]) => fd.append(k, v));
       fd.append('logo', lg);
@@ -271,6 +271,7 @@
         return showErr(msg, f);
       }
       if (!r.ok || d.checkout_url) {
+        if (!r.ok && val('trial_code')) { reset(); return showErr(d.error || 'Private Trial Was Not Authorized. Check the Email and Access Code.'); }
         if (d.checkout_url) { location.href = d.checkout_url; return; }
         reset(); return sendIntake(flags);
       }
