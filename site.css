@@ -883,6 +883,9 @@ h1 em,h2 em,h3 em{color:var(--deep)}
 /* Hero: manual button on top, deep rose; consult unchanged */
 .hero .cta-row .btn-manual{background:var(--deep);color:var(--ivory);border:1px solid var(--deep);border-left-width:1px;box-shadow:var(--shadow);font-family:var(--text);font-weight:500;letter-spacing:.08em;text-transform:uppercase}
 .hero .cta-row .btn-manual:hover,.hero .cta-row .btn-manual:focus-visible{background:var(--charcoal);border-color:var(--charcoal);color:var(--ivory)}
+/* Hero consult: charcoal static, white on hover */
+.hero .cta-row .btn.primary{background:var(--charcoal);border:1px solid var(--charcoal);color:var(--ivory)}
+.hero .cta-row .btn.primary:hover,.hero .cta-row .btn.primary:focus-visible{background:#fff;border-color:var(--charcoal);color:var(--charcoal)}
 
 /* ===== Live-site additions: mobile menu, accessibility, moved features ===== */
 .mockbar{display:none!important}
