@@ -880,6 +880,9 @@ h1 em,h2 em,h3 em{color:var(--deep)}
 .hero .tagline .tag-2{color:#6B665F}
 .hero .tagline .tag-2{color:#B87E7E}
 .hero .tagline .tag-2{color:#8A4F4F}
+/* Hero: manual button on top, deep rose; consult unchanged */
+.hero .cta-row .btn-manual{background:var(--deep);color:var(--ivory);border:1px solid var(--deep);border-left-width:1px;box-shadow:var(--shadow);font-family:var(--text);font-weight:500;letter-spacing:.08em;text-transform:uppercase}
+.hero .cta-row .btn-manual:hover,.hero .cta-row .btn-manual:focus-visible{background:var(--charcoal);border-color:var(--charcoal);color:var(--ivory)}
 
 /* ===== Live-site additions: mobile menu, accessibility, moved features ===== */
 .mockbar{display:none!important}
