@@ -19,9 +19,6 @@
 <meta name="twitter:card" content="summary_large_image">
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="../styles.css?v=5">
-<link rel="stylesheet" href="../home.css?v=8">
-<link rel="stylesheet" href="../brand.css?v=34">
 <style>
 .legal{padding:clamp(48px,7vw,96px) 0 clamp(56px,8vw,110px)}
 .legal .doc{max-width:820px}
@@ -72,43 +69,71 @@
  }
 }
 </script>
+<link rel="stylesheet" href="../site.css?v=2">
 </head>
 <body>
-<a class="skip" href="#main">Skip to main content</a>
+<a class="skip" href="#main">Skip to Main Content</a>
 <header class="top">
-  <div class="wrap">
-    <a class="brand" href="../" aria-label="Aesthetic Nursing P&amp;P Practice Solutions, home"><img class="brand-logo" src="../assets/logo-brand.png?v=2" alt="Aesthetic Nursing P&amp;P, Practice Solutions" width="322" height="52"></a>
-    <button class="menu-btn" type="button" aria-expanded="false" aria-controls="primary-nav" aria-label="Open menu"><span></span><span></span><span></span></button>
-    <nav id="primary-nav" class="tabs" aria-label="Primary">
-      <a class="tab" href="../research/">The Review</a>
-      <a class="tab" href="../research/#check">Self-check</a>
-      <a class="tab hl" href="../blueprint/">Binder Blueprint</a>
-      <a class="tab" href="../services/#compare">Compare</a>
-      <a class="tab" href="../services/">Consulting</a>
-      <a class="tab" href="../services/#education">CE Courses</a>
-      <a class="tab" href="../services/#accelerator">RN-to-Owner</a>
-      <a class="tab" href="../blog/">Blog</a>
-      <a class="tab" href="../about/">About</a>
+  <div class="wrap top-in">
+    <a href="../" class="brand"><img src="../assets/site/logo-brand.png" alt="Aesthetic Nursing Policy &amp; Procedures, Inc. Home" width="250" height="40"></a>
+    <button type="button" class="menu-btn" aria-expanded="false" aria-controls="primary-nav" aria-label="Open Menu"><span aria-hidden="true"></span></button>
+    <nav aria-label="Primary" class="nav" id="primary-nav">
+      <a href="../services/">Services</a>
+      <a href="../manual-builder/">Manual Builder</a>
+      <a href="../about/">About Cindi</a>
+      <a href="../research/">Research</a>
+      <a href="../blog/" aria-current="page">Blog</a>
+      <a href="https://aestheticnursingces.com/" class="nav-ce" target="_blank" rel="noopener">CE Courses ↗<span class="sr">(Opens in a New Tab)</span></a>
     </nav>
-    <a class="btn primary" href="../contact/">Book a consult</a>
+    <a href="../contact/" class="btn primary sm top-book">Book a Consultation</a>
   </div>
 </header>
-<main id="main">
-<section class="legal"><div class="wrap"><div class="doc">
-<span class="eyebrow">Aesthetic Nursing P&amp;P</span><h1>The <em>Blog</em></h1>
-<p class="post-meta">Policies, Procedures, Protocols and Practice Compliance for Aesthetic Nurses and Med Spas, From Cindi Vokey, BSN, RN.</p>
-<article class="post-card"><p class="post-meta" style="margin:0">October 12, 2026</p><h2><a href="how-to-vet-med-spa-sop-vendors/">How to Vet a Med Spa SOP Vendor: Checking Testimonials and Why “All 50 States” Templates Fall Short</a></h2><p>How to check whether a vendor's testimonials come from real, licensed providers and practices, and why generic SOP templates can't meet state-specific requirements like California's 16 CCR 1474.</p><p style="margin:0"><a href="how-to-vet-med-spa-sop-vendors/">Read the Post</a></p></article>
-<article class="post-card"><p class="post-meta" style="margin:0">October 11, 2026</p><h2><a href="kybella-label-update-protocols-consent/">Kybella Label Update: What to Change in Your Protocols and Consent Forms</a></h2><p>The FDA added a warning against using Kybella outside the submental area and new risks of nodules and masses. Here is what to update in your protocols, consent forms and aftercare.</p><p style="margin:0"><a href="kybella-label-update-protocols-consent/">Read the Post</a></p></article>
-<div class="sister"><b>Our Sister Site</b>Want CE on these topics? <a href="https://aestheticnursingces.com/" target="_blank" rel="noopener">AestheticNursingCEs.com</a> offers online CE courses from a California BRN Provider (#18009), including free CE, and the <a href="https://aestheticnursingces.com/blog" target="_blank" rel="noopener">Aesthetic Nursing CEs Blog</a>.</div>
-</div></div></section>
-</main>
-<footer class="site-foot">
+<main id="main" tabindex="-1">
+<section class="page-hero dark">
   <div class="wrap">
-    <div class="links"><a href="../blueprint/">Binder Blueprint</a><a href="../manual-builder/">Manual Builder</a><a href="https://aestheticnursingces.com/" target="_blank" rel="noopener">CE Courses</a><a href="../blog/">Blog</a><a href="../privacy/">Privacy Policy</a><a href="../terms/">Terms of Use</a></div>
-    <p>Aesthetic Nursing Policy &amp; Procedures, Inc. · Cindi Vokey, BSN, RN · CA BRN-Approved CE Provider #18009 · San Diego, CA</p>
+    <span class="eyebrow">Aesthetic Nursing P&amp;P · Blog</span>
+    <h1>The <em>Blog</em></h1>
+    <p class="lead">Policies, Procedures, Protocols and Practice Compliance for Aesthetic Nurses and Med Spas, From Cindi Vokey, BSN, RN.</p>
+  </div>
+</section>
+<section class="band blog-band">
+  <div class="wrap">
+    <span class="eyebrow">Latest Posts</span>
+    <div class="blog-cards"><article class="bcard"><time>October 12, 2026</time><h2 class="bcard-h"><a href="how-to-vet-med-spa-sop-vendors/">How to Vet a Med Spa SOP Vendor: Checking Testimonials and Why “All 50 States” Templates Fall Short</a></h2><p>How to check whether a vendor's testimonials come from real, licensed providers and practices, and why generic SOP templates can't meet state-specific requirements like California's 16 CCR 1474.</p><span class="go" aria-hidden="true">Read the Post →</span></article><article class="bcard"><time>October 11, 2026</time><h2 class="bcard-h"><a href="kybella-label-update-protocols-consent/">Kybella Label Update: What to Change in Your Protocols and Consent Forms</a></h2><p>The FDA added a warning against using Kybella outside the submental area and new risks of nodules and masses. Here is what to update in your protocols, consent forms and aftercare.</p><span class="go" aria-hidden="true">Read the Post →</span></article></div>
+    <div class="doc post-sister"><div class="sister"><b>Our Sister Site</b>Want CE on these topics? <a href="https://aestheticnursingces.com/" target="_blank" rel="noopener">AestheticNursingCEs.com</a> offers online CE courses from a California BRN Provider (#18009), including free CE, and the <a href="https://aestheticnursingces.com/blog" target="_blank" rel="noopener">Aesthetic Nursing CEs Blog</a>.</div></div>
+  </div>
+</section>
+<section class="band cta-band" id="book">
+  <div class="wrap">
+    
+    <div class="cta-card">
+      <figure class="cta-photo"><img src="../assets/site/cta-stands.jpg" alt="Compliance Readiness Checklist and Tabbed Policy Binder on a Practice Desk" width="700" height="831"></figure>
+      <div class="cta-body">
+        <span class="eyebrow">Book a Consultation</span>
+        <h2>Know Where Your Practice <em>Stands.</em></h2>
+        <p>Whether You’re Opening a Medical Spa, Reviewing Existing Policies, or Addressing Identified Compliance Concerns, Start With a Conversation About Your Practice’s Needs.</p>
+        <div class="cta-row">
+          <a href="../contact/" class="btn primary">Book Your Consultation</a>
+          <a href="tel:+15084986604" class="cta-phone">Or Call 508-498-6604</a>
+        </div>
+        <ul class="cta-facts"><li>Free · 30 Minutes</li><li>Reply Within Two Business Days</li><li>Written Next Step</li></ul>
+      </div>
+    </div>
+  </div>
+</section>
+</main>
+<footer class="foot">
+  <div class="wrap">
+    <img src="../assets/site/logo-brand-dark.png" alt="Aesthetic Nursing Policy &amp; Procedures, Inc." width="300" height="49" loading="lazy">
+    <nav aria-label="Footer"><a href="../">Home</a><a href="../services/">Services</a><a href="../manual-builder/">Manual Builder</a><a href="../about/">About Cindi</a><a href="../research/">Research</a><a href="../blog/">Blog</a><a href="../blueprint/">Binder Blueprint</a><a href="../contact/">Contact</a><a href="https://aestheticnursingces.com/" target="_blank" rel="noopener">CE Courses ↗<span class="sr">(Opens in a New Tab)</span></a><a href="../privacy/">Privacy Policy</a><a href="../terms/">Terms of Use</a></nav>
+    <p>Aesthetic Nursing Policy &amp; Procedures, Inc. · Cindi Vokey, BSN, RN, LNC · CA BRN-Approved CE Provider #18009 · San Diego, CA</p>
     <p>Consulting and Education Services. Not a Law Firm and Not Legal Advice. Rules Vary by State.</p>
+    <p>Accessibility: We Work to Meet WCAG 2.2 Level AA on Desktop and Mobile. If Any Part of This Site Is Hard to Use, Email <a href="mailto:cindiaestheticnurse@gmail.com">cindiaestheticnurse@gmail.com</a> or Call <a href="tel:+15084986604">508-498-6604</a> and We Will Help.</p>
   </div>
 </footer>
-<script src="../nav.js?v=11"></script>
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+<script>window.SITE_ROOT="../";</script>
+<script src="../site.js?v=2"></script>
+<script src="../titlecase.js?v=10"></script>
 </body>
 </html>

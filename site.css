@@ -882,7 +882,7 @@ h1 em,h2 em,h3 em{color:var(--deep)}
 .hero .tagline .tag-2{color:#8A4F4F}
 
 /* ===== Live-site additions: mobile menu, accessibility, moved features ===== */
-.mockbar,.note{display:none!important}
+.mockbar{display:none!important}
 .sr{position:absolute!important;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
 main:focus{outline:none}
 .anchor{position:relative;top:-90px;display:block}
@@ -1090,4 +1090,51 @@ main:focus{outline:none}
 .contact-page .form .btn.primary:hover{background:var(--deep);border-color:var(--deep)}
 .contact-page .form .lv-req{color:var(--gray)}
 .contact-page .form .ok{background:rgba(47,93,70,.1);border-left-color:#2F5D46;color:var(--charcoal)}
+
+/* ===== Blog (V9 styling) ===== */
+.post-hero h1{max-width:28ch;font-size:clamp(2.1rem,1.4rem + 2.2vw,3.3rem);line-height:1.12}
+.post-hero .post-meta{font-size:.82rem;letter-spacing:.16em;text-transform:uppercase;color:rgba(242,234,228,.85)}
+.crumbs{display:flex;flex-wrap:wrap;gap:.5rem;align-items:center;font-size:.74rem;font-weight:500;letter-spacing:.18em;text-transform:uppercase;margin-bottom:1.2rem;color:rgba(242,234,228,.8)}
+.crumbs a{color:var(--ivory);text-decoration:none;border-bottom:1px solid rgba(242,234,228,.4)}
+.crumbs a:hover{border-bottom-color:var(--ivory)}
+.post-grid{display:grid;grid-template-columns:minmax(0,1fr) 300px;gap:clamp(2rem,4vw,4rem);align-items:start}
+.doc.post{background:#fff;border:1px solid var(--line);border-top:3px solid var(--deep);padding:clamp(1.4rem,3.5vw,3rem);box-shadow:var(--shadow);max-width:none}
+.doc{font-size:1.05rem;line-height:1.75;color:var(--charcoal)}
+.doc>p:first-child{font-size:1.15rem}
+.doc h2{font-size:clamp(1.7rem,1.3rem + 1vw,2.2rem);margin:2.4rem 0 .8rem;padding-top:1.4rem;border-top:1px solid var(--line)}
+.doc h2:first-child{margin-top:0;padding-top:0;border-top:0}
+.doc h3{font-size:1.4rem;margin:1.6rem 0 .4rem;color:var(--deep)}
+.doc p{margin:0 0 1rem}
+.doc ul,.doc ol{margin:0 0 1.2rem;padding-left:1.3rem}
+.doc li{margin:.45rem 0}
+.doc li::marker{color:var(--deep)}
+.doc a{color:var(--deep);text-underline-offset:3px}
+.doc a:hover{color:var(--charcoal)}
+.doc strong{font-weight:500}
+.doc .note{display:block;background:rgba(184,126,126,.12);border-left:4px solid var(--deep);padding:1rem 1.2rem;margin:1.4rem 0}
+.doc .sister{background:var(--charcoal);color:rgba(242,234,228,.92);padding:1.2rem 1.4rem;margin:2rem 0 1.2rem;border-left:4px solid var(--dusty)}
+.doc .sister b{display:block;font-size:.74rem;letter-spacing:.18em;text-transform:uppercase;color:#E6C9C7;margin-bottom:.4rem;font-weight:500}
+.doc .sister a{color:var(--ivory)}
+.doc .disclaimer{font-size:.86rem;color:var(--gray)}
+.doc .sources{font-size:.9rem}
+.doc .sources li{margin:.5rem 0}
+.post-aside{position:sticky;top:100px;display:grid;gap:1rem}
+.aside-card{background:var(--charcoal);color:var(--ivory);padding:1.4rem 1.5rem;border-top:3px solid var(--dusty);box-shadow:0 18px 36px -12px rgba(43,41,38,.45)}
+.aside-card .eyebrow{color:#E6C9C7}
+.aside-card p{font-size:.92rem;color:rgba(242,234,228,.9);margin:.4rem 0 1rem}
+.aside-card .aside-h{font-family:var(--display);font-weight:400;font-size:1.5rem;line-height:1.2;color:var(--ivory);margin:.5rem 0 .4rem}
+.aside-card .btn.primary{background:var(--ivory);border-color:var(--ivory);color:var(--charcoal);margin-bottom:.9rem}
+.aside-card .btn.primary:hover{background:var(--dusty-aa);border-color:var(--dusty-aa)}
+.aside-card .text-link{color:var(--ivory)}
+.aside-card.light{background:#fff;color:var(--charcoal);border:1px solid var(--line);border-top:3px solid var(--deep);box-shadow:var(--shadow)}
+.aside-card.light .eyebrow{color:var(--deep)}
+.aside-card.light p{color:var(--charcoal)}
+.aside-card.light .aside-h{color:var(--charcoal)}
+.aside-card.light .text-link{color:var(--deep)}
+.blog-band .blog-cards{margin-top:1.2rem}
+.bcard .bcard-h{font-size:1.6rem;line-height:1.2;margin:.5rem 0 .6rem}
+.bcard .bcard-h a{color:var(--charcoal);text-decoration:none}
+.bcard .bcard-h a::after{content:"";position:absolute;inset:0}
+.post-sister{margin-top:1.6rem;font-size:1rem}
+@media (max-width:900px){.post-grid{grid-template-columns:1fr}.post-aside{position:static}}
 
