@@ -59,7 +59,7 @@
     try{
       document.querySelectorAll(TITLE_SEL).forEach(el=>{ if(el.closest('.cover,.doc,.no-tc,[contenteditable]')) return; titleCase(el); });
       document.querySelectorAll(CAP_SEL).forEach(el=>{ if(el.closest('.cover,.doc,.no-tc,[contenteditable]')) return; capFirst(el); });
-      if(document.getElementById('faq')) document.querySelectorAll(HOME_SEL).forEach(el=>{ if(el.closest(HOME_SKIP)) return; titleCase(el); });
+      if(document.getElementById('faq')||document.querySelector('[data-tc-all]')) document.querySelectorAll(HOME_SEL).forEach(el=>{ if(el.closest(HOME_SKIP)) return; titleCase(el); });
     } finally { busy=false; }
   }
   let t=null;
