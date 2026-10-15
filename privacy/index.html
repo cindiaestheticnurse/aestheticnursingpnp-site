@@ -73,6 +73,7 @@
 <tr><td>Consult or contact form</td><td>Name, email, phone, role, state, the service you're interested in, and any notes you add.</td></tr>
 <tr><td>Findings Brief request</td><td>Name and email.</td></tr>
 <tr><td>Manual Builder order</td><td>Practice name and address, medical director, primary provider (optional), your logo file, state, treatment menu, optional documents, your name, email and phone (optional), and the practice-structure answers you choose to provide.</td></tr>
+<tr><td>DocuSign signing (from My Manuals)</td><td>The Medical Director's and Primary Provider's names and emails, the edited Word file if you upload one, signing status and dates, the signed PDF, and the DocuSign Certificate of Completion (which records each signer's email, IP address and signing times). The signing fee is paid on our CE site through Square.</td></tr>
 <tr><td>Payment</td><td>Payments are handled by Stripe. We receive the amount, date and payment status, plus the email used at checkout. We do not receive or store your full card number.</td></tr>
 <tr><td>Email, phone or scheduling</td><td>Whatever you choose to share when you write, call, or book a consult through Zoom Scheduler.</td></tr>
 </tbody></table>
@@ -101,8 +102,9 @@
 <tr><td>EmailJS</td><td>Delivers website form submissions and Findings Brief emails.</td></tr>
 <tr><td>Google (Gmail, Google Workspace, Google Fonts)</td><td>Email and fonts.</td></tr>
 <tr><td>Stripe</td><td>Payment processing.</td></tr>
+<tr><td>DocuSign</td><td>Collects e-signatures on your manual when you request it. DocuSign receives the manual and the signers' names and emails, and keeps its own signing records under its privacy terms.</td></tr>
 <tr><td>Render</td><td>Hosts the Manual Builder, the CE site and their databases or files.</td></tr>
-<tr><td>Aesthetic Nursing CEs</td><td>Our affiliated CE site creates or updates your account so you can sign in and download your manuals from My Manuals. We share the order ID, serial, practice name, state, file name, build date, your name and email.</td></tr>
+<tr><td>Aesthetic Nursing CEs</td><td>Our affiliated CE site creates or updates your account so you can sign in and download your manuals from My Manuals. We share the order ID, serial, practice name, state, file name, build date, the medical director and primary provider names, your name and email, and the status of any signing request.</td></tr>
 <tr><td>Cloudflare R2</td><td>Stores encrypted off-site backups.</td></tr>
 <tr><td>GitHub</td><td>Hosts the main website.</td></tr>
 <tr><td>Cloudflare</td><td>Domain name (DNS) and security services.</td></tr>
@@ -113,6 +115,8 @@
 <ul>
 <li><strong>Unpaid Manual Builder orders</strong> (including the uploaded logo) are deleted automatically after 48 hours.</li>
 <li><strong>Download links</strong> from My Manuals expire after a few minutes. Direct backup download links, used only if the dashboard connection fails, expire after 30 days.</li>
+<li><strong>Medical Director review links</strong> you send from My Manuals expire after 14 days.</li>
+<li><strong>Signed PDFs, certificates of completion and uploaded edited Word files</strong> are kept with your completed order, so you can download them again.</li>
 <li><strong>Encrypted backups</strong> are kept for about 31 days, then removed automatically.</li>
 <li><strong>Completed orders and manual files</strong> are kept so we can reissue your manual and meet accounting and tax requirements, generally for up to seven years, unless you ask us to delete them sooner and no law requires us to keep them.</li>
 <li><strong>Messages and form submissions</strong> are kept in our email for as long as needed to serve you and maintain business records.</li>
