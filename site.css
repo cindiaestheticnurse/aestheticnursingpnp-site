@@ -1162,3 +1162,20 @@ main:focus{outline:none}
 .mb-form .btn[aria-busy=true]{opacity:.7;cursor:progress}
 @media (max-width:700px){.mb-form .row3{grid-template-columns:1fr 1fr}}
 
+
+/* Home hero (2026-10): charcoal manual button, dusty-rose consult button; hero fills the first screen so the next band starts below the fold */
+.hero .cta-row .btn.btn-manual{background:var(--charcoal);border-color:var(--charcoal);color:var(--ivory)}
+.hero .cta-row .btn.btn-manual:hover,.hero .cta-row .btn.btn-manual:focus-visible{background:var(--deep);border-color:var(--deep);color:#fff}
+.hero .cta-row .btn.primary{background:var(--dusty-aa);border-color:var(--dusty-aa);color:var(--charcoal)}
+.hero .cta-row .btn.primary:hover,.hero .cta-row .btn.primary:focus-visible{background:var(--deep);border-color:var(--deep);color:#fff}
+@media (min-width:901px){
+  .hero{--hero-pad:clamp(1rem,2vw,1.5rem);height:calc(100svh - var(--top-h,77px));min-height:560px;max-height:1200px;padding:var(--hero-pad) 0;display:flex;flex-direction:column}
+  .hero>.wrap{flex:1;min-height:0;display:flex;flex-direction:column;justify-content:center}
+  .hero .hero-grid{flex:1;min-height:0;max-height:620px;grid-template-columns:minmax(0,1.12fr) minmax(0,1fr);align-items:stretch}
+  .hero-img{height:100%;min-height:0;margin:0}
+  .hero-img img{width:100%;height:100%;object-fit:cover;object-position:0% center}
+  .hero-grid>div{display:flex;flex-direction:column;justify-content:space-between;min-height:0;padding:.25rem 0}
+  .hero-grid>div .cta-row{margin-top:clamp(1rem,3vh,2.3rem)}
+}
+.hero .eyebrow{letter-spacing:.16em}
+@media (min-width:901px){.hero .eyebrow{white-space:nowrap;font-size:clamp(.62rem,.45rem + .3vw,.78rem)}}
