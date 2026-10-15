@@ -1182,3 +1182,4 @@ main:focus{outline:none}
 
 .mb-intake-head{margin-bottom:clamp(1.5rem,3vw,2.25rem)}
 .mb-intake-head h2{margin:0}
+.mb-intake-head h2 em{display:block}
