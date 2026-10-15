@@ -1144,3 +1144,21 @@ main:focus{outline:none}
 .post-sister{margin-top:1.6rem;font-size:1rem}
 @media (max-width:900px){.post-grid{grid-template-columns:1fr}.post-aside{position:static}}
 
+/* Manual Builder: real treatment list and build fields */
+.mb-form .svc-groups{display:grid;gap:1.1rem}
+.mb-form .svc-g{border:1px solid rgba(107,102,95,.28);background:#fff;padding:.9rem 1rem 1rem;margin:0}
+.mb-form .svc-g legend{font-family:var(--text);font-size:.78rem;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--deep);padding:0 .4rem}
+.mb-form .mb-sub{font-family:var(--text);font-size:.78rem;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--deep);margin:1.1rem 0 .55rem}
+.mb-form .mb-fine{font-size:.86rem;color:var(--warm);margin:.6rem 0 0}
+.mb-form .chk.is-core{opacity:1}
+.mb-form .chk.is-core input{accent-color:var(--charcoal)}
+.mb-form .row3{display:grid;grid-template-columns:1.2fr 1.4fr .8fr .9fr;gap:1rem}
+.mb-form input[type=file]{padding:.55rem;background:#fff}
+.mb-form .mb-ack{margin:1rem 0 .4rem;align-items:flex-start}
+.mb-form .mb-ack span{font-size:.9rem;line-height:1.5}
+.mb-form .mb-err{color:var(--deep);font-weight:600;margin:.8rem 0}
+.mb-form [aria-invalid=true]{border-color:var(--deep)!important;box-shadow:0 0 0 1px var(--deep)}
+.mb-form .mb-built{display:grid;gap:.7rem;justify-items:start}
+.mb-form .btn[aria-busy=true]{opacity:.7;cursor:progress}
+@media (max-width:700px){.mb-form .row3{grid-template-columns:1fr 1fr}}
+

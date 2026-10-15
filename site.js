@@ -157,29 +157,47 @@
     });
   }
 
-  // Manual Builder: five-step intake
+  // Manual Builder: five-step intake. When online ordering is open (or for a private ?build=1
+  // test link) step 5 builds the real manual on the Manual Builder server, which saves it to the
+  // provider's CE-site account. Otherwise, or if the builder can't be reached, the intake is emailed
+  // to Cindi exactly as before.
   const form = $('#mbForm');
   if (form) {
     let cur = 1; const N = 5;
     const steps = [...form.querySelectorAll('.step')], rail = $$('#stepper li');
     const back = $('#mbBack'), next = $('#mbNext'), count = $('#mbCount');
-    const val = n => (form.elements[n] && form.elements[n].value) || '';
-    const checked = n => [...form.querySelectorAll(`input[name="${n}"]:checked`)].map(i => i.value);
+    const val = n => (form.elements[n] && form.elements[n].value || '').trim();
+    const boxes = n => [...form.querySelectorAll(`input[name="${n}"]:checked`)];
+    const checked = n => boxes(n).map(i => i.dataset.label || i.value);
+    const BUILDER = form.dataset.builder, qp = new URLSearchParams(location.search);
+    let buildMode = false;
+    const setMode = on => {
+      buildMode = on;
+      form.querySelectorAll('.mb-build-only').forEach(e => e.hidden = !on);
+      form.querySelectorAll('.mb-intake-only').forEach(e => e.hidden = on);
+      $('#mbSubmit').textContent = on ? 'Build My Manual' : 'Submit for Cindi’s Review';
+    };
+    if (qp.get('build') === '1') setMode(true);
+    if (BUILDER) fetch(BUILDER + '/api/config', { cache:'no-store' }).then(r => r.json()).then(c => { if (c.ordering_open) setMode(true); }).catch(()=>{});
     // Carry over Binder Blueprint selections (?state=CA&menu=neuro,ha)
-    const NAMES = window.STATE_NAMES || {}, qp = new URLSearchParams(location.search);
+    const NAMES = window.STATE_NAMES || {};
     const stc = (qp.get('state')||'').toUpperCase(); let bpMenu = [];
     if (NAMES[stc]) { const s = form.elements.state; if (s) s.value = NAMES[stc]; }
     const ids = (qp.get('menu')||'').split(',').map(s=>s.trim()).filter(Boolean), byId = {};
     (window.MENU||[]).forEach(g => (g.items||[]).forEach(i => { byId[i.id] = i.name; }));
     bpMenu = ids.map(id => byId[id]).filter(Boolean);
+    ids.forEach(id => form.querySelectorAll('input[name="svc"],input[name="docs"]').forEach(b => { if (b.value.split(',').includes(id)) b.checked = true; }));
     if (bpMenu.length || NAMES[stc]) { const p=$('#w_picked'); p.innerHTML='<b>From Your Binder Blueprint:</b> '+(NAMES[stc]?esc(NAMES[stc])+(bpMenu.length?' · ':''):'')+bpMenu.map(esc).join(', '); p.hidden=false;
       if (ids.length) setTimeout(()=>{ $('#intake') && $('#intake').scrollIntoView({behavior:'smooth'}); }, 400); }
+    const abbr = () => { const n = val('state'); return Object.keys(NAMES).find(k => NAMES[k] === n) || ''; };
+    form.elements.state && form.elements.state.addEventListener('change', () => { const r = form.elements.region; if (r && !r.dataset.touched) r.value = abbr(); });
+    form.elements.region && form.elements.region.addEventListener('input', e => { e.target.dataset.touched = '1'; });
     rail.forEach(li => { const b = document.createElement('button'); b.type = 'button'; b.className = 'step-btn'; while (li.firstChild) b.appendChild(li.firstChild); li.appendChild(b); });
     function draft(){
       const svc = checked('svc'), docs = checked('docs'), prov = checked('prov'), s = val('state') || 'Your State';
       const out = ['Practice Information & Medical Oversight Structure', `${s} Scope, Delegation & Supervision Summary`,
-        ...docs.filter(d => !/Protocols|Consent|Competency/.test(d)),
-        ...svc.map(x => `${x.replace(/&amp;/g,'&')}: ${docs.filter(d => /Protocols|Consent|Competency|Standardized/.test(d)).join(', ') || 'Select Documents'}`),
+        'Blood Borne Pathogens, Universal Precautions & HIPAA',
+        ...svc.map(x => `${x}: Policy, Standardized Procedure, Consent & Competency`), ...docs,
         'Signatures, Dates & Annual Review Log'];
       $('#outline').innerHTML = out.map(x => `<li>${esc(x)}</li>`).join('');
       const f = [];
@@ -189,7 +207,7 @@
       if (!val('owner')) f.push('Ownership Structure Is Missing.');
       if (!prov.length) f.push('Add at Least One Provider Type.');
       if (!svc.length) f.push('Select the Services You Offer.');
-      if (svc.some(x => /IV|GLP|Weight/.test(x))) f.push('IV Therapy and Weight Management Have Added State Requirements; Cindi Will Review These Individually.');
+      if (svc.some(x => /IV|GLP|Hormone|HRT|Pellet|Vitamin/.test(x))) f.push('IV, Weight Management and Hormone Therapies Have Added State Requirements; Cindi Will Review These Individually.');
       if (prov.some(p => /Esthetician|Vocational/.test(p))) f.push('Scope for Estheticians and LVN/LPNs Varies Widely by State; Flagged for Review.');
       $('#flags').innerHTML = f.length ? f.map(x => `<li>${esc(x)}</li>`).join('') : '<li class="good"><span>No Missing Items Detected. Ready for Cindi’s Review.</span></li>';
       return f;
@@ -200,24 +218,70 @@
       rail.forEach(li => { const s=+li.dataset.s; li.classList.toggle('on', s===cur); li.classList.toggle('done', s<cur); const bt = li.querySelector('button'); if (s===cur) bt.setAttribute('aria-current','step'); else bt.removeAttribute('aria-current'); });
       back.disabled = cur === 1; next.hidden = cur === N; count.textContent = `Step ${cur} of ${N}`;
       if (cur === 4) draft();
+      if (cur === 5 && form.elements.region && !form.elements.region.value) form.elements.region.value = abbr();
       if (focus) { const lg = steps[cur-1].querySelector('legend'); lg.tabIndex = -1; lg.focus({preventScroll:true}); }
       if (window.innerWidth < 900) form.scrollIntoView({ behavior:'smooth', block:'start' });
     }
     back.onclick = () => go(cur - 1, true); next.onclick = () => go(cur + 1, true);
     rail.forEach(li => { li.querySelector('button').onclick = () => go(+li.dataset.s, true); });
-    $('#mbSubmit').onclick = () => {
-      const req = [...steps[4].querySelectorAll('input[required]')];
-      const bad = req.find(i => !i.checkValidity());
-      if (bad) { bad.reportValidity(); bad.focus(); return; }
+    const err = $('#mbErr'), submit = $('#mbSubmit');
+    const showErr = (msg, field) => { err.textContent = msg; err.hidden = !msg; if (field) { field.setAttribute('aria-invalid','true'); field.focus(); } };
+    const clearErr = e => { if (e.target.getAttribute('aria-invalid')) { e.target.removeAttribute('aria-invalid'); if (!form.querySelector('[aria-invalid=true]')) showErr(''); } };
+    form.addEventListener('input', clearErr); form.addEventListener('change', clearErr);
+    const intakeNotes = flags => ['Manual Builder Intake (5 Steps)',
+      'Ownership: ' + (val('owner')||'—'), 'Medical Oversight: ' + (val('oversight')||'—'),
+      'Provider Types: ' + (checked('prov').join(', ')||'—'), 'Services: ' + (checked('svc').join(', ')||'—'),
+      'Documents: ' + (checked('docs').join(', ')||'Core Documents Only'),
+      bpMenu.length ? 'Binder Blueprint Menu: ' + bpMenu.join(', ') : '',
+      flags.length ? 'Missing Information Flagged: ' + flags.join(' | ') : 'No Missing Items Flagged.'].filter(Boolean).join('\n');
+    const sendIntake = flags => {
+      sendEmail({ name:val('name'), email:val('email'), phone:val('phone'), state:val('state'), practice_name:val('practice'), interest:'Manual Builder Intake', notes:intakeNotes(flags) }).catch(()=>{});
+      submit.hidden = true; const ok = $('#mbOk'); ok.hidden = false; ok.focus();
+    };
+    const FIELD = { practice_name:'practice', medical_director:'medical_director', address1:'address1', email:'email', logo:'logo', ack:'ack', state:'state' };
+    submit.onclick = async () => {
+      showErr('');
+      const req = [...steps[4].querySelectorAll('input[required]' + (buildMode ? ',[data-build-required]' : ''))];
+      const bad = req.find(i => i.type === 'checkbox' ? !i.checked : i.type === 'file' ? !i.files.length : !i.checkValidity() || !i.value.trim());
+      if (bad) {
+        const lbl = bad.name === 'ack' ? 'Please Confirm the Review Acknowledgment.' : bad.name === 'logo' ? 'Please Upload Your Practice Logo.' : 'Please Complete the Highlighted Field.';
+        showErr(lbl, bad); return;
+      }
       const flags = draft();
-      const notes = ['Manual Builder Intake (5 Steps)',
-        'Ownership: ' + (val('owner')||'—'), 'Medical Oversight: ' + (val('oversight')||'—'),
-        'Provider Types: ' + (checked('prov').join(', ')||'—'), 'Services: ' + (checked('svc').map(x=>x.replace(/&amp;/g,'&')).join(', ')||'—'),
-        'Documents: ' + (checked('docs').map(x=>x.replace(/&amp;/g,'&')).join(', ')||'—'),
-        bpMenu.length ? 'Binder Blueprint Menu: ' + bpMenu.join(', ') : '',
-        flags.length ? 'Missing Information Flagged: ' + flags.join(' | ') : 'No Missing Items Flagged.'].filter(Boolean).join('\n');
-      sendEmail({ name:val('name'), email:val('email'), phone:val('phone'), state:val('state'), practice_name:val('practice'), interest:'Manual Builder Intake', notes }).catch(()=>{});
-      $('#mbSubmit').hidden = true; const ok = $('#mbOk'); ok.hidden = false; ok.focus();
+      if (!buildMode) return sendIntake(flags);
+      if (!val('state')) { go(1, true); showErr(''); form.elements.state.setAttribute('aria-invalid','true'); form.elements.state.focus(); return; }
+      const lg = form.elements.logo.files[0];
+      if (lg && lg.size > 5 * 1024 * 1024) return showErr('Logo Must Be 5 MB or Smaller.', form.elements.logo);
+      const menu = [...new Set(['bbp','up','hipaa', ...boxes('svc').map(b => b.value), ...boxes('docs').flatMap(b => b.value.split(','))])];
+      const fd = new FormData();
+      Object.entries({ practice_name:val('practice'), buyer_name:val('name'), email:val('email'), phone:val('phone'), medical_director:val('medical_director'),
+        provider_name:val('provider_name'), address1:val('address1'), address2:val('address2'), city:val('city'), region:val('region'), zip:val('zip'),
+        state:val('state'), ack:'1', cover:'classic', menu:menu.join(','), owner:val('owner'), oversight:val('oversight'),
+        providers:checked('prov').join(', '), services:checked('svc').join(', '), documents:checked('docs').join(', '), flags:flags.join(' | ') })
+        .forEach(([k, v]) => fd.append(k, v));
+      fd.append('logo', lg);
+      submit.disabled = true; submit.setAttribute('aria-busy','true'); submit.textContent = 'Building Your Manual…';
+      const reset = () => { submit.disabled = false; submit.removeAttribute('aria-busy'); submit.textContent = 'Build My Manual'; };
+      let r, d = {};
+      try { r = await fetch(BUILDER + '/api/order', { method:'POST', body:fd }); d = await r.json().catch(() => ({})); }
+      catch (e) { reset(); return sendIntake(flags); }
+      if (r.status === 400 && d.errors) {
+        reset(); const [k, msg] = Object.entries(d.errors)[0];
+        const f = form.elements[FIELD[k] || k]; if (k === 'state') go(1, false);
+        return showErr(msg, f);
+      }
+      if (!r.ok || d.checkout_url) {
+        if (d.checkout_url) { location.href = d.checkout_url; return; }
+        reset(); return sendIntake(flags);
+      }
+      submit.hidden = true;
+      const done = $('#mbBuilt'), msg = $('#mbBuiltMsg');
+      if (d.dashboard) $('#mbDash').href = d.dashboard;
+      msg.textContent = d.status === 'fulfilled'
+        ? `Serial #${d.serial || ''}. We Emailed ${val('email')} a Link to Sign In (or Set Your Password) at Aesthetic Nursing CEs, Where the Manual Is Saved Under My Manuals.`
+        : 'Your Order Was Received. Cindi Has Been Notified and Will Email You When the Manual Is Ready.';
+      done.hidden = false; done.focus();
     };
   }
+
 })();

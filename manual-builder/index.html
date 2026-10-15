@@ -26,7 +26,7 @@
 <link rel="manifest" href="../site.webmanifest">
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="../site.css?v=2">
+<link rel="stylesheet" href="../site.css?v=3">
 <script type="application/ld+json">
 {
  "@context": "https://schema.org",
@@ -113,7 +113,7 @@
       </div>
     </aside>
 
-    <form class="mb-form" id="mbForm" novalidate>
+    <form class="mb-form" id="mbForm" novalidate data-builder="https://anps-manual-builder.onrender.com">
       <p class="picked" id="w_picked" hidden></p>
       <fieldset class="step" data-s="1">
         <legend><span class="tag">Step 1 of 5</span>Identify Your Practice</legend>
@@ -128,14 +128,18 @@
 
       <fieldset class="step" data-s="2" hidden>
         <legend><span class="tag">Step 2 of 5</span>Select Your Services</legend>
-        <p>Injectables, Lasers, Microneedling, Other Treatments and Relevant Clinical Services.</p>
-        <div class="chks"><label class="chk"><input type="checkbox" name="svc" value="Neuromodulators"><span>Neuromodulators</span></label><label class="chk"><input type="checkbox" name="svc" value="Dermal Fillers"><span>Dermal Fillers</span></label><label class="chk"><input type="checkbox" name="svc" value="Hyaluronidase"><span>Hyaluronidase</span></label><label class="chk"><input type="checkbox" name="svc" value="Biostimulators"><span>Biostimulators</span></label><label class="chk"><input type="checkbox" name="svc" value="Lasers &amp; IPL"><span>Lasers &amp; IPL</span></label><label class="chk"><input type="checkbox" name="svc" value="Microneedling &amp; RF Microneedling"><span>Microneedling &amp; RF Microneedling</span></label><label class="chk"><input type="checkbox" name="svc" value="Chemical Peels"><span>Chemical Peels</span></label><label class="chk"><input type="checkbox" name="svc" value="Sclerotherapy"><span>Sclerotherapy</span></label><label class="chk"><input type="checkbox" name="svc" value="IV Therapy"><span>IV Therapy</span></label><label class="chk"><input type="checkbox" name="svc" value="Weight Management (GLP-1)"><span>Weight Management (GLP-1)</span></label><label class="chk"><input type="checkbox" name="svc" value="PRP / PRF"><span>PRP / PRF</span></label><label class="chk"><input type="checkbox" name="svc" value="Other Clinical Services"><span>Other Clinical Services</span></label></div>
+        <p>Choose Every Treatment You Offer. Each One Adds Its Policy, Standardized Procedure, Consent and Competency Pages.</p>
+        <div class="svc-groups"><fieldset class="svc-g"><legend>Aesthetic Injectables</legend><div class="chks"><label class="chk"><input type="checkbox" name="svc" value="neuro" data-label="Neuromodulator Treatments"><span>Neuromodulator Treatments</span></label><label class="chk"><input type="checkbox" name="svc" value="hyper" data-label="Neuromodulator Treatments for Hyperhidrosis"><span>Neuromodulator Treatments for Hyperhidrosis</span></label><label class="chk"><input type="checkbox" name="svc" value="ha" data-label="Hyaluronic Acid (HA) Dermal Fillers"><span>Hyaluronic Acid (HA) Dermal Fillers</span></label><label class="chk"><input type="checkbox" name="svc" value="hylen" data-label="Hylenex / Hyaluronidase Treatments"><span>Hylenex / Hyaluronidase Treatments</span></label><label class="chk"><input type="checkbox" name="svc" value="sculp" data-label="Sculptra Aesthetic Treatments"><span>Sculptra Aesthetic Treatments</span></label><label class="chk"><input type="checkbox" name="svc" value="hsculp" data-label="Hyperdilute Sculptra Treatments"><span>Hyperdilute Sculptra Treatments</span></label><label class="chk"><input type="checkbox" name="svc" value="rad" data-label="Radiesse Treatments"><span>Radiesse Treatments</span></label><label class="chk"><input type="checkbox" name="svc" value="hrad" data-label="Hyperdilute Radiesse Treatments"><span>Hyperdilute Radiesse Treatments</span></label><label class="chk"><input type="checkbox" name="svc" value="prpha" data-label="PRP/PRF with HA Filler"><span>PRP/PRF with HA Filler</span></label><label class="chk"><input type="checkbox" name="svc" value="prp" data-label="PRP/PRF Aesthetic Injections"><span>PRP/PRF Aesthetic Injections</span></label><label class="chk"><input type="checkbox" name="svc" value="ezgel" data-label="EZ Gel Treatments"><span>EZ Gel Treatments</span></label><label class="chk"><input type="checkbox" name="svc" value="kyb" data-label="Kybella Treatments"><span>Kybella Treatments</span></label></div></fieldset><fieldset class="svc-g"><legend>Non-invasive Aesthetic</legend><div class="chks"><label class="chk"><input type="checkbox" name="svc" value="mn" data-label="Microneedling Treatments"><span>Microneedling Treatments</span></label><label class="chk"><input type="checkbox" name="svc" value="mnprp" data-label="Microneedling with PRP/PRF Treatments"><span>Microneedling with PRP/PRF Treatments</span></label><label class="chk"><input type="checkbox" name="svc" value="peel" data-label="Chemical Peels"><span>Chemical Peels</span></label><label class="chk"><input type="checkbox" name="svc" value="derm" data-label="Dermaplaning"><span>Dermaplaning</span></label></div></fieldset><fieldset class="svc-g"><legend>Laser, Light &amp; Energy Devices</legend><div class="chks"><label class="chk"><input type="checkbox" name="svc" value="llbd" data-label="General Laser Light Energy Based Therapy (LLBD)"><span>General Laser Light Energy Based Therapy (LLBD)</span></label><label class="chk"><input type="checkbox" name="svc" value="body" data-label="BodySculpt &amp; Body Tone Treatments"><span>BodySculpt &amp; Body Tone Treatments</span></label><label class="chk"><input type="checkbox" name="svc" value="m8" data-label="Morpheus8 / Microneedling with RF"><span>Morpheus8 / Microneedling with RF</span></label><label class="chk"><input type="checkbox" name="svc" value="cryo" data-label="Cryolipolysis Treatments"><span>Cryolipolysis Treatments</span></label><label class="chk"><input type="checkbox" name="svc" value="hifem" data-label="HIFEM Emsculpt / Emtone"><span>HIFEM Emsculpt / Emtone</span></label><label class="chk"><input type="checkbox" name="svc" value="hifu" data-label="HIFU Treatments"><span>HIFU Treatments</span></label><label class="chk"><input type="checkbox" name="svc" value="sof" data-label="Sofwave Treatments"><span>Sofwave Treatments</span></label><label class="chk"><input type="checkbox" name="svc" value="thermi" data-label="ThermiVa"><span>ThermiVa</span></label></div></fieldset><fieldset class="svc-g"><legend>Wellness</legend><div class="chks"><label class="chk"><input type="checkbox" name="svc" value="fprp" data-label="Female PRP/PRF Shot Procedure"><span>Female PRP/PRF Shot Procedure</span></label><label class="chk"><input type="checkbox" name="svc" value="mprp" data-label="Male PRP/PRF Shot Procedure"><span>Male PRP/PRF Shot Procedure</span></label><label class="chk"><input type="checkbox" name="svc" value="iv" data-label="IV Therapy with Additives &amp; Injections (includes NAD)"><span>IV Therapy with Additives &amp; Injections (includes NAD)</span></label><label class="chk"><input type="checkbox" name="svc" value="vit" data-label="Vitamin &amp; Supplemental Injections"><span>Vitamin &amp; Supplemental Injections</span></label><label class="chk"><input type="checkbox" name="svc" value="trt" data-label="HRT Testosterone Injections"><span>HRT Testosterone Injections</span></label><label class="chk"><input type="checkbox" name="svc" value="pel" data-label="HRT Pellet Procedure"><span>HRT Pellet Procedure</span></label><label class="chk"><input type="checkbox" name="svc" value="glp" data-label="GLP-1 Compounds"><span>GLP-1 Compounds</span></label></div></fieldset><fieldset class="svc-g"><legend>Patient Self-administered</legend><div class="chks"><label class="chk"><input type="checkbox" name="svc" value="nox" data-label="Pro-Nox Delivery System"><span>Pro-Nox Delivery System</span></label><label class="chk"><input type="checkbox" name="svc" value="lat" data-label="Latisse"><span>Latisse</span></label><label class="chk"><input type="checkbox" name="svc" value="upn" data-label="Upneeq"><span>Upneeq</span></label></div></fieldset><fieldset class="svc-g"><legend>Other</legend><div class="chks"><label class="chk"><input type="checkbox" name="svc" value="pdo" data-label="PDO Thread Procedure"><span>PDO Thread Procedure</span></label><label class="chk"><input type="checkbox" name="svc" value="scl" data-label="Sclerotherapy Treatments"><span>Sclerotherapy Treatments</span></label></div></fieldset></div>
       </fieldset>
 
       <fieldset class="step" data-s="3" hidden>
         <legend><span class="tag">Step 3 of 5</span>Choose Required Documents</legend>
-        <p>Core Documents Are Preselected. Formulary and Full Emergency Protocols Are Optional Add-Ins.</p>
-        <div class="chks"><label class="chk"><input type="checkbox" name="docs" value="Policies" checked><span>Policies</span></label><label class="chk"><input type="checkbox" name="docs" value="Standardized Procedures" checked><span>Standardized Procedures</span></label><label class="chk"><input type="checkbox" name="docs" value="Treatment Protocols" checked><span>Treatment Protocols</span></label><label class="chk"><input type="checkbox" name="docs" value="Consent Forms" checked><span>Consent Forms</span></label><label class="chk"><input type="checkbox" name="docs" value="Competency Records" checked><span>Competency Records</span></label><label class="chk"><input type="checkbox" name="docs" value="Charting Templates"><span>Charting Templates</span></label><label class="chk"><input type="checkbox" name="docs" value="Patient Instructions"><span>Patient Instructions</span></label><label class="chk"><input type="checkbox" name="docs" value="Drug &amp; Device Formulary"><span>Drug &amp; Device Formulary</span></label><label class="chk"><input type="checkbox" name="docs" value="Emergency &amp; Complication Protocols"><span>Emergency &amp; Complication Protocols</span></label></div>
+        <p>Core Documents Are Included for Every Service You Selected. Formulary and Full Emergency Protocols Are Optional Add-Ins.</p>
+        <h4 class="mb-sub">Included With Every Manual</h4>
+        <div class="chks"><label class="chk is-core"><input type="checkbox" checked disabled><span>Policies</span></label><label class="chk is-core"><input type="checkbox" checked disabled><span>Standardized Procedures</span></label><label class="chk is-core"><input type="checkbox" checked disabled><span>Treatment Protocols</span></label><label class="chk is-core"><input type="checkbox" checked disabled><span>Consent Forms</span></label><label class="chk is-core"><input type="checkbox" checked disabled><span>Competency Records</span></label></div>
+        <p class="mb-fine">Always Included: Blood Borne Pathogens &amp; Exposure Control Plan with Sharps Injury Log, Universal Precautions, HIPAA Privacy &amp; Security.</p>
+        <h4 class="mb-sub">Optional Add-Ins</h4>
+        <div class="chks"><label class="chk"><input type="checkbox" name="docs" value="gfe" data-label="General Aesthetic Medical &amp; GFE Guidelines" checked><span>General Aesthetic Medical &amp; GFE Guidelines</span></label><label class="chk"><input type="checkbox" name="docs" value="form" data-label="Drug &amp; Device Formulary"><span>Drug &amp; Device Formulary</span></label><label class="chk"><input type="checkbox" name="docs" value="vo,ae" data-label="Emergency &amp; Complication Protocols (Vascular Occlusion, Adverse Events)"><span>Emergency &amp; Complication Protocols (Vascular Occlusion, Adverse Events)</span></label><label class="chk"><input type="checkbox" name="docs" value="addf" data-label="Additional Drug &amp; Device Formulary"><span>Additional Drug &amp; Device Formulary</span></label><label class="chk"><input type="checkbox" name="docs" value="anc" data-label="Ancillary Treatment Orders"><span>Ancillary Treatment Orders</span></label><label class="chk"><input type="checkbox" name="docs" value="addp" data-label="Additional Authorized Providers"><span>Additional Authorized Providers</span></label></div>
       </fieldset>
 
       <fieldset class="step" data-s="4" hidden>
@@ -149,17 +153,36 @@
 
       <fieldset class="step" data-s="5" hidden>
         <legend><span class="tag">Step 5 of 5</span>Review &amp; Finalize</legend>
-        <p>Cindi Reviews the Applicable Requirements and Your Practice-Specific Details, With Medical Director and Legal Review Where Appropriate. You’ll Receive a Reply Within Two Business Days.</p>
+        <p class="mb-intake-only">Cindi Reviews the Applicable Requirements and Your Practice-Specific Details, With Medical Director and Legal Review Where Appropriate. You’ll Receive a Reply Within Two Business Days.</p>
+        <p class="mb-build-only" hidden>Your Manual Is Built From Approved, State-Specific Content and Saved to Your Aesthetic Nursing Account, Where You Can Download It Any Time. Review It With Your Medical Director Before Use.</p>
         <div class="row2">
-          <label class="fl">Practice Name<input name="practice" autocomplete="organization"></label>
+          <label class="fl">Practice Name<input name="practice" autocomplete="organization" data-build-required></label>
           <label class="fl">Your Name<input name="name" required autocomplete="name"></label>
         </div>
         <div class="row2">
           <label class="fl">Email<input type="email" name="email" required autocomplete="email"></label>
           <label class="fl">Phone<input type="tel" name="phone" autocomplete="tel"></label>
         </div>
+        <div class="mb-build-only" hidden>
+          <div class="row2">
+            <label class="fl">Medical Director (Name &amp; Credentials)<input name="medical_director" data-build-required placeholder="e.g. Jane Smith, MD"></label>
+            <label class="fl">Primary Provider (Optional)<input name="provider_name" placeholder="e.g. Alex Lee, RN"></label>
+          </div>
+          <label class="fl">Practice Street Address<input name="address1" autocomplete="address-line1" data-build-required></label>
+          <div class="row3">
+            <label class="fl">Suite (Optional)<input name="address2" autocomplete="address-line2"></label>
+            <label class="fl">City<input name="city" autocomplete="address-level2" data-build-required></label>
+            <label class="fl">State<input name="region" autocomplete="address-level1" maxlength="20" data-build-required></label>
+            <label class="fl">ZIP<input name="zip" autocomplete="postal-code" inputmode="numeric" maxlength="12" data-build-required></label>
+          </div>
+          <label class="fl">Practice Logo (PNG or JPG, Up to 5 MB)<input type="file" name="logo" accept="image/png,image/jpeg" data-build-required></label>
+          <label class="chk mb-ack"><input type="checkbox" name="ack" value="1" data-build-required><span>I Understand This Manual Is a Starting Point. It Must Be Reviewed and Approved by My Medical Director, and It Does Not Guarantee Legal Compliance.</span></label>
+        </div>
+        <p class="mb-err" id="mbErr" role="alert" hidden></p>
         <button type="button" class="btn primary" id="mbSubmit">Submit for Cindi’s Review</button>
         <div class="ok" id="mbOk" tabindex="-1" hidden><b>Thank You. Your Intake Was Sent to Cindi.</b> You’ll Receive a Reply Within Two Business Days.</div>
+        <div class="ok mb-built" id="mbBuilt" tabindex="-1" hidden><b>Your Manual Is Ready.</b> <span id="mbBuiltMsg"></span>
+          <a class="btn primary" id="mbDash" href="https://aestheticnursingces.com/dashboard?tab=manuals" target="_blank" rel="noopener">Open My Manuals ↗<span class="sr">(Opens in a New Tab)</span></a></div>
       </fieldset>
 
       <div class="mb-nav">
@@ -216,7 +239,7 @@
 
 <script>window.SITE_ROOT="../";</script>
 <script src="../blueprint/data.js?v=12"></script>
-<script src="../site.js?v=2"></script>
+<script src="../site.js?v=3"></script>
 <script src="../titlecase.js?v=10"></script>
 </body>
 </html>
