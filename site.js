@@ -197,7 +197,9 @@
       const svc = checked('svc'), docs = checked('docs'), prov = checked('prov'), s = val('state') || 'Your State';
       const out = ['Practice Information & Medical Oversight Structure', `${s} Scope, Delegation & Supervision Summary`,
         'Blood Borne Pathogens, Universal Precautions & HIPAA',
-        ...svc.map(x => `${x}: Policy, Standardized Procedure, Consent & Competency`), ...docs,
+        ...svc.map(x => `${x}: Policy, Standardized Procedure & Treatment Protocol`), ...docs,
+        ...(checked('anc').length ? [`Ancillary Treatment Guidelines (Add-On): ${checked('anc').join(', ')}`] : []),
+        ...checked('addon').map(x => `Add-On: ${x} (Editable Word)`),
         'Signatures, Dates & Annual Review Log'];
       $('#outline').innerHTML = out.map(x => `<li>${esc(x)}</li>`).join('');
       const f = [];
@@ -232,6 +234,8 @@
       'Ownership: ' + (val('owner')||'—'), 'Medical Oversight: ' + (val('oversight')||'—'),
       'Provider Types: ' + (checked('prov').join(', ')||'—'), 'Services: ' + (checked('svc').join(', ')||'—'),
       'Documents: ' + (checked('docs').join(', ')||'Core Documents Only'),
+      'Ancillary Treatments (Add-Ons): ' + (checked('anc').join(', ')||'None'),
+      'Add-Ons: ' + (checked('addon').join(', ')||'None'),
       bpMenu.length ? 'Binder Blueprint Menu: ' + bpMenu.join(', ') : '',
       flags.length ? 'Missing Information Flagged: ' + flags.join(' | ') : 'No Missing Items Flagged.'].filter(Boolean).join('\n');
     const sendIntake = flags => {
@@ -252,12 +256,12 @@
       if (!val('state')) { go(1, true); showErr(''); form.elements.state.setAttribute('aria-invalid','true'); form.elements.state.focus(); return; }
       const lg = form.elements.logo.files[0];
       if (lg && lg.size > 5 * 1024 * 1024) return showErr('Logo Must Be 5 MB or Smaller.', form.elements.logo);
-      const menu = [...new Set(['bbp','up','hipaa', ...boxes('svc').map(b => b.value), ...boxes('docs').flatMap(b => b.value.split(','))])];
+      const menu = [...new Set(['bbp','up','hipaa', ...boxes('svc').map(b => b.value), ...boxes('docs').flatMap(b => b.value.split(',')), ...(boxes('anc').length ? ['anc'] : [])])];
       const fd = new FormData();
       Object.entries({ practice_name:val('practice'), buyer_name:val('name'), email:val('email'), phone:val('phone'), medical_director:val('medical_director'),
         provider_name:val('provider_name'), address1:val('address1'), address2:val('address2'), city:val('city'), region:val('region'), zip:val('zip'),
         state:val('state'), trial_code:val('trial_code'), ack:'1', cover:'classic', menu:menu.join(','), owner:val('owner'), oversight:val('oversight'),
-        providers:checked('prov').join(', '), services:checked('svc').join(', '), documents:checked('docs').join(', '), flags:flags.join(' | ') })
+        providers:checked('prov').join(', '), services:checked('svc').join(', '), documents:[...checked('docs'), ...checked('anc').map(x => 'Ancillary Add-On: ' + x), ...checked('addon').map(x => 'Add-On: ' + x)].join(', '), flags:flags.join(' | ') })
         .forEach(([k, v]) => fd.append(k, v));
       fd.append('logo', lg);
       submit.disabled = true; submit.setAttribute('aria-busy','true'); submit.textContent = 'Building Your Manual…';
