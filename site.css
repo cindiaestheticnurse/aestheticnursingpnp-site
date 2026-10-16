@@ -1180,7 +1180,7 @@ main:focus{outline:none}
 .hero .eyebrow{letter-spacing:.16em}
 @media (min-width:901px){.hero .eyebrow{white-space:nowrap;font-size:clamp(.62rem,.45rem + .3vw,.78rem)}}
 
-h2.mb-intake-head{margin:0 0 .4rem;line-height:1.05}h2.mb-intake-head em{display:block}
+h2.mb-intake-head{margin:0 0 .4rem;line-height:1.08;font-size:clamp(1.7rem,1rem + 1.25vw,2.5rem)}h2.mb-intake-head .mb-ih-2{display:block;white-space:nowrap}
 
 /* Manual Builder menu link: bordered so it stands out (desktop) */
 @media (min-width:901px){
@@ -1188,3 +1188,4 @@ h2.mb-intake-head{margin:0 0 .4rem;line-height:1.05}h2.mb-intake-head em{display
   .top .nav a[href$="manual-builder/"]:hover,.top .nav a[href$="manual-builder/index.html"]:hover,.top .nav a[href$="manual-builder/"]:focus-visible,.top .nav a[href$="manual-builder/index.html"]:focus-visible{background:var(--dusty-aa);border-color:var(--dusty-aa);color:var(--charcoal)}
   .top .nav a[href$="manual-builder/"][aria-current="page"],.top .nav a[href$="manual-builder/index.html"][aria-current="page"]{border-color:var(--deep);color:var(--deep)}
 }
+@media (max-width:420px){.mb-nav{flex-wrap:wrap;gap:.6rem}.mb-nav .btn{padding:.85rem 1rem}.mb-nav span{order:-1;flex-basis:100%;text-align:center}}
