@@ -1,0 +1,68 @@
+/* Main-site header and footer for the Binder Blueprint (namespaced so the Blueprint's own styles can't collide) */
+.sbt,.sbf{--charcoal:#2B2926;--dusty:#B87E7E;--dusty-aa:#BD8786;--ivory:#F2EAE4;--deep:#8A4F4F;--gray:#6B665F;--line:rgba(107,102,95,.38);--text:"Jost",system-ui,sans-serif;--ease:cubic-bezier(.2,.7,.2,1);font-family:var(--text)}
+.sb-wrap{max-width:1180px;margin:0 auto;padding:0 clamp(1rem,3vw,2rem)}
+.sb-sr{position:absolute!important;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+header.sbt{position:sticky;top:0;z-index:50;background:var(--ivory);border-bottom:1px solid var(--line);margin:0;padding:0}
+.sbt .sbt-in{display:flex;align-items:center;gap:1.5rem;min-height:76px}
+.sbt .sbt-brand{display:inline-flex;border:0;padding:0}
+.sbt .sbt-brand img{height:42px;width:auto;display:block}
+.sbt .sbt-nav{display:flex;gap:.4rem;margin-left:auto;align-items:center}
+.sbt .sbt-nav a{font-family:var(--text);font-size:.9rem;font-weight:400;letter-spacing:0;text-transform:none;color:var(--charcoal);text-decoration:none;padding:.5rem .6rem;border:0;border-bottom:1px solid transparent;white-space:nowrap;background:none}
+.sbt .sbt-nav a:hover{color:var(--deep)}
+.sbt .sbt-nav .sbt-ce{border:1px solid var(--gray);padding:.45rem .8rem;margin-left:.4rem;color:var(--charcoal)}
+.sbt .sbt-nav .sbt-ce:hover{background:var(--charcoal);color:var(--ivory)}
+.sbt .sbt-book{display:inline-flex;align-items:center;justify-content:center;font-family:var(--text);font-weight:500;font-size:.78rem;letter-spacing:.08em;text-transform:uppercase;text-decoration:none;padding:.6rem 1rem;margin-left:.6rem;white-space:nowrap;background:var(--charcoal);border:1px solid var(--charcoal);color:var(--ivory);transition:background .2s var(--ease),border-color .2s var(--ease)}
+.sbt .sbt-book:hover{background:var(--deep);border-color:var(--deep);color:var(--ivory)}
+.sbt a:focus-visible,.sbt button:focus-visible{outline:2px solid var(--deep);outline-offset:3px}
+.sbt .sbt-menu{display:none;background:none;border:1px solid var(--gray);width:44px;height:44px;cursor:pointer;position:relative;flex:none;padding:0}
+.sbt .sbt-menu span,.sbt .sbt-menu span::before,.sbt .sbt-menu span::after{position:absolute;left:11px;width:20px;height:2px;background:var(--charcoal);content:"";transition:transform .2s var(--ease)}
+.sbt .sbt-menu span{top:20px}.sbt .sbt-menu span::before{left:0;top:-6px}.sbt .sbt-menu span::after{left:0;top:6px}
+.sbt.sbt-open .sbt-menu span{background:transparent}
+.sbt.sbt-open .sbt-menu span::before{transform:translateY(6px) rotate(45deg)}
+.sbt.sbt-open .sbt-menu span::after{transform:translateY(-6px) rotate(-45deg)}
+@media (min-width:901px){.sbt .sbt-nav a.sbt-mb{border:1px solid var(--dusty);padding:.45rem .8rem;color:var(--charcoal)}.sbt .sbt-nav a.sbt-mb:hover{background:var(--dusty-aa);border-color:var(--dusty-aa);color:var(--charcoal)}}
+@media (max-width:1060px){.sbt .sbt-nav a{padding:.5rem .4rem;font-size:.85rem}}
+@media (max-width:900px){
+  .sbt .sbt-in{gap:.6rem;position:relative}
+  .sbt .sbt-menu{display:block;order:3}
+  .sbt .sbt-book{margin-left:auto;order:2}
+  .sbt .sbt-nav{display:none;position:absolute;left:0;right:0;top:100%;background:var(--ivory);border-bottom:2px solid var(--deep);flex-direction:column;align-items:stretch;gap:0;padding:.6rem clamp(1rem,3vw,2rem) 1.2rem;margin:0}
+  .sbt.sbt-open .sbt-nav{display:flex}
+  .sbt .sbt-nav a{padding:.85rem .2rem;font-size:1rem;border-bottom:1px solid var(--line)}
+  .sbt .sbt-nav .sbt-ce{margin:.8rem 0 0;text-align:center}
+}
+@media (max-width:560px){.sbt .sbt-brand img{height:34px}.sbt .sbt-book{padding:.55rem .7rem;font-size:.68rem;letter-spacing:.06em}}
+@media (max-width:420px){.sbt .sbt-brand img{height:30px}.sbt .sbt-book{padding:.55rem .6rem;font-size:.62rem}}
+footer.sbf{background:var(--charcoal);color:rgba(242,234,228,.88);border-top:3px solid var(--dusty-aa);padding:2.6rem 0;font-size:.8rem;margin:0;text-align:left}
+.sbf img{height:46px;width:auto;margin-bottom:1.4rem;display:block}
+.sbf nav{display:flex;flex-wrap:wrap;gap:.4rem 1.4rem;margin-bottom:1.2rem}
+.sbf a{color:var(--ivory)!important;text-decoration:none;font-size:.9rem}
+.sbf a:hover{color:var(--dusty-aa)!important}
+.sbf p{margin:.3rem 0;color:rgba(242,234,228,.88);font-size:.8rem;line-height:1.6;max-width:none}
+.sbf p a{font-size:inherit;text-decoration:underline}
+.sbf :focus-visible{outline:2px solid var(--ivory);outline-offset:3px}
+
+/* Hero card lines up with the top of the title */
+@media (min-width:901px){#view-blueprint .hero{align-items:start}#view-blueprint .hero-card{align-self:start;margin-top:var(--bp-title-offset,2.35rem)}}
+.sb-skip{position:absolute;left:1rem;top:-60px;z-index:100;background:#2B2926;color:#F2EAE4!important;padding:.7rem 1rem;font-family:"Jost",system-ui,sans-serif;font-size:.9rem;text-decoration:none}.sb-skip:focus{top:.6rem;outline:2px solid #8A4F4F;outline-offset:2px}
+/* Hero stat tiles: separated cards; cost-recovery tile highlighted */
+#view-blueprint .stat-row{background:none;border:0;gap:1rem;margin-top:2rem}
+#view-blueprint .stat-row div{background:#fff;border:1px solid rgba(107,102,95,.25);border-top:3px solid #B87E7E;box-shadow:0 10px 24px rgba(43,41,38,.08);padding:1.1rem 1.1rem 1.2rem}
+#view-blueprint .stat-row div.stat-hi{background:#8A4F4F;border-color:#8A4F4F;box-shadow:0 14px 30px rgba(138,79,79,.28)}
+#view-blueprint .stat-row div.stat-hi b{color:#F2EAE4;font-weight:500}
+#view-blueprint .stat-row div.stat-hi span{color:#F2EAE4}
+#view-blueprint .cred{grid-template-columns:1fr auto;column-gap:1rem}
+#view-blueprint .cred span:nth-child(even){text-align:right;white-space:nowrap}
+/* Keep header colors identical to the main site (the Blueprint's older link colors would otherwise win) */
+.sbt .sbt-nav a{color:#2B2926!important}
+.sbt .sbt-nav a:hover{color:#8A4F4F!important}
+.sbt .sbt-nav .sbt-ce:hover{color:#F2EAE4!important}
+.sbt .sbt-book,.sbt .sbt-book:hover{color:#F2EAE4!important}
+@media (min-width:901px){#view-blueprint .hero-card{margin-top:calc(var(--bp-title-offset,2.35rem) + 5px)}}
+.menu-group header{gap:1rem}.menu-group header h3 + .tiny{margin-right:auto}
+@media print{
+  .sbt,.sbf,.sb-skip,#view-blueprint .hero,.kw-banner,.spine,.stage-foot,#sendForm .field,#sendForm .btn,.toast{display:none!important}
+  body{background:#fff!important}
+  .wizard{display:block!important;border:0!important;box-shadow:none!important}
+  .stage{padding:0!important}
+}

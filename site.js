@@ -187,6 +187,7 @@
     (window.MENU||[]).forEach(g => (g.items||[]).forEach(i => { byId[i.id] = i.name; }));
     bpMenu = ids.map(id => byId[id]).filter(Boolean);
     ids.forEach(id => form.querySelectorAll('input[name="svc"],input[name="docs"]').forEach(b => { if (b.value.split(',').includes(id)) b.checked = true; }));
+    ids.filter(id => id.startsWith('anc-')).forEach(id => form.querySelectorAll('input[name="anc"]').forEach(b => { if (b.value === byId[id]) b.checked = true; }));
     if (bpMenu.length || NAMES[stc]) { const p=$('#w_picked'); p.innerHTML='<b>From Your Binder Blueprint:</b> '+(NAMES[stc]?esc(NAMES[stc])+(bpMenu.length?' · ':''):'')+bpMenu.map(esc).join(', '); p.hidden=false;
       if (ids.length) setTimeout(()=>{ $('#intake') && $('#intake').scrollIntoView({behavior:'smooth'}); }, 400); }
     const abbr = () => { const n = val('state'); return Object.keys(NAMES).find(k => NAMES[k] === n) || ''; };

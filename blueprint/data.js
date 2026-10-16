@@ -63,13 +63,11 @@ window.CE_COURSES = {
 
 /* ---------- Treatment fields, verbatim from the customized P&P list ---------- */
 window.MENU = [
-  { group: "General requirements", locked: true, note: "Every binder starts here.", items: [
-    { id: "bbp", name: "Blood Borne Pathogens & Exposure Control Plan with Sharps Injury Log" },
-    { id: "up",  name: "Universal Precautions" },
-    { id: "hipaa", name: "HIPAA Privacy & Security" },
-    { id: "gfe", name: "General Aesthetic Medical & GFE Guidelines", optional: true },
-    { id: "form",name: "Drug & Device Formulary", optional: true } ] },
-  { group: "Aesthetic injectables", items: [
+  { group: "GFE Guidelines & Formularies", items: [
+    { id: "gfe", name: "General Aesthetic Medical & GFE Guidelines" },
+    { id: "form",name: "Drug & Device Formulary" },
+    { id: "addf", name: "Additional Drug & Device Formulary" } ] },
+  { group: "Aesthetic Injectables", items: [
     { id: "neuro", name: "Neuromodulator Treatments", tag: "neuro" },
     { id: "hyper", name: "Neuromodulator Treatments for Hyperhidrosis", tag: "neuro" },
     { id: "ha",    name: "Hyaluronic Acid (HA) Dermal Fillers", tag: "filler" },
@@ -82,15 +80,12 @@ window.MENU = [
     { id: "prp",   name: "PRP/PRF Aesthetic Injections" },
     { id: "ezgel", name: "EZ Gel Treatments" },
     { id: "kyb",   name: "Kybella Treatments" } ] },
-  { group: "Emergency & adverse events", items: [
-    { id: "vo",  name: "Vascular Occlusion Protocol" },
-    { id: "ae",  name: "Adverse Event Protocols (granulomas, nodules & biofilm, infection, syncope, reactions)" } ] },
-  { group: "Non-invasive aesthetic", items: [
+  { group: "Non-Invasive Aesthetic", items: [
     { id: "mn",   name: "Microneedling Treatments" },
     { id: "mnprp",name: "Microneedling with PRP/PRF Treatments" },
     { id: "peel", name: "Chemical Peels" },
     { id: "derm", name: "Dermaplaning" } ] },
-  { group: "Laser, light & energy devices", items: [
+  { group: "Laser, Light & Energy Devices", items: [
     { id: "llbd", name: "General Laser Light Energy Based Therapy (LLBD)" },
     { id: "body", name: "BodySculpt & Body Tone Treatments" },
     { id: "m8",   name: "Morpheus8 / Microneedling with RF" },
@@ -107,16 +102,28 @@ window.MENU = [
     { id: "trt",  name: "HRT Testosterone Injections", module: "Hormone" },
     { id: "pel",  name: "HRT Pellet Procedure", module: "Hormone" },
     { id: "glp",  name: "GLP-1 Compounds", module: "GLP-1 / weight management" } ] },
-  { group: "Patient self-administered", items: [
+  { group: "Patient Self-Administered", items: [
     { id: "nox",  name: "Pro-Nox Delivery System" },
     { id: "lat",  name: "Latisse" },
     { id: "upn",  name: "Upneeq" } ] },
   { group: "Other", items: [
     { id: "pdo",  name: "PDO Thread Procedure" },
-    { id: "scl",  name: "Sclerotherapy Treatments" },
-    { id: "addf", name: "Additional Drug & Device Formulary" },
-    { id: "anc",  name: "Ancillary Treatment Orders" },
-    { id: "addp", name: "Additional Authorized Providers" } ] }
+    { id: "scl",  name: "Sclerotherapy Treatments" } ] },
+  { group: "Emergency & Complication Protocols", items: [
+    { id: "vo",  name: "Vascular Occlusion Protocol" },
+    { id: "ae",  name: "Adverse Event Protocols (Granulomas, Nodules & Biofilm, Infection, Syncope, Reactions)" } ] },
+  { group: "Ancillary Treatments (Add-Ons)", addon: true, items: [
+    { id: "anc-hsv",  name: "HSV-1 Treatment" },
+    { id: "anc-skin", name: "Skin Infection Treatment" },
+    { id: "anc-numb", name: "Topical Numbing Cream (Anesthetic)" },
+    { id: "anc-muc",  name: "Mucosal Block" },
+    { id: "anc-il",   name: "Intralesional Injections" } ] },
+  { group: "Additional Authorized Providers", items: [
+    { id: "addp", name: "Additional Authorized Providers" } ] },
+  { group: "Always Included", locked: true, note: "Every Binder Includes These.", items: [
+    { id: "bbp", name: "Blood Borne Pathogens & Exposure Control Plan with Sharps Injury Log" },
+    { id: "up",  name: "Universal Precautions" },
+    { id: "hipaa", name: "HIPAA Privacy & Security" } ] }
 ];
 
 window.ALWAYS_INCLUDED = [

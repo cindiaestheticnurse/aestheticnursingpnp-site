@@ -2,7 +2,7 @@
   const $ = (s, el = document) => el.querySelector(s);
   const $$ = (s, el = document) => [...el.querySelectorAll(s)];
   const esc = (t) => String(t).replace(/[&<>"]/g, c => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]));
-  const INJ_IDS = MENU.find(g => g.group === "Aesthetic injectables").items.map(i => i.id);
+  const INJ_IDS = MENU.find(g => g.group === "Aesthetic Injectables").items.map(i => i.id);
   const GENERAL = MENU.find(g => g.locked).items.filter(i => !i.optional);
   const EMERG = (MENU.find(g => g.auto) || { items: [] }).items;
 
@@ -173,7 +173,7 @@
     () => `<span class="voice">Walk-Through · the menu</span>
       <h2>Walk me through your menu.</h2>
       <p class="intro">Tap everything you offer, or plan to this year. Each one becomes a tab. Yes, the fridge counts.</p>
-      ${MENU.map((g, gi) => `<div class="menu-group"><header><h3>${g.group}</h3>${g.locked ? `<span class="tiny">${g.note}</span>` : g.auto ? `<span class="tiny">${g.note}</span>` : `<button class="linkish" data-all="${gi}">Select all</button>`}</header>
+      ${MENU.map((g, gi) => `<div class="menu-group"><header><h3>${g.group}</h3>${g.addon ? `<span class="tiny">Optional Add-Ons</span><button class="linkish" data-all="${gi}">Select All</button>` : g.locked ? `<span class="tiny">${g.note}</span>` : g.auto ? `<span class="tiny">${g.note}</span>` : `<button class="linkish" data-all="${gi}">Select all</button>`}</header>
         <div class="chips">${g.items.map(it => {
           if (g.locked && !it.optional) return `<span class="chip locked">${it.name}</span>`;
           const auto = g.auto && hasInj() && !S.menu.has(it.id);
@@ -210,12 +210,32 @@
     })[S.role] || "";
   }
 
+  function bpSummary() {
+    const r = route(); const o = OFFERS[r.key]; const rd = readiness(); const g = gaps();
+    const nm = S.state === "MULTI" ? "Multiple States" : (STATE_NAMES[S.state] || "");
+    const lines = ["THE BINDER BLUEPRINT · Aesthetic Nursing Policy & Procedures, Inc.", "",
+      "Name: " + S.contact.name.trim(), "Email: " + S.contact.email.trim(), "State: " + nm,
+      "Role: " + ((ROLES.find(x => x.id === S.role) || {}).label || ""), "Licenses on Staff: " + S.lic.join(", "),
+      "Locations: " + ((LOCATIONS.find(x => x.id === S.loc) || {}).label || ""), "",
+      "Your " + nm + " Binder: " + tabCount() + " Tabs", "Readiness: " + rd.yes + " of " + AUDIT.length, ""];
+    lines.push("Always Included: " + MENU.find(gr => gr.locked).items.map(i => i.name).join("; "));
+    MENU.filter(gr => !gr.locked).forEach(gr => { const it = gr.items.filter(i => S.menu.has(i.id)); if (it.length) lines.push(gr.group + ": " + it.map(i => i.name).join("; ")); });
+    lines.push("");
+    if (g.length) { lines.push("Walk-Through Items to Review:"); g.forEach(q => lines.push("- " + q.n + " " + q.text + " (Answer: " + (auditAns(q.id) === "no" ? "No" : "Not Sure") + ")")); lines.push(""); }
+    lines.push("Suggested Next Step: " + (o ? o.name : ""));
+    const sec = secondary(); if (sec.length) { lines.push("Suggested CE Courses:"); sec.forEach(c => lines.push("- " + c.name + " (" + c.meta + "): " + (c.url || ""))); }
+    lines.push("", "Build Your Manual: https://aestheticnursingpnp.com/manual-builder/?" + builderLink().split("?")[1]);
+    if (S.contact.note.trim()) lines.push("", "Note: " + S.contact.note.trim());
+    lines.push("", "Education Only, Not Legal Advice. Rules Vary by State; Confirm With Your Board.");
+    return lines.join("\n");
+  }
+
   function renderResult() {
     const r = route(); const o = OFFERS[r.key]; const F = flags(); const rd = readiness(); const g = gaps();
     const name = S.state === "MULTI" ? "multi-state" : STATE_NAMES[S.state];
     const mods = modules(); const sec = secondary(); const h = heat();
     const toc = [];
-    toc.push(`<li class="sec">General requirements</li>`); MENU.find(gr => gr.locked).items.filter(i => !i.optional || S.menu.has(i.id)).forEach(i => toc.push(`<li>${esc(i.name)}</li>`));
+    toc.push(`<li class="sec">Always Included</li>`); MENU.find(gr => gr.locked).items.forEach(i => toc.push(`<li>${esc(i.name)}</li>`));
     MENU.filter(gr => !gr.locked).forEach(gr => {
       const items = gr.items.filter(i => S.menu.has(i.id) || (gr.auto && hasInj()));
       if (items.length) { toc.push(`<li class="sec">${esc(gr.group)}</li>`); items.forEach(i => toc.push(`<li>${esc(i.name)}</li>`)); }
@@ -258,10 +278,10 @@
         <div class="field"><label for="fName">Name</label><input id="fName" type="text" autocomplete="name" value="${esc(S.contact.name)}" required></div>
         <div class="field"><label for="fEmail">Email</label><input id="fEmail" type="email" autocomplete="email" value="${esc(S.contact.email)}" required></div>
         <div class="field full"><label for="fNote">Anything I should know? (No patient details, please.)</label><textarea id="fNote" rows="3">${esc(S.contact.note)}</textarea></div>
-        <div class="full" style="display:flex;gap:1rem;align-items:center;flex-wrap:wrap"><button class="btn primary" type="submit">Send my blueprint</button><span class="tiny">Priority: <span class="pill ${h.cls}">${h.label}</span> · Route: ${esc(o.name)}</span></div>
-        <div class="confirm full ${S.sent ? "show" : ""}" id="confirm">
-          <b>Blueprint ready to send.</b> <span class="small">Preview mode: nothing left this page. In the live build, this step writes your row to the Leads Sheet, emails your blueprint and alerts Cindi.</span>
-          <div class="next-steps"><div><b>Seconds</b>Your blueprint lands in your inbox.</div><div><b>Two business days</b>Cindi replies to book the free 30-minute call.</div><div><b>After the call</b>A written next step: a course, an audit, or nothing at all.</div></div>
+        <div class="full" style="display:flex;gap:1rem;align-items:center;flex-wrap:wrap"><button class="btn primary" type="submit" id="bpSend">Send My Blueprint</button><button class="btn" type="button" id="bpPrint">Print or Save as PDF</button></div>
+        <div class="confirm full ${S.sent ? "show" : ""}" id="confirm" tabindex="-1" role="status">
+          <b>Thank You. Your Blueprint Was Sent to Cindi.</b> <span class="small">${window.BP_VISITOR_TEMPLATE ? "A Copy Is on Its Way to Your Inbox." : "Cindi Will Email You a Copy of Your Blueprint."} Use Print or Save as PDF to Keep a Copy Now.</span>
+          <div class="next-steps"><div><b>Today</b>Cindi Receives Your State, Menu and Walk-Through Answers.</div><div><b>Two Business Days</b>Cindi Replies to Book the Free 30-Minute Call.</div><div><b>After the Call</b>A Written Next Step: a Course, an Audit, or Nothing at All.</div></div>
         </div>
       </form>
       <p class="tiny" style="margin-top:1.5rem">${esc(BRAND.disclaimer)} Rules vary by state; confirm with your board.</p>`;
@@ -311,11 +331,22 @@
     }));
     const form = $("#sendForm");
     if (form) {
+      const pr = $("#bpPrint"); if (pr) pr.onclick = () => window.print();
       ["fName", "fEmail", "fNote"].forEach(id => $("#" + id).oninput = e => { S.contact[{ fName: "name", fEmail: "email", fNote: "note" }[id]] = e.target.value; renderPayload(); });
       form.onsubmit = (e) => {
         e.preventDefault();
         if (!S.contact.name.trim() || !/^\S+@\S+\.\S+$/.test(S.contact.email)) { toast("Add your name and a valid email."); return; }
-        S.sent = true; $("#confirm").classList.add("show"); renderPayload(); toast("Blueprint ready. Preview mode: nothing was sent.");
+        const btn = $("#bpSend"); if (btn.disabled) return; btn.disabled = true;
+        const text = bpSummary();
+        const send = (tpl, extra) => fetch("https://api.emailjs.com/api/v1.0/email/send", { method: "POST", headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ service_id: "service_lwkxats", template_id: tpl, user_id: "ocGHBFbCh69YjNwsU", template_params: extra }) }).then(r => { if (!r.ok) throw new Error(r.status); });
+        const lead = send("template_igi8str", { to_email: "cindiaestheticnurse@gmail.com", to_name: "Cindi", from_name: S.contact.name.trim(), from_email: S.contact.email.trim(), reply_to: S.contact.email.trim(),
+          phone: "", practice_name: "", state: S.state === "MULTI" ? "Multiple States" : (STATE_NAMES[S.state] || ""), role: S.role ? (ROLES.find(x => x.id === S.role) || {}).label || "" : "",
+          interest: "Binder Blueprint", notes: text });
+        const copy = window.BP_VISITOR_TEMPLATE ? send(window.BP_VISITOR_TEMPLATE, { to_email: S.contact.email.trim(), to_name: S.contact.name.trim(), reply_to: "cindiaestheticnurse@gmail.com", blueprint: text }) : Promise.resolve();
+        Promise.all([lead, copy]).then(() => {
+          S.sent = true; const c = $("#confirm"); c.classList.add("show"); c.focus(); toast("Your Blueprint Was Sent.");
+        }).catch(() => { btn.disabled = false; toast("Sorry, That Didn’t Send. Please Try Again or Email cindiaestheticnurse@gmail.com."); });
       };
     }
   }

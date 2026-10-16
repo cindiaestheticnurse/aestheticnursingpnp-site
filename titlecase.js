@@ -16,6 +16,8 @@
   // Homepage: most words in every section begin with a capital letter (owner's brand rule).
   // Kept in sentence case: the About bio, FAQ answers, direct quotations and form inputs.
   const HOME_SEL = 'section p,section li,section td,section th,section label,section dt,section dd,section figcaption,section small,section .tiny,section .cite,section .bar-row > span,section .eyebrow,section .case-tabs button span,section .audit-item p,section .money span,section .outcome-list span,section .label,section .tag,section .price,section q,section .audit-item span,section .stat-row span,.modal p,.modal label,footer p,footer small,footer span';
+  // Binder Blueprint: headings, buttons, chips, labels and descriptions all use title case.
+  const BP_SEL = HOME_SEL + ',section .btn,section button,section .chip,section .voice,section .eyebrow,section h4,section b,section strong,section span.tiny,section .spine-head .tiny,section .flag span,section .flag small,section .why,section .panel p,section .next-steps div,.toast';
   const HOME_SKIP = '.about p,.faq-item .a,blockquote,.keep-case,.no-tc,.cover,.doc,[contenteditable],form .confirm button';
   const upFirst = w => w.replace(/^([^A-Za-z0-9]*)([a-z])/, (m,p,c)=>p+c.toUpperCase());
   function capWord(word, isEdge, afterColon){
@@ -59,6 +61,7 @@
     try{
       document.querySelectorAll(TITLE_SEL).forEach(el=>{ if(el.closest('.cover,.doc,.no-tc,[contenteditable]')) return; titleCase(el); });
       document.querySelectorAll(CAP_SEL).forEach(el=>{ if(el.closest('.cover,.doc,.no-tc,[contenteditable]')) return; capFirst(el); });
+      if(document.querySelector('[data-tc-bp]')) document.querySelectorAll(BP_SEL).forEach(el=>{ if(el.closest(HOME_SKIP)) return; titleCase(el); });
       if(document.getElementById('faq')||document.querySelector('[data-tc-all]')) document.querySelectorAll(HOME_SEL).forEach(el=>{ if(el.closest(HOME_SKIP)) return; titleCase(el); });
     } finally { busy=false; }
   }
