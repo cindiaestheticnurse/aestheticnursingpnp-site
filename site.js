@@ -12,12 +12,33 @@
   const moveHash = () => { const h = decodeURIComponent(location.hash.slice(1)); if (!ROOT && h && MOVED[h] && !document.getElementById(h)) location.replace(MOVED[h]); };
   moveHash(); window.addEventListener('hashchange', moveHash);
 
+  // Conversion tracking. Sends each event to Google Analytics (when analytics.js has a GA4 ID),
+  // Cloudflare Zaraz (if enabled) and window.dataLayer. Does nothing if none are present.
+  const track = (name, params) => { try {
+    const p = Object.assign({ page_path: location.pathname }, params || {});
+    if (typeof window.gtag === 'function') window.gtag('event', name, p);
+    if (window.zaraz && typeof window.zaraz.track === 'function') window.zaraz.track(name, p);
+    (window.dataLayer = window.dataLayer || []).push(Object.assign({ event: name }, p));
+  } catch (e) {} };
+  window.anpTrack = track;
+  document.addEventListener('click', e => {
+    const a = e.target.closest('a[href]'); if (!a) return;
+    const h = a.getAttribute('href') || '';
+    if (h.startsWith('tel:')) track('click_phone', { link_text: a.textContent.trim().slice(0, 60) });
+    else if (h.startsWith('mailto:')) track('click_email', { link_text: a.textContent.trim().slice(0, 60) });
+    else if (h.includes('scheduler.zoom.us')) track('click_calendar', { link_text: a.textContent.trim().slice(0, 60) });
+    else if (h.includes('google.com/maps')) track(h.includes('!12e1') ? 'click_google_review' : 'click_google_reviews', {});
+    else if (/Med-Spa-Compliance-Readiness-Checklist\.pdf/.test(h)) track('file_download', { file_name: 'compliance-readiness-checklist' });
+    else if (/Findings-Brief\.pdf/.test(h)) track('file_download', { file_name: 'findings-brief' });
+  });
+
   // EmailJS (same service and templates as the previous site)
   const EMAILJS = { service:'service_lwkxats', template:'template_igi8str', key:'ocGHBFbCh69YjNwsU', to:'cindiaestheticnurse@gmail.com', briefTemplate:'template_jhitevp' };
   function sendEmail(b){
     return fetch('https://api.emailjs.com/api/v1.0/email/send', { method:'POST', headers:{'Content-Type':'application/json'},
       body: JSON.stringify({ service_id:EMAILJS.service, template_id:EMAILJS.template, user_id:EMAILJS.key,
-        template_params:{ to_email:EMAILJS.to, to_name:'Cindi', from_name:b.name||'', from_email:b.email||'', phone:b.phone||'', state:b.state||'', role:b.role||'', practice_name:b.practice_name||'', interest:b.interest||'', notes:b.notes||'' } }) });
+        template_params:{ to_email:EMAILJS.to, to_name:'Cindi', from_name:b.name||'', from_email:b.email||'', reply_to:b.email||'', phone:b.phone||'', state:b.state||'', role:b.role||'', practice_name:b.practice_name||'', interest:b.interest||'', notes:(b.notes||'') + '\n\nSent From: ' + location.pathname } }) })
+      .then(r => { if (!r.ok) throw new Error('send ' + r.status); return r; });
   }
   function sendBrief(b){
     const link = new URL(ROOT + 'assets/The-Accusation-Review-Findings-Brief.pdf', location.href).href;
@@ -28,6 +49,7 @@
   const STATES = ['Alabama','Alaska','Arizona','Arkansas','California','Colorado','Connecticut','Delaware','District of Columbia','Florida','Georgia','Hawaii','Idaho','Illinois','Indiana','Iowa','Kansas','Kentucky','Louisiana','Maine','Maryland','Massachusetts','Michigan','Minnesota','Mississippi','Missouri','Montana','Nebraska','Nevada','New Hampshire','New Jersey','New Mexico','New York','North Carolina','North Dakota','Ohio','Oklahoma','Oregon','Pennsylvania','Rhode Island','South Carolina','South Dakota','Tennessee','Texas','Utah','Vermont','Virginia','Washington','West Virginia','Wisconsin','Wyoming'];
   const st = document.getElementById('state');
   if (st) { STATES.forEach(x => st.add(new Option(x, x))); if (st.closest('#consultForm')) st.add(new Option('Multiple States','Multiple States')); }
+  $$('select[data-states]').forEach(sel => { STATES.forEach(x => sel.add(new Option(x, x))); sel.add(new Option('Multiple States','Multiple States')); });
 
   // Mobile menu
   const mb = $('.menu-btn'), nav = $('#primary-nav'), top = $('.top');
@@ -57,9 +79,17 @@
       e.preventDefault();
       if (!cf.checkValidity()) { cf.reportValidity(); const bad = cf.querySelector(':invalid'); bad && bad.focus(); return; }
       const d = Object.fromEntries(new FormData(cf));
-      sendEmail(d).catch(()=>{});
-      [...cf.children].forEach(c => { if (c.id !== 'consultDone') c.hidden = true; });
-      const done = $('#consultDone'); done.hidden = false; done.focus();
+      const btn = cf.querySelector('button[type=submit]'), err = $('#consultErr');
+      if (btn) { btn.disabled = true; btn.setAttribute('aria-busy', 'true'); }
+      if (err) err.hidden = true;
+      sendEmail(d).then(() => {
+        track('generate_lead', { form_name: 'consult', interest: d.interest || '' });
+        [...cf.children].forEach(c => { if (c.id !== 'consultDone') c.hidden = true; });
+        const done = $('#consultDone'); done.hidden = false; done.focus();
+      }).catch(() => {
+        track('form_error', { form_name: 'consult' });
+        if (err) { err.hidden = false; err.focus(); } else toast('Sorry, That Didn’t Send. Please Email info@aestheticnursingpnp.com.');
+      }).finally(() => { if (btn) { btn.disabled = false; btn.removeAttribute('aria-busy'); } });
     });
     const again = $('#consultAgain');
     again && again.addEventListener('click', () => { cf.reset(); [...cf.children].forEach(c => c.hidden = c.id === 'consultDone'); cf.querySelector('input').focus(); });
@@ -132,6 +162,7 @@
     const open = e => { if(e) e.preventDefault(); last=document.activeElement; modal.classList.add('show'); modal.setAttribute('aria-hidden','false'); setTimeout(()=>{ (modal.querySelector('#briefForm:not([hidden]) input')||modal.querySelector('#briefDone')).focus(); },0); };
     const close = () => { modal.classList.remove('show'); modal.setAttribute('aria-hidden','true'); last && last.focus && last.focus(); };
     $$('[data-open-brief]').forEach(el => el.addEventListener('click', open));
+    if (location.hash === '#get-brief') open();
     modal.addEventListener('click', e => { if (e.target===modal || e.target.closest('[data-close-brief]')) close(); });
     document.addEventListener('keydown', e => {
       if (!modal.classList.contains('show')) return;
@@ -147,6 +178,7 @@
       e.preventDefault();
       if (!bf.checkValidity()) { bf.reportValidity(); return; }
       const b = Object.fromEntries(new FormData(bf));
+      track('generate_lead', { form_name: 'findings_brief' });
       sendEmail({ ...b, interest:'Findings Brief Download', notes:'Requested the Accusation Review findings brief.' }).catch(()=>{});
       $('#briefName').textContent = String(b.name).trim().split(' ')[0];
       const dl=$('#briefDl'), msg=$('#briefMsg');
@@ -240,17 +272,23 @@
       bpMenu.length ? 'Binder Blueprint Menu: ' + bpMenu.join(', ') : '',
       flags.length ? 'Missing Information Flagged: ' + flags.join(' | ') : 'No Missing Items Flagged.'].filter(Boolean).join('\n');
     const sendIntake = flags => {
-      sendEmail({ name:val('name'), email:val('email'), phone:val('phone'), state:val('state'), practice_name:val('practice'), interest:'Manual Builder Intake + Waitlist', notes:'Also Joined the Manual Builder Waitlist.\n' + intakeNotes(flags) }).catch(()=>{});
-      submit.hidden = true; const w = $('#mbWait'); if (w) w.hidden = true; const ok = $('#mbOk'); ok.hidden = false; ok.focus();
+      submit.disabled = true;
+      sendEmail({ name:val('name'), email:val('email'), phone:val('phone'), state:val('state'), practice_name:val('practice'), interest:'Manual Builder Intake + Waitlist', notes:'Also Joined the Manual Builder Waitlist.\n' + intakeNotes(flags) })
+        .then(() => { track('generate_lead', { form_name: 'manual_intake' }); submit.hidden = true; const w = $('#mbWait'); if (w) w.hidden = true; const ok = $('#mbOk'); ok.hidden = false; ok.focus(); })
+        .catch(() => { track('form_error', { form_name: 'manual_intake' }); showErr('Sorry, That Didn’t Send. Please Try Again or Email info@aestheticnursingpnp.com.'); })
+        .finally(() => { submit.disabled = false; });
     };
     const waitBtn = $('#mbWaitBtn');
     if (waitBtn) waitBtn.onclick = () => {
       showErr('');
       const need = ['name','email'].map(n => form.elements[n]).find(i => i && (!i.value.trim() || !i.checkValidity()));
       if (need) return showErr(need.name === 'email' ? 'Please Enter a Valid Email to Join the Waitlist.' : 'Please Enter Your Name to Join the Waitlist.', need);
+      waitBtn.disabled = true;
       sendEmail({ name:val('name'), email:val('email'), phone:val('phone'), state:val('state'), practice_name:val('practice'), interest:'Manual Builder Waitlist',
-        notes:'Joined the Manual Builder Waitlist.\n' + intakeNotes(draft()) }).catch(()=>{});
-      $('#mbWait').hidden = true; const ok = $('#mbWaitOk'); ok.hidden = false; ok.focus();
+        notes:'Joined the Manual Builder Waitlist.\n' + intakeNotes(draft()) })
+        .then(() => { track('generate_lead', { form_name: 'manual_waitlist' }); $('#mbWait').hidden = true; const ok = $('#mbWaitOk'); ok.hidden = false; ok.focus(); })
+        .catch(() => { track('form_error', { form_name: 'manual_waitlist' }); showErr('Sorry, That Didn’t Send. Please Try Again or Email info@aestheticnursingpnp.com.'); })
+        .finally(() => { waitBtn.disabled = false; });
     };
     const FIELD = { practice_name:'practice', medical_director:'medical_director', address1:'address1', email:'email', logo:'logo', ack:'ack', state:'state' };
     submit.onclick = async () => {
@@ -289,7 +327,7 @@
         if (d.checkout_url) { location.href = d.checkout_url; return; }
         reset(); return sendIntake(flags);
       }
-      submit.hidden = true;
+      submit.hidden = true; track('purchase_manual_order', { status: d.status || '' });
       const done = $('#mbBuilt'), msg = $('#mbBuiltMsg');
       if (d.dashboard) $('#mbDash').href = d.dashboard;
       msg.textContent = d.status === 'fulfilled'
@@ -297,6 +335,66 @@
         : 'Your Order Was Received. Cindi Has Been Notified and Will Email You When the Manual Is Ready.';
       done.hidden = false; done.focus();
     };
+  }
+
+  // Free Compliance Readiness Checklist: emailed from info@ by the Manual Builder server,
+  // with an instant download either way.
+  const CHECKLIST_PDF = ROOT + 'assets/Med-Spa-Compliance-Readiness-Checklist.pdf';
+  const CHECKLIST_API = 'https://anps-manual-builder.onrender.com/api/checklist';
+  const clModal = $('#checklistModal');
+  if (clModal) {
+    let last = null;
+    const open = e => { if (e) e.preventDefault(); last = document.activeElement; clModal.classList.add('show'); clModal.setAttribute('aria-hidden','false'); setTimeout(() => { (clModal.querySelector('form:not([hidden]) input') || clModal.querySelector('[tabindex="-1"]:not([hidden])')).focus(); }, 0); track('checklist_open', {}); };
+    const close = () => { clModal.classList.remove('show'); clModal.setAttribute('aria-hidden','true'); last && last.focus && last.focus(); };
+    $$('[data-open-checklist]').forEach(el => el.addEventListener('click', open));
+    clModal.addEventListener('click', e => { if (e.target === clModal || e.target.closest('[data-close-checklist]')) close(); });
+    document.addEventListener('keydown', e => { if (clModal.classList.contains('show') && e.key === 'Escape') close(); });
+    if (location.hash === '#get-checklist') open();
+  }
+  $$('form[data-checklist-form]').forEach(fm => {
+    const box = fm.closest('[data-checklist-box]') || fm.parentElement;
+    fm.addEventListener('submit', e => {
+      e.preventDefault();
+      if (!fm.checkValidity()) { fm.reportValidity(); const bad = fm.querySelector(':invalid'); bad && bad.focus(); return; }
+      const b = Object.fromEntries(new FormData(fm));
+      const btn = fm.querySelector('button[type=submit]'); btn.disabled = true; btn.setAttribute('aria-busy','true');
+      const done = box.querySelector('[data-checklist-done]'), msg = done.querySelector('[data-checklist-msg]'), dl = done.querySelector('a[data-checklist-dl]');
+      dl.href = CHECKLIST_PDF; dl.setAttribute('download', '');
+      done.querySelector('[data-checklist-name]').textContent = String(b.name).trim().split(' ')[0];
+      const finish = emailed => {
+        track('generate_lead', { form_name: 'compliance_checklist', emailed: emailed ? 'yes' : 'no' });
+        if (emailed) { msg.innerHTML = 'We Also Emailed a Copy to <b></b> From info@aestheticnursingpnp.com. Check Your Spam Folder If It Doesn’t Arrive in a Few Minutes.'; msg.querySelector('b').textContent = b.email; }
+        else msg.textContent = 'Your Checklist Is Ready to Download.';
+        fm.hidden = true; const intro = box.querySelector('[data-checklist-intro]'); if (intro) intro.hidden = true;
+        done.hidden = false; dl.focus();
+      };
+      fetch(CHECKLIST_API, { method:'POST', headers:{ 'Content-Type':'application/json' }, body: JSON.stringify({ name:b.name, email:b.email, state:b.state||'', role:b.role||'', website:b.website||'', page:location.pathname }) })
+        .then(r => r.json().then(d => ({ r, d })))
+        .then(({ r, d }) => { if (!r.ok) throw new Error(d.error || r.status); finish(!!d.emailed); })
+        .catch(() => {
+          // Server not reachable: still give the file, and tell Cindi by EmailJS.
+          sendEmail({ name:b.name, email:b.email, state:b.state||'', role:b.role||'', interest:'Compliance Readiness Checklist', notes:'Downloaded the Compliance Readiness Checklist.' }).catch(()=>{});
+          finish(false);
+        })
+        .finally(() => { btn.disabled = false; btn.removeAttribute('aria-busy'); });
+    });
+  });
+
+  // Reviews page: website testimonial form
+  const tf = $('#testimonialForm');
+  if (tf) {
+    tf.addEventListener('submit', e => {
+      e.preventDefault();
+      if (!tf.checkValidity()) { tf.reportValidity(); const bad = tf.querySelector(':invalid'); bad && bad.focus(); return; }
+      const d = Object.fromEntries(new FormData(tf));
+      if (d.website) return;
+      const btn = tf.querySelector('button[type=submit]'), err = $('#tfErr'); btn.disabled = true; err.hidden = true;
+      sendEmail({ name:d.name, email:d.email, state:d.state, role:d.credential, practice_name:d.practice||'', interest:'Website Testimonial',
+        notes:['Testimonial:', d.testimonial, '', 'Display As: ' + d.display, 'Permission to Publish on the Website: Yes (checked)', 'Credential/Role: ' + (d.credential||'—'), 'Practice: ' + (d.practice||'—')].join('\n') })
+        .then(() => { track('generate_lead', { form_name: 'testimonial' }); tf.hidden = true; const ok = $('#tfOk'); ok.hidden = false; ok.focus(); })
+        .catch(() => { track('form_error', { form_name: 'testimonial' }); err.hidden = false; err.focus(); })
+        .finally(() => { btn.disabled = false; });
+    });
   }
 
 })();

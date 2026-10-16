@@ -31,7 +31,7 @@ window.BRAND = {
   company: "Aesthetic Nursing Policy & Procedures, Inc.",
   founder: "Cindi Vokey, BSN, RN",
   provider: "CA BRN-Approved CE Provider #18009",
-  years: "18+ years in aesthetic nursing",
+  years: "27+ Years Nursing · Aesthetics Since 2007",
   city: "San Diego, CA",
   disclaimer: "Consulting and education services. Not a law firm and not legal advice.",
   src: "redesign"
