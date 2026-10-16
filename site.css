@@ -1180,9 +1180,7 @@ main:focus{outline:none}
 .hero .eyebrow{letter-spacing:.16em}
 @media (min-width:901px){.hero .eyebrow{white-space:nowrap;font-size:clamp(.62rem,.45rem + .3vw,.78rem)}}
 
-.mb-intake-head{margin-bottom:clamp(1.5rem,3vw,2.25rem)}
-.mb-intake-head h2{margin:0}
-.mb-intake-head h2 em{display:block}
+h2.mb-intake-head{margin:0 0 .4rem;line-height:1.05}h2.mb-intake-head em{display:block}
 
 /* Manual Builder menu link: bordered so it stands out (desktop) */
 @media (min-width:901px){
