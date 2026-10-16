@@ -175,7 +175,7 @@
       buildMode = on;
       form.querySelectorAll('.mb-build-only').forEach(e => e.hidden = !on);
       form.querySelectorAll('.mb-intake-only').forEach(e => e.hidden = on);
-      $('#mbSubmit').textContent = on ? 'Build My Manual' : 'Submit for Cindi’s Review';
+      $('#mbSubmit').textContent = on ? 'Build My Manual' : 'Submit for Review & Join the Waitlist';
     };
     if (qp.get('build') === '1') { setMode(true); $('#mbTrial').hidden = false; }
     if (BUILDER) fetch(BUILDER + '/api/config', { cache:'no-store' }).then(r => r.json()).then(c => { if (c.ordering_open) setMode(true); }).catch(()=>{});
@@ -239,8 +239,8 @@
       bpMenu.length ? 'Binder Blueprint Menu: ' + bpMenu.join(', ') : '',
       flags.length ? 'Missing Information Flagged: ' + flags.join(' | ') : 'No Missing Items Flagged.'].filter(Boolean).join('\n');
     const sendIntake = flags => {
-      sendEmail({ name:val('name'), email:val('email'), phone:val('phone'), state:val('state'), practice_name:val('practice'), interest:'Manual Builder Intake', notes:intakeNotes(flags) }).catch(()=>{});
-      submit.hidden = true; const ok = $('#mbOk'); ok.hidden = false; ok.focus();
+      sendEmail({ name:val('name'), email:val('email'), phone:val('phone'), state:val('state'), practice_name:val('practice'), interest:'Manual Builder Intake + Waitlist', notes:'Also Joined the Manual Builder Waitlist.\n' + intakeNotes(flags) }).catch(()=>{});
+      submit.hidden = true; const w = $('#mbWait'); if (w) w.hidden = true; const ok = $('#mbOk'); ok.hidden = false; ok.focus();
     };
     const waitBtn = $('#mbWaitBtn');
     if (waitBtn) waitBtn.onclick = () => {
