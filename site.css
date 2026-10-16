@@ -1183,3 +1183,10 @@ main:focus{outline:none}
 .mb-intake-head{margin-bottom:clamp(1.5rem,3vw,2.25rem)}
 .mb-intake-head h2{margin:0}
 .mb-intake-head h2 em{display:block}
+
+/* Manual Builder menu link: bordered so it stands out (desktop) */
+@media (min-width:901px){
+  .top .nav a[href$="manual-builder/"],.top .nav a[href$="manual-builder/index.html"]{border:1px solid var(--dusty);padding:.45rem .8rem;color:var(--charcoal)}
+  .top .nav a[href$="manual-builder/"]:hover,.top .nav a[href$="manual-builder/index.html"]:hover,.top .nav a[href$="manual-builder/"]:focus-visible,.top .nav a[href$="manual-builder/index.html"]:focus-visible{background:var(--dusty-aa);border-color:var(--dusty-aa);color:var(--charcoal)}
+  .top .nav a[href$="manual-builder/"][aria-current="page"],.top .nav a[href$="manual-builder/index.html"][aria-current="page"]{border-color:var(--deep);color:var(--deep)}
+}
