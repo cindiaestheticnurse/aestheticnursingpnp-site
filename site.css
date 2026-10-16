@@ -1274,3 +1274,6 @@ h2.mb-intake-head{margin:0 0 .4rem;line-height:1.08;font-size:clamp(1.7rem,1rem 
 .find3 li:last-child{background:linear-gradient(100deg,#8A4F4F,#74403F);border-left:3px solid #D9AFAC;box-shadow:0 14px 28px -16px rgba(0,0,0,.8)}
 .find3 li:last-child b,.find3 li:last-child span{color:var(--ivory)}
 @media (max-width:560px){.find3 li:first-child b{font-size:3rem}}
+.doc .opt-btn{background:transparent;color:var(--charcoal);border:1px solid var(--charcoal);padding:.8rem 1.2rem;font-size:.8rem;cursor:pointer}
+.doc .opt-btn:hover,.doc .opt-btn:focus-visible{background:var(--charcoal);color:var(--ivory)}
+.doc .opt-btn[aria-pressed="true"]{background:var(--deep);border-color:var(--deep);color:var(--ivory)}
