@@ -45,20 +45,27 @@ footer.sbf{background:var(--charcoal);color:rgba(242,234,228,.88);border-top:3px
 /* Hero card lines up with the top of the title */
 @media (min-width:901px){#view-blueprint .hero{align-items:start}#view-blueprint .hero-card{align-self:start;margin-top:var(--bp-title-offset,2.35rem)}}
 .sb-skip{position:absolute;left:1rem;top:-60px;z-index:100;background:#2B2926;color:#F2EAE4!important;padding:.7rem 1rem;font-family:"Jost",system-ui,sans-serif;font-size:.9rem;text-decoration:none}.sb-skip:focus{top:.6rem;outline:2px solid #8A4F4F;outline-offset:2px}
-/* Hero stat tiles: separated cards; cost-recovery tile highlighted */
-#view-blueprint .stat-row{background:none;border:0;gap:1rem;margin-top:2rem}
-#view-blueprint .stat-row div{background:#fff;border:1px solid rgba(107,102,95,.25);border-top:3px solid #B87E7E;box-shadow:0 10px 24px rgba(43,41,38,.08);padding:1.1rem 1.1rem 1.2rem}
-#view-blueprint .stat-row div.stat-hi{background:#2B2926;border-color:#2B2926;border-top-color:#BD8786;box-shadow:0 14px 30px rgba(43,41,38,.3)}
-#view-blueprint .stat-row div.stat-hi b{color:#BD8786;font-weight:500}
-#view-blueprint .stat-row div.stat-hi span{color:#F2EAE4}
+/* Hero stats: full-width row of three equal tiles under the intro and photo */
+#view-blueprint .hero-stats{grid-column:1/-1}
+#view-blueprint .hero-actions .tiny{max-width:none}
+#view-blueprint .stat-row{display:grid;grid-template-columns:repeat(3,1fr);gap:1.25rem;background:none;border:0;margin:0}
+#view-blueprint .stat-row div{display:flex;flex-direction:column;background:#fff;border:1px solid rgba(107,102,95,.25);border-top:3px solid #B87E7E;box-shadow:0 10px 24px rgba(43,41,38,.08);padding:1.4rem 1.5rem 1.5rem}
+#view-blueprint .stat-row div b{font-size:clamp(2rem,3vw,2.6rem);line-height:1.05;margin-bottom:.55rem}
+#view-blueprint .stat-row div span{font-size:.92rem;line-height:1.55}
+#view-blueprint .stat-row div.stat-key{background:#2B2926;border-color:#2B2926;border-top-color:#BD8786;box-shadow:0 16px 34px rgba(43,41,38,.28)}
+#view-blueprint .stat-row div.stat-key b{color:#fff;font-weight:500}
+#view-blueprint .stat-row div.stat-key span{color:#F2EAE4}
+#view-blueprint .stat-row div.stat-key .stat-tag{order:-1;font-size:.68rem;letter-spacing:.16em;text-transform:uppercase;font-weight:600;color:#BD8786;margin-bottom:.5rem}
+#view-blueprint .stat-row div.stat-key .stat-link{margin-top:auto;padding-top:1rem;color:#fff!important;font-size:.8rem;font-weight:500;letter-spacing:.06em;text-transform:uppercase;text-decoration:underline;text-underline-offset:4px;border:0;align-self:flex-start}
+#view-blueprint .stat-row div.stat-key .stat-link:hover{color:#BD8786!important}
+#view-blueprint .stat-row div.stat-key .stat-link:focus-visible{outline:2px solid #fff;outline-offset:3px}
+#view-blueprint .stat-row div.stat-hi{background:#6B665F;border-color:#6B665F;border-top-color:#F2EAE4;box-shadow:0 14px 30px rgba(43,41,38,.2)}
+#view-blueprint .stat-row div.stat-hi b{color:#fff;font-weight:500}
+#view-blueprint .stat-row div.stat-hi span{color:#fff}
+#view-blueprint .hero-stats .cite{margin-top:.9rem}
+@media (max-width:900px){#view-blueprint .stat-row{grid-template-columns:1fr}}
 #view-blueprint .cred{grid-template-columns:1fr auto;column-gap:1rem}
 #view-blueprint .cred span:nth-child(even){text-align:right;white-space:nowrap}
-/* Keep header colors identical to the main site (the Blueprint's older link colors would otherwise win) */
-.sbt .sbt-nav a{color:#2B2926!important}
-.sbt .sbt-nav a:hover{color:#8A4F4F!important}
-.sbt .sbt-nav .sbt-ce:hover{color:#F2EAE4!important}
-.sbt .sbt-book,.sbt .sbt-book:hover{color:#F2EAE4!important}
-@media (min-width:901px){#view-blueprint .hero-card{margin-top:calc(var(--bp-title-offset,2.35rem) + 5px)}}
 .menu-group header{gap:1rem}.menu-group header h3 + .tiny{margin-right:auto}
 @media print{
   .sbt,.sbf,.sb-skip,#view-blueprint .hero,.kw-banner,.spine,.stage-foot,#sendForm .field,#sendForm .btn,.toast{display:none!important}
@@ -66,14 +73,10 @@ footer.sbf{background:var(--charcoal);color:rgba(242,234,228,.88);border-top:3px
   .wizard{display:block!important;border:0!important;box-shadow:none!important}
   .stage{padding:0!important}
 }
-/* Key stat: standardized procedures (warm gray, lifted, with a Manual Builder link) */
-#view-blueprint .stat-row div.stat-key{background:#6B665F;border-color:#6B665F;border-top:3px solid #F2EAE4;box-shadow:0 16px 34px rgba(43,41,38,.3);transform:translateY(-6px);display:flex;flex-direction:column}
-#view-blueprint .stat-row div.stat-key b{color:#fff;font-weight:500}
-#view-blueprint .stat-row div.stat-key span{color:#F2EAE4}
-#view-blueprint .stat-row div.stat-key .stat-tag{font-size:.66rem;letter-spacing:.16em;text-transform:uppercase;font-weight:600;color:#fff;margin-bottom:.35rem}
-#view-blueprint .stat-row div.stat-key .stat-link{margin-top:.8rem;color:#fff!important;font-size:.78rem;font-weight:500;text-decoration:underline;text-underline-offset:3px;border:0}
-#view-blueprint .stat-row div.stat-key .stat-link:hover{color:#F2EAE4!important}
-#view-blueprint .stat-row div.stat-key .stat-link:focus-visible{outline:2px solid #fff;outline-offset:3px}
-@media (max-width:900px){#view-blueprint .stat-row div.stat-key{transform:none}}
-@media (min-width:901px){#view-blueprint .stat-row{grid-template-columns:1.35fr 1fr 1fr}}
-#view-blueprint .stat-row div span{line-height:1.55}
+/* Keep header colors identical to the main site */
+.sbt .sbt-nav a{color:#2B2926!important}
+.sbt .sbt-nav a:hover{color:#8A4F4F!important}
+.sbt .sbt-nav .sbt-ce:hover{color:#F2EAE4!important}
+.sbt .sbt-book,.sbt .sbt-book:hover{color:#F2EAE4!important}
+@media (min-width:901px){#view-blueprint .hero{align-items:start}#view-blueprint .hero-card{align-self:start;margin-top:calc(2.35rem + 5px)}}
+.sb-skip{position:absolute;left:1rem;top:-60px;z-index:100;background:#2B2926;color:#F2EAE4!important;padding:.7rem 1rem;font-family:"Jost",system-ui,sans-serif;font-size:.9rem;text-decoration:none}.sb-skip:focus{top:.6rem;outline:2px solid #8A4F4F;outline-offset:2px}
