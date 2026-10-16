@@ -262,7 +262,7 @@
             ${modLine}
             ${o.includes.length ? `<ul>${o.includes.map(i => `<li>${esc(i)}</li>`).join("")}</ul>` : ""}
             ${o.note ? `<p class="tiny">${esc(o.note)}</p>` : ""}
-            <a class="btn primary" href="#sendForm" style="margin-top:.6rem">Book the free 30-minute call</a>
+            <a class="btn primary" href="#sendForm" style="margin-top:.6rem">Book a Free Consult</a>
             ${sec.length || wantsDigital() ? `<div class="also"><span class="label">Also worth a look</span>
               ${sec.map(c => `<div><a class="ce-link" href="${esc(c.url)}" target="_blank" rel="noopener">${esc(c.name)}<span class="sr">(Opens in a New Tab)</span> ↗</a><span class="muted">${esc(c.meta)}</span></div>`).join("")}
               ${wantsDigital() ? `<div><span>${esc(OFFERS.digital.name)}</span><span class="muted">${esc(OFFERS.digital.price)}</span></div>` : ""}</div>` : ""}
@@ -346,6 +346,7 @@
         const copy = window.BP_VISITOR_TEMPLATE ? send(window.BP_VISITOR_TEMPLATE, { to_email: S.contact.email.trim(), to_name: S.contact.name.trim(), reply_to: "cindiaestheticnurse@gmail.com", blueprint: text }) : Promise.resolve();
         Promise.all([lead, copy]).then(() => {
           S.sent = true; const c = $("#confirm"); c.classList.add("show"); c.focus(); toast("Your Blueprint Was Sent.");
+          try { if (typeof window.gtag === "function") window.gtag("event", "generate_lead", { form_name: "binder_blueprint", page_path: location.pathname }); (window.dataLayer = window.dataLayer || []).push({ event: "generate_lead", form_name: "binder_blueprint" }); } catch (e) {}
         }).catch(() => { btn.disabled = false; toast("Sorry, That Didn’t Send. Please Try Again or Email cindiaestheticnurse@gmail.com."); });
       };
     }
