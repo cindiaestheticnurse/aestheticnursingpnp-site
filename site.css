@@ -1165,7 +1165,7 @@ main:focus{outline:none}
 
 /* Home hero (2026-10): charcoal manual button, dusty-rose consult button; hero fills the first screen so the next band starts below the fold */
 .hero .cta-row .btn.btn-manual{background:var(--charcoal);border-color:var(--charcoal);color:var(--ivory)}
-.hero .cta-row .btn.btn-manual:hover,.hero .cta-row .btn.btn-manual:focus-visible{background:var(--dusty-aa);border-color:var(--dusty-aa);color:var(--charcoal)}
+.hero .cta-row .btn.btn-manual:hover,.hero .cta-row .btn.btn-manual:focus-visible{background:var(--charcoal);border-color:var(--charcoal);color:var(--ivory);box-shadow:0 10px 24px rgba(43,41,38,.28);transform:translateY(-1px)}.hero .cta-row .btn.btn-manual:focus-visible{outline:2px solid var(--deep);outline-offset:3px}
 .hero .cta-row .btn.primary{background:var(--dusty-aa);border-color:var(--dusty-aa);color:var(--charcoal)}
 .hero .cta-row .btn.primary:hover,.hero .cta-row .btn.primary:focus-visible{background:var(--gray);border-color:var(--gray);color:var(--ivory)}
 @media (min-width:901px){
