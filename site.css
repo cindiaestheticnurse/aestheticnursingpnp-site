@@ -1068,7 +1068,7 @@ main:focus{outline:none}
 
 /* Forms: live status + required note */
 .lv-req{font-size:.82rem;margin:.6rem 0 0;color:rgba(242,234,228,.8)}
-.ok{margin-top:1rem;padding:1rem 1.2rem;background:rgba(47,93,70,.12);border-left:4px solid #2F5D46;color:inherit}
+.ok{margin-top:1rem;padding:1rem 1.2rem;background:rgba(184,126,126,.16);border-left:4px solid var(--deep);color:var(--charcoal)}
 .dark .ok{background:rgba(242,234,228,.1);border-left-color:var(--dusty-aa)}
 .ok .text-link{background:none;border:0;padding:0;margin-left:.4rem;cursor:pointer;color:inherit;text-decoration:underline;font:inherit}
 .picked{background:rgba(184,126,126,.14);border-left:4px solid var(--deep);padding:.8rem 1rem;margin:0 0 1.2rem;font-size:.92rem}
@@ -1095,7 +1095,7 @@ main:focus{outline:none}
 .contact-page .form .btn.primary{background:var(--charcoal);border-color:var(--charcoal);color:var(--ivory)}
 .contact-page .form .btn.primary:hover{background:var(--deep);border-color:var(--deep)}
 .contact-page .form .lv-req{color:var(--gray)}
-.contact-page .form .ok{background:rgba(47,93,70,.1);border-left-color:#2F5D46;color:var(--charcoal)}
+.contact-page .form .ok{background:rgba(184,126,126,.16);border-left-color:var(--deep);color:var(--charcoal)}
 
 /* ===== Blog (V9 styling) ===== */
 .post-hero h1{max-width:28ch;font-size:clamp(2.1rem,1.4rem + 2.2vw,3.3rem);line-height:1.12}
