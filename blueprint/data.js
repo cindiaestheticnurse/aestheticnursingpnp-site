@@ -51,14 +51,14 @@ window.OFFERS = {
 };
 
 window.CE_COURSES = {
-  vo:   { name: "Management of Vascular Occlusions", meta: "2 CE · $80" },
-  gfe:  { name: "The Good Faith Exam", meta: "1 CE · $40" },
-  sp:   { name: "Standardized Procedures: An Overview", meta: "1 CE · $40" },
-  neuro:{ name: "Neuromodulator Treatments of the Face & Neck", meta: "1 CE · $40" },
-  hyal: { name: "A Review of Hyaluronidase", meta: "1 CE · $40" },
-  ha:   { name: "HA Dermal Fillers: History, Rheology & Regulations", meta: "1 CE · $40" },
-  consent:{ name: "Informed Consent: A Comprehensive Overview", meta: "1 CE · $40" },
-  c2a:  { name: "From Complaint to Accusation", meta: "2 CE · $80" }
+  vo:   { name: "Management of Vascular Occlusions", meta: "2 CE", url: "https://aestheticnursingces.com/course/vascular-occlusions" },
+  gfe:  { name: "The Good Faith Exam", meta: "1 CE", url: "https://aestheticnursingces.com/course/good-faith-exam" },
+  sp:   { name: "Standardized Procedures: An Overview", meta: "1 CE · Free", url: "https://aestheticnursingces.com/course/standardized-procedures-overview" },
+  neuro:{ name: "Neuromodulator Treatments of the Face & Neck", meta: "1 CE", url: "https://aestheticnursingces.com/course/neuromodulator-face-neck" },
+  hyal: { name: "A Review of Hyaluronidase", meta: "1 CE", url: "https://aestheticnursingces.com/course/hyaluronidase" },
+  ha:   { name: "HA Dermal Fillers: History, Rheology & Regulations", meta: "1 CE", url: "https://aestheticnursingces.com/course/hyaluronic-acid-dermal-fillers" },
+  consent:{ name: "Informed Consent: A Comprehensive Overview", meta: "1 CE", url: "https://aestheticnursingces.com/course/informed-consent" },
+  c2a:  { name: "From Complaint to Accusation", meta: "2 CE", url: "https://aestheticnursingces.com/course/complaint-accusation" }
 };
 
 /* ---------- Treatment fields, verbatim from the customized P&P list ---------- */

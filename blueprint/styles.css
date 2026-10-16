@@ -258,3 +258,5 @@ pre.payload{background:#2B2926;color:#F2EAE4;padding:1rem;font-size:.76rem;overf
 .brand-logo{height:46px;width:auto;display:block}
 @media(max-width:900px){.brand-logo{height:38px}}
 a.tab{text-decoration:none}
+
+.also .ce-link{color:var(--deep,#8A4F4F);text-decoration:underline;text-underline-offset:3px}.also .ce-link:hover,.also .ce-link:focus-visible{color:#2B2926}.also .sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
