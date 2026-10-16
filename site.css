@@ -1246,3 +1246,13 @@ h2.mb-intake-head{margin:0 0 .4rem;line-height:1.08;font-size:clamp(1.7rem,1rem 
 .tm-cta .text-link{align-self:center}
 .cl-box .form{background:none;border:0;box-shadow:none;padding:0;margin:0}
 .cl-box .form::before{display:none}
+
+/* Hero: buttons side by side, bottom-aligned with the hero image on desktop */
+@media (min-width:1101px){
+  .hero .hero-grid{align-items:stretch}
+  .hero .hero-grid>div{display:flex;flex-direction:column}
+  .hero .hero-img{align-self:start}
+  .hero .cta-row{flex-direction:row;flex-wrap:nowrap;max-width:none;margin-top:auto;padding-top:1.5rem}
+  .hero .cta-row .btn{flex:0 0 auto}
+}
+.hero .hero-free{align-self:flex-start;margin-top:.9rem}
