@@ -26,7 +26,7 @@
 <link rel="manifest" href="../site.webmanifest">
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="../site.css?v=16">
+<link rel="stylesheet" href="../site.css?v=17">
 <script type="application/ld+json">
 {
  "@context": "https://schema.org",
@@ -184,6 +184,13 @@
         <p class="mb-err" id="mbErr" role="alert" hidden></p>
         <button type="button" class="btn primary" id="mbSubmit">Submit for Cindi’s Review</button>
         <div class="ok" id="mbOk" tabindex="-1" hidden><b>Thank You. Your Intake Was Sent to Cindi.</b> You’ll Receive a Reply Within Two Business Days.</div>
+        <div class="mb-wait mb-intake-only" id="mbWait">
+          <h4 class="mb-sub">Get on the Waitlist</h4>
+          <p class="mb-fine">Online Ordering Opens Soon. Join the Waitlist With Your Name and Email Above, and I’ll Email You When the Manual Builder Opens, Along With Launch Pricing.</p>
+          <button type="button" class="btn" id="mbWaitBtn">Get on the Waitlist</button>
+          <p class="mb-fine">I’ll Only Use Your Details to Contact You About the Manual Builder. See the <a href="../privacy/">Privacy Policy</a>.</p>
+        </div>
+        <div class="ok" id="mbWaitOk" tabindex="-1" hidden><b>You’re on the List.</b> I’ll Email You When the Manual Builder Opens.</div>
         <div class="ok mb-built" id="mbBuilt" tabindex="-1" hidden><b>Your Manual Is Ready.</b> <span id="mbBuiltMsg"></span>
           <a class="btn primary" id="mbDash" href="https://aestheticnursingces.com/dashboard?tab=manuals" target="_blank" rel="noopener">Open My Manuals ↗<span class="sr">(Opens in a New Tab)</span></a></div>
       </fieldset>
@@ -242,7 +249,7 @@
 
 <script>window.SITE_ROOT="../";</script>
 <script src="../blueprint/data.js?v=12"></script>
-<script src="../site.js?v=4"></script>
+<script src="../site.js?v=5"></script>
 <script src="../titlecase.js?v=10"></script>
 </body>
 </html>

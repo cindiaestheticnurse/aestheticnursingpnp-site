@@ -242,6 +242,15 @@
       sendEmail({ name:val('name'), email:val('email'), phone:val('phone'), state:val('state'), practice_name:val('practice'), interest:'Manual Builder Intake', notes:intakeNotes(flags) }).catch(()=>{});
       submit.hidden = true; const ok = $('#mbOk'); ok.hidden = false; ok.focus();
     };
+    const waitBtn = $('#mbWaitBtn');
+    if (waitBtn) waitBtn.onclick = () => {
+      showErr('');
+      const need = ['name','email'].map(n => form.elements[n]).find(i => i && (!i.value.trim() || !i.checkValidity()));
+      if (need) return showErr(need.name === 'email' ? 'Please Enter a Valid Email to Join the Waitlist.' : 'Please Enter Your Name to Join the Waitlist.', need);
+      sendEmail({ name:val('name'), email:val('email'), phone:val('phone'), state:val('state'), practice_name:val('practice'), interest:'Manual Builder Waitlist',
+        notes:'Joined the Manual Builder Waitlist.\n' + intakeNotes(draft()) }).catch(()=>{});
+      $('#mbWait').hidden = true; const ok = $('#mbWaitOk'); ok.hidden = false; ok.focus();
+    };
     const FIELD = { practice_name:'practice', medical_director:'medical_director', address1:'address1', email:'email', logo:'logo', ack:'ack', state:'state' };
     submit.onclick = async () => {
       showErr('');
