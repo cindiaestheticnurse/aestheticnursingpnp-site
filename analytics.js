@@ -5,7 +5,7 @@
    Form events come from site.js (generate_lead, form_error, click_phone, click_calendar, click_email,
    click_google_review, file_download) and never include what the visitor typed. */
 (function () {
-  var GA_ID = '';
+  var GA_ID = 'G-GE26L4E1W5';
   var OPT_KEY = 'anpnp_analytics_off';
   function optedOut() {
     try { if (localStorage.getItem(OPT_KEY) === '1') return true; } catch (e) {}
