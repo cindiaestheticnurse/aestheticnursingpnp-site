@@ -141,6 +141,296 @@
   </div>
 </section>
 
+<section class="band paper" id="estimate">
+<style>
+#estimate .ap-head{max-width:64ch;margin-bottom:2.5rem}
+#estimate .ap-lede{color:var(--gray);margin:1rem 0 0}
+#estimate .ap-grid{display:grid;grid-template-columns:minmax(0,1.05fr) minmax(0,1fr);gap:clamp(1.8rem,4vw,3rem);align-items:start}
+@media (max-width:900px){#estimate .ap-grid{grid-template-columns:minmax(0,1fr)}}
+#estimate form{display:flex;flex-direction:column;gap:2rem;min-width:0}
+#estimate fieldset{border:0;margin:0;padding:0;display:flex;flex-direction:column;gap:.8rem;min-width:0}
+#estimate legend{font-family:var(--display);font-size:1.6rem;font-weight:400;line-height:1.2;padding:0;margin-bottom:.4rem;color:var(--charcoal)}
+#estimate .ap-hint{font-size:.95rem;color:var(--gray);margin:-.3rem 0 0}
+#estimate .ap-paths,#estimate .ap-row,#estimate .ap-checks{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:.7rem}
+#estimate .ap-checks{gap:.55rem 1.2rem}
+@media (max-width:520px){#estimate .ap-paths,#estimate .ap-row,#estimate .ap-checks{grid-template-columns:minmax(0,1fr)}}
+#estimate .ap-path{position:relative;display:flex;flex-direction:column;gap:.25rem;padding:1rem 1.1rem;border:1px solid var(--line);border-top:3px solid transparent;background:#fff;cursor:pointer;box-shadow:var(--shadow);transition:border-color .2s var(--ease)}
+#estimate .ap-path input{position:absolute;opacity:0;pointer-events:none}
+#estimate .ap-path strong{font-family:var(--display);font-weight:400;font-size:1.25rem;line-height:1.2}
+#estimate .ap-path span{font-size:.92rem;color:var(--gray)}
+#estimate .ap-path:has(input:checked){border-color:var(--charcoal);border-top-color:var(--dusty)}
+#estimate .ap-path:has(input:focus-visible){outline:3px solid var(--deep);outline-offset:3px}
+#estimate label.ap-field{display:flex;flex-direction:column;gap:.4rem;font-size:.95rem;font-weight:500}
+#estimate input[type=number],#estimate select{font:inherit;font-weight:400;font-size:1rem;padding:.7rem .8rem;border:1px solid var(--line);border-radius:0;background:#fff;color:var(--charcoal);width:100%}
+#estimate .ap-checks label{display:flex;gap:.6rem;align-items:flex-start;font-size:1rem;cursor:pointer}
+#estimate .ap-checks input,#estimate .ap-seg input{margin-top:.3rem;accent-color:var(--deep);width:16px;height:16px;flex:none}
+#estimate .ap-seg{display:flex;flex-wrap:wrap;gap:.6rem}
+#estimate .ap-seg label{flex:1 1 150px;display:flex;gap:.55rem;align-items:center;padding:.7rem .85rem;border:1px solid var(--line);background:#fff;font-size:.98rem;cursor:pointer}
+#estimate .ap-seg label:has(input:checked){border-color:var(--charcoal);box-shadow:inset 0 0 0 1px var(--charcoal)}
+#estimate .ap-seg input{margin-top:0}
+#estimate .ap-sheet{position:sticky;top:96px;background:var(--charcoal);color:var(--ivory);border-top:3px solid var(--dusty);padding:clamp(1.4rem,3vw,2rem);display:flex;flex-direction:column;gap:1.3rem;min-width:0;box-shadow:var(--shadow-lg)}
+@media (max-width:900px){#estimate .ap-sheet{position:static}}
+#estimate .ap-sheet .eyebrow{color:var(--dusty-aa);margin:0}
+#estimate .ap-scope{margin:0;font-size:1rem;color:rgba(242,234,228,.78)}
+#estimate .ap-scope b{color:var(--ivory)}
+#estimate .ap-figs{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:1rem;border-top:1px solid var(--line-d);padding-top:1.1rem}
+#estimate .ap-fig{display:flex;flex-direction:column;gap:.15rem;min-width:0}
+#estimate .ap-fig small{font-size:.75rem;font-weight:500;letter-spacing:.2em;text-transform:uppercase;color:rgba(242,234,228,.72)}
+#estimate .ap-fig output{font-family:var(--display);font-weight:400;font-size:clamp(2rem,1.4rem + 1.6vw,2.7rem);line-height:1.1;font-variant-numeric:lining-nums tabular-nums}
+#estimate .ap-fig .ap-sub{font-size:.85rem;color:rgba(242,234,228,.72)}
+#estimate .ap-price output{color:var(--dusty-aa)}
+#estimate table{width:100%;border-collapse:collapse;font-size:.92rem;font-variant-numeric:tabular-nums}
+#estimate td{padding:.45rem 0;border-bottom:1px solid var(--line-d);vertical-align:top;color:var(--ivory)}
+#estimate td:last-child{text-align:right;white-space:nowrap;padding-left:.8rem}
+#estimate tr.ap-total td{font-weight:500;border-bottom:0;padding-top:.65rem}
+#estimate .ap-block{display:flex;flex-direction:column;gap:.35rem;min-width:0}
+#estimate .ap-block-h{margin:0;font-size:.75rem;font-weight:500;letter-spacing:.2em;text-transform:uppercase;color:rgba(242,234,228,.72)}
+#estimate .ap-code{margin:.3rem 0 0;font-size:.88rem;color:rgba(242,234,228,.72);display:flex;flex-wrap:wrap;gap:.5rem;align-items:center}
+#estimate .ap-code code{font-family:ui-monospace,Menlo,Consolas,monospace;font-size:.85rem;color:var(--ivory);background:rgba(242,234,228,.12);padding:.1rem .4rem;overflow-wrap:anywhere}
+#estimate .ap-code button{font:inherit;font-size:.78rem;letter-spacing:.08em;text-transform:uppercase;padding:.2rem .7rem;border:1px solid rgba(242,234,228,.6);border-radius:0;background:transparent;color:var(--ivory);cursor:pointer}
+#estimate .ap-said{margin:0;font-size:.95rem;line-height:1.6}
+#estimate .ap-sheet .btn{align-self:stretch}
+#estimate details{font-size:.88rem;color:rgba(242,234,228,.75)}
+#estimate summary{cursor:pointer;color:var(--ivory);font-weight:500}
+#estimate details p{margin:.5rem 0 0}
+#estimate .ap-note{font-size:.88rem;padding:.6rem .8rem;border-left:3px solid var(--dusty);margin:0}
+#estimate .ap-fine{font-size:.8rem;line-height:1.5;color:rgba(242,234,228,.7);margin:0}
+</style>
+<div class="wrap">
+<div class="ap-head">
+<span class="eyebrow">Scope &amp; Investment Estimator</span>
+<h2>What Would It Cost to Get This Right <em>Another Way?</em></h2>
+<p class="ap-lede">Answer Five Questions. You'll See the Scope of Custom Work Your Practice Needs, What the Usual Alternative Route Costs, and the Investment for Doing It With Cindi.</p>
+</div>
+
+<div class="ap-grid">
+<form id="ap-form" novalidate>
+<fieldset>
+<legend>Where Are You Right Now?</legend>
+<div class="ap-paths">
+<label class="ap-path"><input type="radio" name="path" id="ap-p-review" value="review"><strong>I Have a Binder. Is It Board-Ready?</strong><span>Compliance Audit · one provider, one state, written findings</span></label>
+<label class="ap-path"><input type="radio" name="path" id="ap-p-team" value="team" checked><strong>One Location With a Team</strong><span>Custom policies, standardized procedures, team training</span></label>
+<label class="ap-path"><input type="radio" name="path" id="ap-p-launch" value="launch"><strong>I'm Opening a Practice</strong><span>Built before day one, delivered in 21 days</span></label>
+<label class="ap-path"><input type="radio" name="path" id="ap-p-multi" value="multi"><strong>Several Locations</strong><span>One standard, adapted to each site</span></label>
+</div>
+</fieldset>
+
+<fieldset>
+<legend>Your Practice</legend>
+<div class="ap-row">
+<label class="ap-field" id="ap-prov-wrap">Licensed Providers (RNs, NPs, PAs)<input type="number" id="ap-prov" min="1" max="60" value="5" inputmode="numeric"></label>
+<label class="ap-field" id="ap-loc-wrap" hidden>Locations<input type="number" id="ap-loc" min="2" max="12" value="3" inputmode="numeric"></label>
+<label class="ap-field">State You Practice In<select id="ap-state"><option value="OT" selected>Select Your State</option><option value="AL">Alabama</option><option value="AK">Alaska</option><option value="AZ">Arizona</option><option value="AR">Arkansas</option><option value="CA">California</option><option value="CO">Colorado</option><option value="CT">Connecticut</option><option value="DE">Delaware</option><option value="DC">District of Columbia</option><option value="FL">Florida</option><option value="GA">Georgia</option><option value="HI">Hawaii</option><option value="ID">Idaho</option><option value="IL">Illinois</option><option value="IN">Indiana</option><option value="IA">Iowa</option><option value="KS">Kansas</option><option value="KY">Kentucky</option><option value="LA">Louisiana</option><option value="ME">Maine</option><option value="MD">Maryland</option><option value="MA">Massachusetts</option><option value="MI">Michigan</option><option value="MN">Minnesota</option><option value="MS">Mississippi</option><option value="MO">Missouri</option><option value="MT">Montana</option><option value="NE">Nebraska</option><option value="NV">Nevada</option><option value="NH">New Hampshire</option><option value="NJ">New Jersey</option><option value="NM">New Mexico</option><option value="NY">New York</option><option value="NC">North Carolina</option><option value="ND">North Dakota</option><option value="OH">Ohio</option><option value="OK">Oklahoma</option><option value="OR">Oregon</option><option value="PA">Pennsylvania</option><option value="RI">Rhode Island</option><option value="SC">South Carolina</option><option value="SD">South Dakota</option><option value="TN">Tennessee</option><option value="TX">Texas</option><option value="UT">Utah</option><option value="VT">Vermont</option><option value="VA">Virginia</option><option value="WA">Washington</option><option value="WV">West Virginia</option><option value="WI">Wisconsin</option><option value="WY">Wyoming</option></select></label>
+<label class="ap-field" id="ap-rev-wrap">Yearly Revenue per Location<select id="ap-rev"><option value="350000">Under $500k</option><option value="750000">$500k – $1M</option><option value="1398833" selected>$1M – $2M</option><option value="2500000">Over $2M</option></select></label>
+</div>
+</fieldset>
+
+<fieldset>
+<legend>Treatments You Offer</legend>
+<p class="ap-hint">Each category needs its own standardized procedure, so this sets most of the scope.</p>
+<div class="ap-checks" id="ap-mods">
+<label><input type="checkbox" checked>Neuromodulators</label>
+<label><input type="checkbox" checked>Dermal Fillers</label>
+<label><input type="checkbox" checked>Microneedling &amp; Chemical Peels</label>
+<label><input type="checkbox">Lasers, IPL &amp; Energy Devices</label>
+<label><input type="checkbox">IV Therapy</label>
+<label><input type="checkbox">Weight-Loss Medications</label>
+<label><input type="checkbox">PRP / Regenerative</label>
+<label><input type="checkbox">Sclerotherapy</label>
+</div>
+</fieldset>
+
+<fieldset id="ap-docs-wrap">
+<legend>Your Written Policies Today</legend>
+<div class="ap-seg">
+<label><input type="radio" name="docs" value="none">None Yet</label>
+<label><input type="radio" name="docs" value="old" checked>Out of Date or Borrowed</label>
+<label><input type="radio" name="docs" value="cur">Current, Needs a Check</label>
+</div>
+</fieldset>
+</form>
+
+<aside class="ap-sheet dark no-tc" aria-live="polite">
+<span class="eyebrow" id="ap-tier">Team Readiness · One Location</span>
+<p class="ap-scope" id="ap-scope"></p>
+<div class="ap-figs">
+<div class="ap-fig"><small>The Other Route</small><output id="ap-alt">—</output><span class="ap-sub" id="ap-alt-sub"></span></div>
+<div class="ap-fig ap-price"><small>Your Investment</small><output id="ap-price">—</output><span class="ap-sub">50% to begin, balance on delivery</span></div>
+</div>
+<div class="ap-block">
+<p class="ap-block-h">Your Estimate</p>
+<table aria-label="Estimate line items"><tbody id="ap-est"></tbody></table>
+<p class="ap-code">Estimate Code <code id="ap-code"></code> <button type="button" id="ap-copy">Copy</button><span id="ap-copied" hidden> Copied</span></p>
+</div>
+<div class="ap-block">
+<p class="ap-block-h">How the Other Route Adds Up</p>
+<table aria-label="What the other route costs"><tbody id="ap-lines"></tbody></table>
+</div>
+<p class="ap-said" id="ap-said"></p>
+<p class="ap-note" id="ap-state-note" hidden></p>
+<a class="btn primary on-dark" id="ap-cta" href="../contact/">Book a Free 30-Minute Consultation</a>
+<details>
+<summary>How This Is Estimated</summary>
+<p>Attorney time is priced at published healthcare-attorney rates ($350–$500 an hour). Your time uses national wage and owner-income data. Risk uses general-nursing complaint and discipline rates and the published average cost of a license defense. No published data covers aesthetic nurses specifically, and the share of risk that good policies remove has never been measured, so we assume 30% and show the result small, with its probability, never alone.</p>
+<p id="ap-bad"></p>
+</details>
+<p class="ap-fine">Estimates for planning only, based on published averages and the answers above; not a prediction of your outcome. Not legal advice: Aesthetic Nursing Policy &amp; Procedures, Inc. is not a law firm, and this work goes alongside your attorney and medical director, not in place of them. Good documentation lowers risk but cannot remove it, and no outcome is guaranteed. Final price is confirmed in writing after a consultation. Penalty references reflect state law as of October 2026 and can change.</p>
+</aside>
+</div>
+</div>
+<script>
+(function(){
+/* ---- Configuration (edit here) ---- */
+var CONFIG = { bookingUrl: "../contact/" };
+
+/* ---- Built-in assumptions: same values as the Inputs tab of the pricing model ---- */
+var A = {
+atty:400, attyLo:350, attyHi:500, rn:48.76, nurseOwner:90, owner:150, earn:101420,
+pc:0.02, pd:0.10, def:6304, rhrs:30, fine:3000, mos:1, prem:1500, rce:300, rl:0.03, rr:0.30,
+ramp:35000, margin:0.225, target:200, ohHr:36.27, proc:0.03, refund:0.03, capture:0.5
+};
+var SCOMP = A.def + A.rhrs*A.rn;
+var SDISC = A.fine + A.mos*A.earn/12 + A.prem + A.rce;
+var BAD = 50000 + 2*10000 + 6*A.earn/12;
+var DOCS = {none:1.2, old:1.0, cur:0.75};
+/* ---- Price bands: same as the Price Bands tab and the GHL products ---- */
+var BANDS = {
+review: {base:950, cat:150},
+team: {bands:[[3,5200,"B1","1–3"],[6,6400,"B2","4–6"],[10,8000,"B3","7–10"],[15,10000,"B4","11–15"],[20,12000,"B5","16–20"]], cat:600, loc:2000, build:0.20, refresh:0.15, teamMax:10, locMax:8},
+launch: {bands:[[3,10700,"B1","1–3"],[6,11800,"B2","4–6"],[10,13800,"B3","7–10"]], cat:700}
+};
+function up100(x){return Math.ceil(x/100)*100}
+function down100(x){return Math.floor(x/100)*100}
+function quote(s){
+var ex = Math.max(0, s.mods-3), lines = [], code = [];
+if (s.path==="review"){
+lines.push(["Compliance Audit · up to 3 treatment categories", BANDS.review.base]); code.push("REVIEW");
+if (ex) { lines.push(["Additional treatment categories × "+ex, BANDS.review.cat*ex]); code.push("CAT×"+ex); }
+} else if (s.path==="launch"){
+var lb = BANDS.launch.bands.filter(function(b){return s.prov<=b[0]})[0];
+if (!lb) return {custom:"Launches with more than 10 providers are scoped individually."};
+lines.push(["Fast-Track Launch · "+lb[3]+" providers · built from scratch", lb[1]]); code.push("LAUNCH-"+lb[2]);
+if (ex) { lines.push(["Additional treatment categories × "+ex, BANDS.launch.cat*ex]); code.push("CAT×"+ex); }
+} else {
+var T = BANDS.team, multi = s.path==="multi";
+if (!multi && s.prov>T.teamMax) return {custom:"One location with more than 10 providers is scoped individually."};
+if (multi && s.loc>T.locMax) return {custom:"More than 8 locations is scoped individually."};
+var tb = T.bands.filter(function(b){return s.prov<=b[0]})[0];
+if (!tb) return {custom:"More than 20 providers is scoped individually."};
+lines.push([(multi?"One standard · ":"Team readiness · ")+tb[3]+" providers", tb[1]]); code.push("TEAM-"+tb[2]);
+if (ex) { lines.push(["Additional treatment categories × "+ex, T.cat*ex]); code.push("CAT×"+ex); }
+if (multi) { lines.push(["Additional locations × "+(s.loc-1), T.loc*(s.loc-1)]); code.push("LOC×"+(s.loc-1)); }
+var sub = lines.reduce(function(a,l){return a+l[1]},0);
+if (s.docs==="none"){ lines.push(["Built from scratch · +20%", up100(sub*T.build)]); code.push("BUILD"); }
+if (s.docs==="cur"){ lines.push(["Refresh of current policies · −15%", -down100(sub*T.refresh)]); code.push("REFRESH"); }
+}
+return {lines:lines, code:code.join(" · "), total:lines.reduce(function(a,l){return a+l[1]},0)};
+}
+var TIER = {review:"Compliance Audit", team:"Team Readiness · One Location", launch:"Fast-Track Launch", multi:"Multi-Location · One Standard"};
+
+var $ = function(id){return document.getElementById(id)};
+var money = function(x){return "$"+Math.round(x).toLocaleString("en-US")};
+var hrs = function(x){var r=Math.round(x*2)/2; return (r%1? r.toFixed(1): r.toFixed(0))};
+var num = function(id,lo,hi,d){var v=parseInt($(id).value,10); if(isNaN(v)) v=d; return Math.min(hi,Math.max(lo,v))};
+
+function scope(s){
+var extra = Math.max(0, s.mods-3), f = DOCS[s.docs], o;
+if (s.path==="review"){
+o = {cindi:3.5+0.5*extra, atty:3+0.5*extra, buyerHrs:6, rate:A.nurseOwner, prov:1, rev:0, horizon:1, months:0, neg:300, direct:0, min:950};
+} else {
+var L = s.path==="multi" ? s.loc : 1;
+o = {cindi:(14+2*extra)*f + 1.6*s.prov*f + (L-1)*6*f,
+atty:(16+extra)*f + (L-1)*10*f,
+buyerHrs:24 + 2*extra + 8*(L-1),
+rate:A.owner, prov:s.prov, rev:s.rev*L, horizon:3, months:0,
+neg:500 + 250*(L-1), direct:400*L, min:0};
+if (s.path==="launch"){ o.cindi+=16; o.atty+=3; o.buyerHrs+=6; o.rev=0; o.months=1; o.direct=600; }
+}
+var risk = (1-Math.pow(1-A.pc,o.prov)) * (SCOMP + A.pd*(SDISC + o.rev*A.rl)) * o.horizon * A.rr;
+var speed = o.months*A.ramp*A.margin;
+var time = o.buyerHrs*o.rate;
+var evc = function(rate){return o.atty*rate + time + risk + speed - o.neg};
+var floor = (o.cindi*(A.target+A.ohHr) + o.direct)/(1-A.proc-A.refund);
+var price = Math.max(o.min, Math.ceil(Math.max(floor, A.capture*evc(A.atty))/100)*100);
+return {o:o, risk:risk, speed:speed, time:time, evc:evc(A.atty), lo:evc(A.attyLo), hi:evc(A.attyHi), floor:floor, price:price};
+}
+
+function read(){
+var path = (document.querySelector('#estimate input[name=path]:checked')||{}).value || "team";
+var docs = (document.querySelector('#estimate input[name=docs]:checked')||{}).value || "old";
+var mods = document.querySelectorAll('#ap-mods input:checked').length;
+return {path:path, docs:docs, mods:Math.max(1,mods), prov:path==="review"?1:num("ap-prov",1,60,5),
+loc:num("ap-loc",2,12,3), rev:parseFloat($("ap-rev").value), state:$("ap-state").value};
+}
+
+function render(){
+var s = read(), r = scope(s), o = r.o;
+$("ap-prov-wrap").hidden = s.path==="review";
+$("ap-loc-wrap").hidden = s.path!=="multi";
+$("ap-rev-wrap").hidden = s.path==="review" || s.path==="launch";
+$("ap-docs-wrap").hidden = s.path==="review" || s.path==="launch";
+var q = quote(s);
+$("ap-tier").textContent = TIER[s.path];
+
+var where = s.path==="multi" ? s.loc+" locations" : (s.path==="launch" ? "a new practice" : (s.path==="review" ? "your binder" : "one location"));
+var who = s.path==="review" ? "1 provider" : s.prov+(s.prov===1?" provider":" providers");
+$("ap-scope").innerHTML = "Scope: <b>"+s.mods+" treatment "+(s.mods===1?"category":"categories")+"</b> · <b>"+who+"</b> · <b>"+where+"</b> · about <b>"+hrs(o.cindi)+" hours</b> of Cindi's custom work, written for your practice and state.";
+$("ap-alt").textContent = money(r.evc);
+$("ap-alt-sub").textContent = "up to "+money(r.hi)+" at $500/hr attorney rates";
+if (q.custom){
+$("ap-price").textContent = "Custom";
+$("ap-est").innerHTML = "<tr><td>"+q.custom+" Book a consultation and Cindi will send a written proposal.</td><td></td></tr>";
+$("ap-code").textContent = "CUSTOM";
+} else {
+$("ap-price").textContent = money(q.total);
+$("ap-est").innerHTML = q.lines.map(function(l){return "<tr><td>"+l[0]+"</td><td>"+(l[1]<0?"−"+money(-l[1]):money(l[1]))+"</td></tr>"}).join("")
++ '<tr class="ap-total"><td>Estimated investment</td><td>'+money(q.total)+"</td></tr>";
+$("ap-code").textContent = q.code;
+}
+
+var rows = [
+["Attorney drafting & review · "+hrs(o.atty)+" hrs at $"+A.atty+"/hr", o.atty*A.atty],
+["Your own time supplying clinical detail · "+hrs(o.buyerHrs)+" hrs", r.time],
+["Expected cost of complaints avoided · "+o.horizon+(o.horizon===1?" yr":" yrs"), r.risk]
+];
+if (r.speed>0) rows.push(["One month sooner open · at a "+Math.round(A.margin*100)+"% margin", r.speed]);
+rows.push(["Less what the attorney route does better", -o.neg]);
+var html = rows.map(function(x){return "<tr><td>"+x[0]+"</td><td>"+(x[1]<0?"−"+money(-x[1]):money(x[1]))+"</td></tr>"}).join("");
+html += '<tr class="ap-total"><td>The other route, estimated</td><td>'+money(r.evc)+"</td></tr>";
+$("ap-lines").innerHTML = html;
+
+var mult = q.custom ? 0 : r.evc/q.total;
+var pChance = (1-Math.pow(1-A.pc,o.prov))*100;
+var said = "Here's what we added up. Done the usual way, your "+s.mods+" treatment "+(s.mods===1?"category needs":"categories need")+" about "+hrs(o.atty)+" hours of attorney time and "+hrs(o.buyerHrs)+" hours of yours. ";
+said += "With "+who+", the chance of at least one board complaint in a year is about "+pChance.toFixed(1)+"%, so the expected cost we include is small ("+money(r.risk)+"); we show it so you can see we aren't selling fear. ";
+if (r.speed>0) said += "Opening a month sooner is worth about "+money(r.speed)+" in profit at a typical ramp. ";
+if (q.custom) said += "Your scope is outside the standard bands, so it gets a written proposal rather than an instant price.";
+else said += "Your investment covers about "+hrs(o.cindi)+" hours of Cindi's custom writing and training plus the cost of keeping the work CE-approved and attorney-reviewed. It comes from fixed price bands, so the written estimate you receive uses these same lines"+(mult>=1.1?", and you keep about "+mult.toFixed(1)+"× its value":"")+". Mention the estimate code when you book.";
+$("ap-said").textContent = said;
+$("ap-cta").href = CONFIG.bookingUrl+"?interest="+encodeURIComponent(s.path==="review"?"A Compliance Assessment":"A Customized Practice Manual");
+
+var note = $("ap-state-note");
+if (s.state==="FL"){ note.hidden=false; note.textContent="Florida: the board can fine up to $10,000 per count and must charge the costs of investigating and prosecuting the case (§456.072, F.S.)."; }
+else if (s.state==="TX"){ note.hidden=false; note.textContent="Texas: administrative penalties can reach $5,000 per violation, and each day a violation continues can count separately (Tex. Occ. Code §301.501)."; }
+else note.hidden=true;
+
+$("ap-bad").textContent = "A bad year, for scale only and not a prediction: a protracted defense (~$50,000), two counts at Florida's maximum fine ($20,000) and six months out of work ("+money(6*A.earn/12)+") come to about "+money(BAD)+" for one nurse.";
+}
+
+$("ap-copy").addEventListener("click", function(){
+var t = $("ap-code").textContent, done = function(){ $("ap-copied").hidden = false; setTimeout(function(){ $("ap-copied").hidden = true; }, 1600); };
+try { navigator.clipboard.writeText(t).then(done, function(){ selectCode(); }); } catch(e){ selectCode(); }
+});
+function selectCode(){ var rg=document.createRange(); rg.selectNodeContents($("ap-code")); var sel=window.getSelection(); sel.removeAllRanges(); sel.addRange(rg); }
+$("ap-form").addEventListener("input", render);
+$("ap-form").addEventListener("change", render);
+$("ap-form").addEventListener("submit", function(e){e.preventDefault()});
+render();
+window.__apScope = scope; window.__apQuote = quote;
+})();
+</script>
+</section>
+
 <section class="band" id="compare">
   <div class="wrap">
     <span class="eyebrow">How We Compare</span>
