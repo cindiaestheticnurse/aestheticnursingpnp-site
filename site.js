@@ -219,7 +219,7 @@
     (window.MENU||[]).forEach(g => (g.items||[]).forEach(i => { byId[i.id] = i.name; }));
     bpMenu = ids.map(id => byId[id]).filter(Boolean);
     ids.forEach(id => form.querySelectorAll('input[name="svc"],input[name="docs"]').forEach(b => { if (b.value.split(',').includes(id)) b.checked = true; }));
-    ids.filter(id => id.startsWith('anc-')).forEach(id => form.querySelectorAll('input[name="anc"]').forEach(b => { if (b.value === byId[id]) b.checked = true; }));
+    if (ids.some(id => id === 'anc' || id.startsWith('anc-'))) form.querySelectorAll('input[name="anc"]').forEach(b => { b.checked = true; });
     if (bpMenu.length || NAMES[stc]) { const p=$('#w_picked'); p.innerHTML='<b>From Your Binder Blueprint:</b> '+(NAMES[stc]?esc(NAMES[stc])+(bpMenu.length?' · ':''):'')+bpMenu.map(esc).join(', '); p.hidden=false;
       if (ids.length) setTimeout(()=>{ $('#intake') && $('#intake').scrollIntoView({behavior:'smooth'}); }, 400); }
     const abbr = () => { const n = val('state'); return Object.keys(NAMES).find(k => NAMES[k] === n) || ''; };
@@ -231,7 +231,7 @@
       const out = ['Practice Information & Medical Oversight Structure', `${s} Scope, Delegation & Supervision Summary`,
         'Blood Borne Pathogens, Universal Precautions & HIPAA',
         ...svc.map(x => `${x}: Policy, Standardized Procedure & Treatment Protocol`), ...docs,
-        ...(checked('anc').length ? [`Ancillary Treatment Guidelines (Add-On): ${checked('anc').join(', ')}`] : []),
+        ...(checked('anc').length ? [`Ancillary Treatment Guidelines (Add-On, Includes All Five)`] : []),
         ...checked('addon').map(x => `Add-On: ${x} (Editable Word)`),
         'Signatures, Dates & Annual Review Log'];
       $('#outline').innerHTML = out.map(x => `<li>${esc(x)}</li>`).join('');
@@ -267,7 +267,7 @@
       'Ownership: ' + (val('owner')||'—'), 'Medical Oversight: ' + (val('oversight')||'—'),
       'Provider Types: ' + (checked('prov').join(', ')||'—'), 'Services: ' + (checked('svc').join(', ')||'—'),
       'Documents: ' + (checked('docs').join(', ')||'Core Documents Only'),
-      'Ancillary Treatments (Add-Ons): ' + (checked('anc').join(', ')||'None'),
+      'Ancillary Treatments (Add-On, Includes All Five): ' + (checked('anc').length ? 'Yes' : 'None'),
       'Add-Ons: ' + (checked('addon').join(', ')||'None'),
       bpMenu.length ? 'Binder Blueprint Menu: ' + bpMenu.join(', ') : '',
       flags.length ? 'Missing Information Flagged: ' + flags.join(' | ') : 'No Missing Items Flagged.'].filter(Boolean).join('\n');

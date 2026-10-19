@@ -112,12 +112,8 @@ window.MENU = [
   { group: "Emergency & Complication Protocols", items: [
     { id: "vo",  name: "Vascular Occlusion Protocol" },
     { id: "ae",  name: "Adverse Event Protocols (Granulomas, Nodules & Biofilm, Infection, Syncope, Reactions)" } ] },
-  { group: "Ancillary Treatments (Add-Ons)", addon: true, items: [
-    { id: "anc-hsv",  name: "HSV-1 Treatment" },
-    { id: "anc-skin", name: "Skin Infection Treatment" },
-    { id: "anc-numb", name: "Topical Numbing Cream (Anesthetic)" },
-    { id: "anc-muc",  name: "Mucosal Block" },
-    { id: "anc-il",   name: "Intralesional Injections" } ] },
+  { group: "Ancillary Treatments (Add-On)", addon: true, items: [
+    { id: "anc", name: "Approved Ancillary Treatment Guidelines (Includes All Five: HSV-1 Treatment, Skin Infection Treatment, Topical Numbing Cream, Mucosal Block, Intralesional Injections)" } ] },
   { group: "Additional Authorized Providers", items: [
     { id: "addp", name: "Additional Authorized Providers" } ] },
   { group: "Always Included", locked: true, note: "Every Binder Includes These.", items: [
