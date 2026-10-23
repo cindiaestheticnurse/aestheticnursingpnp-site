@@ -1298,3 +1298,13 @@ h2.mb-intake-head{margin:0 0 .4rem;line-height:1.08;font-size:clamp(1.7rem,1rem 
 .cmp.cmp-check thead th:last-child{text-align:left;padding-left:1.4rem}
 @media (max-width:560px){.hero .tagline.tagline-pos{font-size:1.5rem}}
 .cmp.cmp-check thead th{background:var(--charcoal);color:var(--ivory)}
+
+/* Hero refinement Oct 2026 (homepage only): medium-weight rose tagline; headline matches tagline size */
+.hero .tagline.tagline-pos{font-weight:500}
+.hero .hero-grid h1,.hero .hero-grid h1 em{font-weight:400}
+.hero .hero-grid h1{font-size:clamp(1.75rem,2.35vw,2.15rem);line-height:1.18}
+@media (max-width:560px){.hero .hero-grid h1{font-size:1.5rem}}
+.hero .eyebrow.hero-aud{white-space:normal;align-items:flex-start;font-size:.8rem;letter-spacing:.2em;line-height:1.6;color:var(--gray);margin:0 0 1rem}
+.hero .eyebrow.hero-aud::before{margin-top:.8em;background:var(--dusty)}
+@media (max-width:560px){.hero .eyebrow.hero-aud{font-size:.74rem;letter-spacing:.16em}}
+@media (min-width:1101px) and (max-width:1279px){.hero .cta-row{gap:.6rem}.hero .cta-row .btn{padding-left:1rem;padding-right:1rem;letter-spacing:.05em;font-size:.74rem}}
