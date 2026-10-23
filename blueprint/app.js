@@ -83,7 +83,7 @@
     if (S.menu.has("ha") || S.menu.has("prpha") || S.menu.has("hylen")) add("warn", "Filler means an occlusion plan on the wall", "In Case A of the accusation review, the Board asked for the nurse's dermal filler standardized procedures. There were none to send. The document that would have helped included an adverse event protocol and signed treatment-specific consent.", "Accusation Review, redesign");
     if (S.loc === "2-3" || S.loc === "4+") add("warn", "One director, several doors", "The review found an out-of-state director covering four medspas, with charts never signed. Supervision has to be documented per location.", "Accusation Review, redesign");
     const g = gaps();
-    if (g.find(q => q.id === "q02")) add("alert", "A template isn't a standardized procedure", "In the review, a national association's policy set did not meet standardized procedure criteria, and a mid-investigation update still fell short.", "Accusation Review, redesign");
+    if (g.find(q => q.id === "q02")) add("alert", "A template isn't a standardized procedure", "In the review, a national association's policy set was cited as not meeting standardized procedure criteria, and a mid-investigation update was also cited as falling short.", "Accusation Review, redesign");
     return F;
   }
 
@@ -96,7 +96,7 @@
     { key: "ce_all", when: "Goal is CE", test: () => S.goal === "ce", owner: "Automated · LMS", why: "Every current and future course, with instant certificates." },
     { key: "manual", when: "Goal is add a service line, or Q01/Q02 is not a yes, or 3+ gaps", test: () => S.goal === "manual" || S.goal === "add" || ["q01", "q02"].some(id => auditAns(id) && auditAns(id) !== "yes") || gaps().length >= 3, owner: "Cindi", why: "Your answers point to the documents themselves, not just a review of them. A manual written for your state and your menu closes that." },
     { key: "audit", when: "1–2 gaps, or goal is marketing & privacy", test: () => gaps().length >= 1 || S.goal === "marketing", owner: "Cindi", why: "You're close. The audit finds the last gaps and gives you a 30-day plan, and the fee is credited toward a manual within 60 days." },
-    { key: "partner", when: "No gaps", test: () => true, owner: "Cindi + team", why: "Your binder holds up today. The Partner keeps it that way when your state's rules change." }
+    { key: "partner", when: "No gaps", test: () => true, owner: "Cindi + team", why: "Your binder holds up today. The Partner adds scheduled reviews and regulatory updates relevant to your subscribed scope." }
   ];
   const route = () => ROUTES.find(r => r.test());
 
