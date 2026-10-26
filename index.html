@@ -26,7 +26,7 @@
 <link rel="manifest" href="site.webmanifest">
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400;1,500&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="site.css?v=27">
+<link rel="stylesheet" href="site.css?v=28">
 <script type="application/ld+json">
 {
  "@context": "https://schema.org",
@@ -158,7 +158,7 @@
     <button type="button" class="menu-btn" aria-expanded="false" aria-controls="primary-nav" aria-label="Open Menu"><span aria-hidden="true"></span></button>
     <nav aria-label="Primary" class="nav" id="primary-nav">
       <a href="services/">Services</a>
-      <a href="manual-builder/">Manual Builder</a>
+      <div class="nav-tools"><button type="button" class="nav-tools-btn" aria-expanded="false" aria-controls="tools-menu">Tools<span class="nav-caret" aria-hidden="true"></span></button><div class="nav-tools-menu" id="tools-menu"><a href="manual-builder/">Manual Builder<small>Build Your State Manual Online</small></a><a href="blueprint/">Binder Blueprint<small>Free 90-Second Binder Map</small></a><a href="state-manuals/">State Manuals<small>What Each State Edition Covers</small></a></div></div>
       <a href="about/">About Cindi</a>
       <a href="research/">Research</a>
       <a href="blog/">Blog</a>
@@ -179,10 +179,9 @@
         <h1>Med Spa &amp; Aesthetic <em>Nursing Compliance.</em></h1>
         <p class="tagline tagline-pos"><span>Policies That Match Your Practice.</span> <span class="tag-2">Documentation You Can Stand Behind.</span></p>
         <p class="lead">Nurse-Led Policies, Procedures, Staff Training and Competency Records, Customized to Your Services, Provider Roles and State Requirements, Connected Into One Working System.</p>
-        <a href="compliance-checklist/" class="hero-free" data-open-checklist>Free: Med Spa Compliance Readiness Checklist →</a>
         <div class="cta-row">
-          <a href="manual-builder/" class="btn btn-manual">Build My Practice Manual</a>
-          <a href="contact/?interest=A%20Review%20of%20My%20Current%20Manual" class="btn primary">Review My Current Manual</a>
+          <a href="manual-builder/" class="btn primary">Build My Manual Online</a>
+          <a href="contact/" class="btn">Book a Free Consult</a>
         </div>
         <p class="hero-qual">Supports Regulatory Readiness and Defensible Documentation. Does Not Guarantee Regulatory Outcomes or Replace State-Specific Legal Advice.</p>
       </div>
@@ -242,22 +241,13 @@
       </article>
       <article class="s3 feature" tabindex="0">
         <span class="s3-n">03</span>
-        <h3>Build Your Custom Manual</h3>
-        <p>Tailored to Your Practice.</p>
-        <ul class="ticks"><li>Your State, Services and Oversight Structure</li><li>Practice Name and Providers on Every Page</li><li>Evidence-Based, With Sources Shown</li><li>Reviewed by Cindi Before Delivery</li></ul>
-        <a href="manual-builder/" class="btn block">Build Your Custom Manual</a>
+        <h3>Online Manual Builder</h3>
+        <p>Build Your State Edition Online, Ready the Same Day.</p>
+        <ul class="ticks"><li>Your State Edition and Treatment Menu</li><li>Practice Name and Providers on Every Page</li><li>Evidence-Based, With Sources Shown</li><li>From $1,950, Ready to Download Right Away</li></ul>
+        <a href="manual-builder/" class="btn block">See the Builder</a>
       </article>
     </div>
-    <div class="builder-strip">
-      <div>
-        <span class="tag">Build Your Custom Practice Manual</span>
-        <h3>A Guided, Practice-Specific Document Creation Process.</h3>
-      </div>
-      <ol class="bsteps">
-        <li><i>1</i>Identify Your Practice</li><li><i>2</i>Select Your Services</li><li><i>3</i>Choose Required Documents</li><li><i>4</i>Generate Your Draft</li><li><i>5</i>Review &amp; Finalize</li>
-      </ol>
-      <a href="manual-builder/" class="text-link">Build Your Custom Manual →</a>
-    </div>
+    <p class="svc-alt">Prefer Done-for-You? <a href="services/#manual" class="text-link">Custom Manual by Cindi →</a> Cindi Writes and Reviews Your Manual With You, Including Forms and Records the Builder Doesn’t Cover.</p>
   </div>
 </section>
 
@@ -286,7 +276,7 @@
     <div class="risk3">
       <article><span class="risk-k">01 · Complaints</span><h3>Anyone Can File One</h3><p>Patients, Coworkers and Others Can File a Complaint. According to the <a href="https://www.rn.ca.gov/enforcement/complaint.shtml">California Board of Registered Nursing</a>, Allegations May Include Gross Negligence or Incompetence, Unprofessional Conduct and Unlicensed Activity.</p></article>
       <article><span class="risk-k">02 · Accusations</span><h3>An Accusation Is Public</h3><p>When the Evidence Supports Discipline, the Board Files an Accusation: a Legal Document Listing Formal Charges, and a <a href="https://www.rn.ca.gov/enforcement/enf-faqs.shtml">Public Record</a>. Investigators Gather Patient Records and Personnel Records.</p></article>
-      <article><span class="risk-k">03 · Documentation</span><h3>Documentation Gaps Come Up Often</h3><p>In Cindi’s Review of 32 Aesthetic Board Accusations, 22 Cited Missing or Insufficient Standardized Procedures, and 20 Ended in Three Years’ Probation.</p></article>
+      <article><span class="risk-k">03 · Documentation</span><h3>Documentation Gaps Come Up Often</h3><p>Investigators Ask for Written Standardized Procedures, Good Faith Exams and Competency Records. Missing Documents Are One of the Most Common Findings in Aesthetic Cases.</p></article>
     </div>
     <div class="why why-low">
       <div>
@@ -341,18 +331,9 @@
       <li><b>Implement</b><span>Coordinate With Your Medical Director and Team, Train Staff and Document Competencies.</span></li>
       <li><b>Maintain</b><span>Schedule Reviews, Track Revisions and Update Documents When Requirements or Services Change.</span></li>
     </ol>
-    <div class="trail" aria-labelledby="trailTitle">
-      <span class="eyebrow">Be Prepared. Be Documented. Be Defensible.</span>
-      <h3 id="trailTitle">From Having Policies to Operating a Documented Practice</h3>
-      <p class="trail-sub">Every Policy Should Connect to the People, Training and Review Behind It. This Is the Trail We Help You Build:</p>
-      <ol class="trail-steps">
-        <li><b>Identified Requirement</b><span>What Your State, Services and Provider Roles Call For</span></li>
-        <li><b>Practice Policy</b><span>Written for How Your Practice Actually Operates</span></li>
-        <li><b>Responsible Person</b><span>Who Approves It, Who Uses It and Who Keeps It Current</span></li>
-        <li><b>Training or Competency Record</b><span>CE and Competency Sign-Offs Mapped to the Procedure</span></li>
-        <li><b>Dated Review</b><span>Signatures, Review Dates and Revision History</span></li>
-      </ol>
-      <div class="cta-row"><a class="btn primary" href="blueprint/">Build My Binder Blueprint</a><a class="btn" href="contact/?interest=A%20Review%20of%20My%20Current%20Manual">Have My Current Manual Reviewed</a></div>
+    <div class="trail">
+      <p class="trail-sub">Be Prepared. Be Documented. Be Defensible. Every Policy Should Connect to a Requirement, a Responsible Person, a Training Record and a Dated Review.</p>
+      <div class="cta-row"><a class="btn primary" href="blueprint/">Build My Binder Blueprint</a><a class="btn" href="contact/?interest=A%20Review%20of%20My%20Current%20Manual">Review My Current Manual</a></div>
     </div>
   </div>
 </section>
@@ -390,11 +371,12 @@
 </main>
 <footer class="foot">
   <div class="wrap">
-    <img src="assets/site/logo-brand-dark.png" alt="Aesthetic Nursing Policy &amp; Procedures, Inc." width="300" height="49" loading="lazy">
-    <nav aria-label="Footer"><a href="./">Home</a><a href="services/">Services</a><a href="manual-builder/">Manual Builder</a><a href="state-manuals/">State Manuals</a><a href="about/">About Cindi</a><a href="research/">Research</a><a href="blog/">Blog</a><a href="reviews/">Reviews</a><a href="blueprint/">Binder Blueprint</a><a href="contact/">Contact</a><a href="https://aestheticnursingces.com/" target="_blank" rel="noopener">CE Courses ↗<span class="sr">(Opens in a New Tab)</span></a><a href="privacy/">Privacy Policy</a><a href="terms/">Terms of Use</a><a href="accessibility/">Accessibility</a></nav>
-    <p>Aesthetic Nursing Policy &amp; Procedures, Inc. · Cindi Vokey, BSN, RN, LNC · CA BRN-Approved CE Provider #18009 · San Diego, CA</p>
-    <p>Consulting and Education Services. Not a Law Firm and Not Legal Advice. Rules Vary by State.</p>
-    <p>Accessibility: We Work to Meet WCAG 2.2 Level AA on Desktop and Mobile (<a href="accessibility/">Accessibility Statement</a>, Last Reviewed October 16, 2026). If Any Part of This Site Is Hard to Use, Email <a href="mailto:cindiaestheticnurse@gmail.com">cindiaestheticnurse@gmail.com</a> or Call <a href="tel:+15084986604">508-498-6604</a> and We Will Help.</p>
+    <a href="./" class="foot-logo" aria-label="Aesthetic Nursing Policy &amp; Procedures, Inc. Home"><img src="assets/site/logo-brand-dark.png" alt="Aesthetic Nursing Policy &amp; Procedures, Inc." width="300" height="49" loading="lazy"></a>
+    <nav aria-label="Footer"><a href="services/">Services</a><a href="manual-builder/">Manual Builder</a><a href="state-manuals/">State Manuals</a><a href="about/">About Cindi</a><a href="research/">Research</a><a href="blog/">Blog</a><a href="reviews/">Reviews</a><a href="blueprint/">Binder Blueprint</a><a href="contact/">Contact</a><a href="https://aestheticnursingces.com/" target="_blank" rel="noopener">CE Courses ↗<span class="sr">(Opens in a New Tab)</span></a></nav>
+    <nav aria-label="Legal" class="foot-legal"><a href="privacy/">Privacy Policy</a><a href="terms/">Terms of Use</a><a href="accessibility/">Accessibility</a></nav>
+    <p>Aesthetic Nursing Policy &amp; Procedures, Inc. · Cindi Vokey, BSN, RN, LNC · CA BRN-Approved CE Provider #18009 · Based in San Diego, CA · Serving Practices Nationwide</p>
+    <p>Consulting and Education Services, Not Legal Advice. Rules Vary by State.</p>
+    <p>Need Help Using This Site? Email <a href="mailto:info@aestheticnursingpnp.com">info@aestheticnursingpnp.com</a> or Call <a href="tel:+15084986604">508-498-6604</a>. See Our <a href="accessibility/">Accessibility Statement</a> (Last Reviewed October 16, 2026).</p>
   </div>
 </footer>
 <div class="toast" id="toast" role="status" aria-live="polite"></div>
@@ -427,7 +409,7 @@
 <script>window.SITE_ROOT="";</script>
 
 <script src="analytics.js?v=3"></script>
-<script src="site.js?v=6"></script>
+<script src="site.js?v=7"></script>
 <script src="titlecase.js?v=11"></script>
 </body>
 </html>

@@ -1308,3 +1308,43 @@ h2.mb-intake-head{margin:0 0 .4rem;line-height:1.08;font-size:clamp(1.7rem,1rem 
 .hero .eyebrow.hero-aud::before{margin-top:.8em;background:var(--dusty)}
 @media (max-width:560px){.hero .eyebrow.hero-aud{font-size:.74rem;letter-spacing:.16em}}
 @media (min-width:1101px) and (max-width:1279px){.hero .cta-row{gap:.6rem}.hero .cta-row .btn{padding-left:1rem;padding-right:1rem;letter-spacing:.05em;font-size:.74rem}}
+
+/* Tools menu (Manual Builder, Binder Blueprint, State Manuals) */
+.nav-tools{position:relative;display:flex;align-items:center}
+.nav-tools-btn{font:inherit;font-family:var(--text,'Jost',sans-serif);font-size:.9rem;font-weight:400;color:var(--charcoal);background:none;border:1px solid var(--dusty);padding:.45rem .8rem;cursor:pointer;display:inline-flex;align-items:center;gap:.45rem;white-space:nowrap;letter-spacing:0;text-transform:none}
+.nav-tools-btn:hover,.nav-tools.open .nav-tools-btn{background:var(--dusty-aa);border-color:var(--dusty-aa);color:var(--charcoal)}
+.nav-tools.is-current .nav-tools-btn{border-color:var(--deep);color:var(--deep)}
+.nav-caret{width:7px;height:7px;border-right:1.5px solid currentColor;border-bottom:1.5px solid currentColor;transform:rotate(45deg) translateY(-2px);transition:transform .2s}
+.nav-tools.open .nav-caret{transform:rotate(-135deg) translateY(-1px)}
+.nav-tools-menu{display:none;position:absolute;top:calc(100% + 10px);left:50%;transform:translateX(-50%);min-width:260px;background:var(--ivory);border-top:3px solid var(--deep);box-shadow:0 18px 36px -16px rgba(43,41,38,.45);padding:.4rem 0;z-index:60}
+.nav-tools.open .nav-tools-menu{display:block}
+.nav .nav-tools-menu a,.sbt .sbt-nav .nav-tools-menu a{display:block;padding:.7rem 1.1rem!important;border:0!important;border-bottom:1px solid var(--line)!important;color:var(--charcoal);font-size:.95rem;white-space:normal;background:none}
+.nav .nav-tools-menu a:last-child,.sbt .sbt-nav .nav-tools-menu a:last-child{border-bottom:0!important}
+.nav-tools-menu a small{display:block;font-size:.75rem;color:var(--gray-aa,#6b625c);margin-top:.15rem}
+.nav .nav-tools-menu a:hover,.sbt .sbt-nav .nav-tools-menu a:hover{background:var(--paper,#ebe2db)!important;color:var(--deep)}
+.nav-tools-menu a[aria-current="page"]{color:var(--deep)!important}
+@media (max-width:900px){
+  .nav-tools{display:block}
+  .nav-tools-btn{width:100%;justify-content:space-between;border:0;border-bottom:1px solid var(--line);padding:.85rem .2rem;font-size:1rem;background:none!important}
+  .nav-tools.is-current .nav-tools-btn{color:var(--charcoal)}
+  .nav-tools-menu{position:static;transform:none;min-width:0;box-shadow:none;border-top:0;padding:0 0 0 .9rem;background:none}
+}
+.svc-alt{margin:1.6rem auto 0;max-width:62ch;text-align:center;font-size:1rem;color:var(--charcoal)}
+.svc-alt .text-link{margin:0 .25rem;white-space:nowrap}
+#roadmap .trail{margin-top:2rem}
+.paths2{display:grid;grid-template-columns:1fr 1fr;gap:.9rem;margin:1rem 0 1.1rem}
+.paths2>div{border:1px solid rgba(250,246,241,.28);padding:1rem 1.1rem;display:flex;flex-direction:column;gap:.35rem}
+.paths2 b{font-family:'Cormorant Garamond',serif;font-size:1.35rem;font-weight:500;color:var(--ivory)}
+.paths2 span:not(.tag){font-size:.92rem;color:rgba(250,246,241,.86)}
+@media (max-width:640px){.paths2{grid-template-columns:1fr}}
+.accel-short .dcard b:not(.p){display:block;font-family:'Cormorant Garamond',serif;font-size:1.3rem;font-weight:500;margin:.3rem 0}
+.ce-one{max-width:780px;margin:1.4rem auto 0;text-align:center;font-size:1.05rem}
+.src-date{display:inline-block;margin-top:.8rem;padding:.3rem .7rem;border:1px solid currentColor;font-size:.75rem;letter-spacing:.12em;text-transform:uppercase;opacity:.92}
+.nav-tools.is-current .nav-tools-btn:hover,.nav-tools.is-current.open .nav-tools-btn{color:var(--charcoal)}
+.dark .dcard p{color:var(--charcoal)}
+/* Footer cleanup: inline links match sentence size; legal row */
+.foot p a{font-size:inherit;text-decoration:underline;text-underline-offset:2px;text-decoration-color:rgba(242,234,228,.45)}
+.foot .foot-logo{display:inline-block}
+.foot nav.foot-legal{gap:.3rem 1.2rem;margin:-.4rem 0 1.1rem}
+.foot nav.foot-legal a{font-size:.78rem;color:rgba(242,234,228,.88)}
+.foot nav.foot-legal a:hover{color:var(--dusty-aa)}

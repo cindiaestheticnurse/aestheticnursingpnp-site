@@ -80,3 +80,30 @@ footer.sbf{background:var(--charcoal);color:rgba(242,234,228,.88);border-top:3px
 .sbt .sbt-book,.sbt .sbt-book:hover{color:#F2EAE4!important}
 @media (min-width:901px){#view-blueprint .hero{align-items:start}#view-blueprint .hero-card{align-self:start;margin-top:calc(2.35rem + 5px)}}
 .sb-skip{position:absolute;left:1rem;top:-60px;z-index:100;background:#2B2926;color:#F2EAE4!important;padding:.7rem 1rem;font-family:"Jost",system-ui,sans-serif;font-size:.9rem;text-decoration:none}.sb-skip:focus{top:.6rem;outline:2px solid #8A4F4F;outline-offset:2px}
+
+/* Tools menu (Manual Builder, Binder Blueprint, State Manuals) */
+.nav-tools{position:relative;display:flex;align-items:center}
+.nav-tools-btn{font:inherit;font-family:var(--text,'Jost',sans-serif);font-size:.9rem;font-weight:400;color:var(--charcoal);background:none;border:1px solid var(--dusty);padding:.45rem .8rem;cursor:pointer;display:inline-flex;align-items:center;gap:.45rem;white-space:nowrap;letter-spacing:0;text-transform:none}
+.nav-tools-btn:hover,.nav-tools.open .nav-tools-btn{background:var(--dusty-aa);border-color:var(--dusty-aa);color:var(--charcoal)}
+.nav-tools.is-current .nav-tools-btn{border-color:var(--deep);color:var(--deep)}
+.nav-caret{width:7px;height:7px;border-right:1.5px solid currentColor;border-bottom:1.5px solid currentColor;transform:rotate(45deg) translateY(-2px);transition:transform .2s}
+.nav-tools.open .nav-caret{transform:rotate(-135deg) translateY(-1px)}
+.nav-tools-menu{display:none;position:absolute;top:calc(100% + 10px);left:50%;transform:translateX(-50%);min-width:260px;background:var(--ivory);border-top:3px solid var(--deep);box-shadow:0 18px 36px -16px rgba(43,41,38,.45);padding:.4rem 0;z-index:60}
+.nav-tools.open .nav-tools-menu{display:block}
+.nav .nav-tools-menu a,.sbt .sbt-nav .nav-tools-menu a{display:block;padding:.7rem 1.1rem!important;border:0!important;border-bottom:1px solid var(--line)!important;color:var(--charcoal);font-size:.95rem;white-space:normal;background:none}
+.nav .nav-tools-menu a:last-child,.sbt .sbt-nav .nav-tools-menu a:last-child{border-bottom:0!important}
+.nav-tools-menu a small{display:block;font-size:.75rem;color:var(--gray-aa,#6b625c);margin-top:.15rem}
+.nav .nav-tools-menu a:hover,.sbt .sbt-nav .nav-tools-menu a:hover{background:var(--paper,#ebe2db)!important;color:var(--deep)}
+.nav-tools-menu a[aria-current="page"]{color:var(--deep)!important}
+@media (max-width:900px){
+  .nav-tools{display:block}
+  .nav-tools-btn{width:100%;justify-content:space-between;border:0;border-bottom:1px solid var(--line);padding:.85rem .2rem;font-size:1rem;background:none!important}
+  .nav-tools.is-current .nav-tools-btn{color:var(--charcoal)}
+  .nav-tools-menu{position:static;transform:none;min-width:0;box-shadow:none;border-top:0;padding:0 0 0 .9rem;background:none}
+}
+.nav-tools.is-current .nav-tools-btn:hover,.nav-tools.is-current.open .nav-tools-btn{color:var(--charcoal)}
+footer.sbf p a{font-size:inherit!important;text-decoration:underline;text-underline-offset:2px;text-decoration-color:rgba(242,234,228,.45)}
+footer.sbf .foot-logo{display:inline-block}
+footer.sbf nav.foot-legal{gap:.3rem 1.2rem;margin:-.4rem 0 1.1rem}
+footer.sbf nav.foot-legal a{font-size:.78rem!important;color:rgba(242,234,228,.88)}
+footer.sbf nav a:not(.btn),footer.sbf p a:not(.btn){color:var(--ivory)!important}footer.sbf nav.foot-legal a:not(.btn){color:rgba(242,234,228,.88)!important}footer.sbf a:not(.btn):hover{color:var(--dusty-aa)!important}
