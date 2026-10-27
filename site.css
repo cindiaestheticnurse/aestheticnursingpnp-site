@@ -1368,7 +1368,7 @@ h2.mb-intake-head{margin:0 0 .4rem;line-height:1.08;font-size:clamp(1.7rem,1rem 
 .ph-path .ph-sub{font-size:.74rem;letter-spacing:.08em;align-self:flex-start}
 
 /* Nav: plain text items, one button */
-@media (min-width:1101px){
+@media (min-width:901px){
 .nav{gap:.9rem}
 .nav .nav-ce,.nav .nav-ce:hover{border:0;padding:.5rem .6rem;margin-left:0;background:none;color:var(--charcoal)}
 .nav .nav-ce:hover{color:var(--deep)}
@@ -1467,3 +1467,10 @@ h2.mb-intake-head{margin:0 0 .4rem;line-height:1.08;font-size:clamp(1.7rem,1rem 
 .hero.hero3 h1 .h3-kicker::after{content:none}
 .hero.hero3 .h3-path h3{font-family:var(--display);font-weight:500;font-size:1.4rem;line-height:1.15;margin:0;color:var(--charcoal)}
 .hero.hero3 h1 .h3-sep{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+/* hero v4 alignment: image top aligns with headline label; fit shorter laptop screens */
+@media (min-width:901px){.hero.hero3 .hero-img{align-self:start}}
+@media (min-width:901px) and (max-height:820px){.hero.hero3{padding-top:34px}.hero.hero3 .h3-cred{margin-top:14px}.hero.hero3 .h3-paths{margin-top:18px}.hero.hero3 .h3-qual{margin-top:28px}}
+@media (min-width:561px) and (max-width:900px){.hero.hero3 .hero-img{aspect-ratio:4/3}}
+/* Logo scales proportionally instead of squeezing on narrow desktops */
+.brand{min-width:0;flex:0 1 auto}.brand img{height:auto;max-height:42px;width:auto;max-width:100%;object-fit:contain}
+@media (min-width:901px) and (max-width:1100px){.brand img{max-height:34px}.nav{gap:.4rem}}
