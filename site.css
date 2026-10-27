@@ -1480,3 +1480,12 @@ h2.mb-intake-head{margin:0 0 .4rem;line-height:1.08;font-size:clamp(1.7rem,1rem 
 .hero.hero3 .hero-img{align-self:stretch;aspect-ratio:auto;height:auto;min-height:420px}
 .hero.hero3 .hero-img img{object-position:12% center}
 }
+/* Services: four options in a 2x2 grid; CE credential link; three newest blog posts */
+@media (min-width:901px){.svc3.svc4{grid-template-columns:1fr 1fr;gap:1.3rem}.svc3.svc4 .s3.feature{transform:none}}
+.creds .cr-link{display:block;margin-top:.3rem;font-size:.78rem;letter-spacing:.04em;color:var(--dusty-aa);text-decoration:underline;text-underline-offset:3px}
+.creds .cr-link:hover{color:var(--ivory)}
+.blog-cards.blog3{grid-template-columns:repeat(3,1fr)}
+.blog-cards.blog3 .bcard h3{font-size:1.3rem}
+@media (max-width:1000px){.blog-cards.blog3{grid-template-columns:1fr}}
+.creds .cr-link{color:var(--deep);white-space:nowrap;font-weight:500}
+.creds .cr-link:hover{color:var(--charcoal)}
