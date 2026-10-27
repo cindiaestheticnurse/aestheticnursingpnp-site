@@ -1410,3 +1410,33 @@ h2.mb-intake-head{margin:0 0 .4rem;line-height:1.08;font-size:clamp(1.7rem,1rem 
 .hero.hero2 .hero-grid{align-items:start}
 .hero.hero2 .hero-img{align-self:start;margin-top:calc(.78rem * 1.5 + 16px)}
 }
+/* ---------- Home hero v3 (clean) ---------- */
+.hero.hero3{height:auto;max-height:none;min-height:0;padding:56px 0 32px;display:block}
+.hero.hero3>.wrap{display:block}
+.hero.hero3 .hero-grid{display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:center;max-height:none;min-height:0}
+.hero.hero3 .hero-img{aspect-ratio:1/1;height:auto;min-height:0;margin:0;align-self:center;position:relative}
+.hero.hero3 .hero-img img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center}
+.hero.hero3 .h3-copy{display:block;padding:0}
+.hero.hero3 .h3-kicker{font-family:var(--text);font-size:.78rem;font-weight:500;letter-spacing:.2em;text-transform:uppercase;color:var(--deep);margin:0 0 20px}
+.hero.hero3 h1{font-family:var(--display);font-weight:300;font-size:clamp(2.6rem,1.4rem + 2.8vw,4rem);line-height:1.04;margin:0;max-width:12ch;color:var(--charcoal)}
+.hero.hero3 h1 em{display:block;font-style:italic;color:var(--deep);white-space:nowrap}
+.hero.hero3 .h3-sub{font-family:var(--display);font-style:italic;font-weight:400;font-size:clamp(1.25rem,1rem + .6vw,1.5rem);line-height:1.35;color:var(--charcoal);margin:24px 0 0;max-width:26em}
+.hero.hero3 .h3-aud{font-size:.95rem;line-height:1.6;color:var(--gray,#6B665F);margin:8px 0 0;max-width:34em}
+.hero.hero3 .h3-actions{display:flex;flex-wrap:wrap;gap:16px;margin-top:32px}
+.hero.hero3 .h3-actions>div{display:flex;flex-direction:column;gap:8px;flex:1 1 210px;max-width:260px}
+.hero.hero3 .h3-actions .btn{width:100%;min-height:52px;padding:.9rem 1rem;font-size:.86rem;letter-spacing:.12em;white-space:nowrap}
+.hero.hero3 .h3-actions .btn:not(.primary){border-color:var(--deep);color:var(--deep);background:transparent}
+.hero.hero3 .h3-actions .btn:not(.primary):hover{background:var(--deep);color:var(--ivory)}
+.hero.hero3 .h3-actions span{font-size:.8rem;color:var(--gray,#6B665F);text-align:center;letter-spacing:.02em}
+.hero.hero3 .h3-free{margin:24px 0 0;font-size:.9rem}
+.hero.hero3 .h3-qual{font-size:.72rem;color:var(--gray,#6B665F);opacity:.85;margin:40px 0 0;text-align:center}
+@media (max-width:900px){
+.hero.hero3{padding:24px 0 24px}
+.hero.hero3 .hero-grid{grid-template-columns:1fr;gap:28px}
+.hero.hero3 h1 em{white-space:normal}
+.hero.hero3 .h3-actions>div{max-width:none}
+.hero.hero3 .h3-qual{text-align:left;margin-top:28px}
+}
+.hero.hero3 h1{max-width:none;font-size:clamp(2.3rem,1.2rem + 2.4vw,3.5rem)}
+.hero.hero3 h1 .h3-l1{display:block;white-space:nowrap}
+.hero.hero3 .h3-sub{max-width:none}
