@@ -1462,3 +1462,8 @@ h2.mb-intake-head{margin:0 0 .4rem;line-height:1.08;font-size:clamp(1.7rem,1rem 
 .hero.hero3 .h3-qual{max-width:62em;margin-left:auto;margin-right:auto;line-height:1.5}
 @media (max-width:1180px) and (min-width:901px){.hero.hero3 .hero-grid{gap:44px}.hero.hero3 h1 .h3-l1,.hero.hero3 h1 em{white-space:normal}}
 @media (max-width:560px){.hero.hero3 .h3-paths{grid-template-columns:1fr}.hero.hero3 h1 .h3-l1{white-space:normal}}
+/* hero v4 seo headings */
+.hero.hero3 h1 .h3-kicker{display:block;font-family:var(--text);font-style:normal;font-size:.78rem;font-weight:500;letter-spacing:.2em;line-height:1.5;text-transform:uppercase;color:var(--deep);margin:0 0 16px}
+.hero.hero3 h1 .h3-kicker::after{content:none}
+.hero.hero3 .h3-path h3{font-family:var(--display);font-weight:500;font-size:1.4rem;line-height:1.15;margin:0;color:var(--charcoal)}
+.hero.hero3 h1 .h3-sep{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
