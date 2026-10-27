@@ -1440,3 +1440,25 @@ h2.mb-intake-head{margin:0 0 .4rem;line-height:1.08;font-size:clamp(1.7rem,1rem 
 .hero.hero3 h1{max-width:none;font-size:clamp(2.3rem,1.2rem + 2.4vw,3.5rem)}
 .hero.hero3 h1 .h3-l1{display:block;white-space:nowrap}
 .hero.hero3 .h3-sub{max-width:none}
+/* hero v4 */
+.hero.hero3 .hero-grid{align-items:start}
+.hero.hero3 h1{font-size:clamp(2.1rem,1.1rem + 2.1vw,3.1rem);line-height:1.08}
+.hero.hero3 .h3-kicker{margin-bottom:16px}
+.hero.hero3 .h3-sub{font-size:clamp(1.15rem,1rem + .45vw,1.35rem);margin-top:18px}
+.hero.hero3 .h3-body{font-size:1rem;line-height:1.6;color:var(--charcoal);margin:12px 0 0;max-width:36em}
+.hero.hero3 .h3-aud{margin-top:6px;font-size:.9rem}
+.hero.hero3 .h3-cred{margin:18px 0 0;padding-left:14px;border-left:2px solid var(--dusty);font-size:.88rem;line-height:1.5;display:flex;flex-direction:column}
+.hero.hero3 .h3-cred a{color:var(--charcoal);font-weight:500;text-decoration:none}
+.hero.hero3 .h3-cred a:hover{color:var(--deep)}
+.hero.hero3 .h3-cred span{color:var(--gray,#6B665F)}
+.hero.hero3 .h3-paths{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:26px}
+.hero.hero3 .h3-path{display:flex;flex-direction:column;border:1px solid rgba(43,40,38,.14);background:rgba(255,255,255,.45);border-radius:12px;padding:20px}
+.hero.hero3 .h3-path h2{font-family:var(--display);font-weight:500;font-size:1.4rem;line-height:1.15;margin:0;color:var(--charcoal)}
+.hero.hero3 .h3-path p{font-size:.86rem;line-height:1.5;color:var(--gray,#6B665F);margin:8px 0 16px;flex:1}
+.hero.hero3 .h3-path .btn{width:100%;min-height:48px;font-size:.8rem;letter-spacing:.12em;white-space:nowrap;padding:.8rem 1rem}
+.hero.hero3 .h3-path .btn:not(.primary){border-color:var(--deep);color:var(--deep);background:transparent}
+.hero.hero3 .h3-path .btn:not(.primary):hover{background:var(--deep);color:var(--ivory)}
+.hero.hero3 .h3-free{margin-top:18px}
+.hero.hero3 .h3-qual{max-width:62em;margin-left:auto;margin-right:auto;line-height:1.5}
+@media (max-width:1180px) and (min-width:901px){.hero.hero3 .hero-grid{gap:44px}.hero.hero3 h1 .h3-l1,.hero.hero3 h1 em{white-space:normal}}
+@media (max-width:560px){.hero.hero3 .h3-paths{grid-template-columns:1fr}.hero.hero3 h1 .h3-l1{white-space:normal}}
