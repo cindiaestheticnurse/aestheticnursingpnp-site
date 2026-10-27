@@ -26,7 +26,7 @@
 <link rel="manifest" href="../site.webmanifest">
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="../site.css?v=29">
+<link rel="stylesheet" href="../site.css?v=30">
 <script type="application/ld+json">
 {
  "@context": "https://schema.org",
@@ -87,15 +87,16 @@
 <section class="band" id="assessment">
   <div class="wrap split2">
     <div>
-      <span class="eyebrow">01 · Compliance Assessment</span>
+      <span class="eyebrow">01 · Compliance Readiness Assessment</span>
       <h2>Know Where You Stand <em>Before Anyone Asks.</em></h2>
-      <p>A Structured Review of Your Documents, Services, Oversight and State Requirements, With a Practical Plan for What to Fix First.</p>
+      <p>A Structured Review of Your Current Manual, Documents, Services, Oversight and State Requirements, With a Practical Plan for What to Fix First. This Is Also How Cindi Reviews a Manual You Already Have.</p>
     </div>
     <div class="svc-card">
       <span class="tag">One-Time</span>
       <h3>Compliance Readiness Assessment</h3>
-      <ul class="ticks"><li>Pre-Assessment Document Review</li><li>90-Minute Walkthrough With Owner &amp; Medical Director</li><li>Scored Gap Report Across 10 Risk Areas</li><li>Prioritized 30-Day Correction Plan</li></ul>
-      <div class="price"><b>$950</b>One-Time<span class="or">Credited Toward a Custom Manual Booked Within 60 Days.</span></div>
+      <ul class="ticks"><li>Review of Your Current Manual and Documents</li><li>90-Minute Walkthrough With Owner &amp; Medical Director</li><li>Scored Gap Report Across 10 Risk Areas</li><li>Prioritized 30-Day Correction Plan</li></ul>
+      <div class="price"><b>From $950</b>One-Time<span class="or">Includes Up to 3 Treatment Categories; $150 for Each Additional Category. Credited Toward a Custom Manual Booked Within 60 Days.</span></div>
+      <a href="../contact/?interest=Compliance%20Readiness%20Assessment%20(Review%20of%20My%20Current%20Manual)" class="btn primary block" style="margin-top:1.2rem">Review My Current Manual</a>
     </div>
   </div>
 </section>
@@ -117,7 +118,7 @@
       </div>
       <p class="note-sm">Manuals Are Not Approved or Endorsed by Any Licensing Board, Agency or Accrediting Body, and Do Not Guarantee Regulatory Compliance or Any Outcome During an Inspection, Investigation or Disciplinary Proceeding. <a href="../terms/#custom">Full Terms</a></p>
       <ul class="ticks manual-ticks"><li>Your State, Services and Oversight Structure</li><li>Practice Name and Providers on Every Page</li><li>Evidence-Based, With Sources Shown</li><li>Custom Manual: Reviewed With Cindi Before Delivery</li></ul>
-      <div class="cta-row"><a href="../manual-builder/" class="btn primary on-dark">See the Online Builder</a><a href="../contact/?interest=A%20Customized%20Practice%20Manual" class="btn on-dark">Ask About a Custom Manual</a></div>
+      <div class="cta-row"><a href="../manual-builder/" class="btn primary on-dark">See the Online Builder</a><a href="../contact/?interest=Custom%20Manual%20by%20Cindi" class="btn on-dark">Ask About a Custom Manual</a></div>
     </div>
     <div class="deliv">
       <span class="tag">What’s Included</span>
@@ -217,7 +218,7 @@
 <fieldset>
 <legend>Where Are You Right Now?</legend>
 <div class="ap-paths">
-<label class="ap-path"><input type="radio" name="path" id="ap-p-review" value="review"><strong>I Have a Binder. Is It Board-Ready?</strong><span>Compliance Audit · one provider, one state, written findings</span></label>
+<label class="ap-path"><input type="radio" name="path" id="ap-p-review" value="review"><strong>I Have a Binder. Is It Board-Ready?</strong><span>Compliance Readiness Assessment · One Provider, One State, Written Findings</span></label>
 <label class="ap-path"><input type="radio" name="path" id="ap-p-team" value="team" checked><strong>One Location With a Team</strong><span>Custom policies, standardized procedures, team training</span></label>
 <label class="ap-path"><input type="radio" name="path" id="ap-p-launch" value="launch"><strong>I'm Opening a Practice</strong><span>Built before day one, delivered in 21 days</span></label>
 <label class="ap-path"><input type="radio" name="path" id="ap-p-multi" value="multi"><strong>Several Locations</strong><span>One standard, adapted to each site</span></label>
@@ -313,7 +314,7 @@ function down100(x){return Math.floor(x/100)*100}
 function quote(s){
 var ex = Math.max(0, s.mods-3), lines = [], code = [];
 if (s.path==="review"){
-lines.push(["Compliance Audit · up to 3 treatment categories", BANDS.review.base]); code.push("REVIEW");
+lines.push(["Compliance Readiness Assessment · Up to 3 Treatment Categories", BANDS.review.base]); code.push("REVIEW");
 if (ex) { lines.push(["Additional treatment categories × "+ex, BANDS.review.cat*ex]); code.push("CAT×"+ex); }
 } else if (s.path==="launch"){
 var lb = BANDS.launch.bands.filter(function(b){return s.prov<=b[0]})[0];
@@ -335,7 +336,7 @@ if (s.docs==="cur"){ lines.push(["Refresh of current policies · −15%", -down1
 }
 return {lines:lines, code:code.join(" · "), total:lines.reduce(function(a,l){return a+l[1]},0)};
 }
-var TIER = {review:"Compliance Audit", team:"Team Readiness · One Location", launch:"Fast-Track Launch", multi:"Multi-Location · One Standard"};
+var TIER = {review:"Compliance Readiness Assessment", team:"Team Readiness · One Location", launch:"Fast-Track Launch", multi:"Multi-Location · One Standard"};
 
 var $ = function(id){return document.getElementById(id)};
 var money = function(x){return "$"+Math.round(x).toLocaleString("en-US")};
@@ -416,7 +417,7 @@ if (r.speed>0) said += "Opening a month sooner is worth about "+money(r.speed)+"
 if (q.custom) said += "Your scope is outside the standard bands, so it gets a written proposal rather than an instant price.";
 else said += "Your investment covers about "+hrs(o.cindi)+" hours of Cindi's custom writing and training plus the cost of keeping the work CE-approved and attorney-reviewed. It comes from fixed price bands, so the written estimate you receive uses these same lines"+(mult>=1.1?", and you keep about "+mult.toFixed(1)+"× its value":"")+". Mention the estimate code when you book.";
 $("ap-said").textContent = said;
-$("ap-cta").href = CONFIG.bookingUrl+"?interest="+encodeURIComponent(s.path==="review"?"A Compliance Assessment":"A Customized Practice Manual");
+$("ap-cta").href = CONFIG.bookingUrl+"?interest="+encodeURIComponent(s.path==="review"?"Compliance Readiness Assessment (Review of My Current Manual)":"Custom Manual by Cindi");
 
 var note = $("ap-state-note");
 if (s.state==="FL"){ note.hidden=false; note.textContent="Florida: the board can fine up to $10,000 per count and must charge the costs of investigating and prosecuting the case (§456.072, F.S.)."; }
@@ -452,7 +453,7 @@ window.__apScope = scope; window.__apQuote = quote;
       </table>
     </div>
     <p class="cmp-note">Products Vary and Change, so Compare Any Manual Against Your Own State's Requirements and Ask to See a Redacted Sample. Standardized Procedure Elements: <a target="_blank" rel="noopener" href="https://www.law.cornell.edu/regulations/california/16-CCR-1474">California Code of Regulations, Title 16, Section 1474</a>.</p>
-    <div class="cta-row"><a class="btn primary" href="../blueprint/">Build My Binder Blueprint</a><a class="btn" href="../contact/?interest=A%20Review%20of%20My%20Current%20Manual">Have My Current Manual Reviewed</a></div>
+    <div class="cta-row"><a class="btn primary" href="../blueprint/">Build My Binder Blueprint</a><a class="btn" href="#assessment">Review My Current Manual</a></div>
   </div>
 </section>
 
