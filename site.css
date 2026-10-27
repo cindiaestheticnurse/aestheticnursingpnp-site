@@ -1399,3 +1399,14 @@ h2.mb-intake-head{margin:0 0 .4rem;line-height:1.08;font-size:clamp(1.7rem,1rem 
 .hero.hero2 .ph-path .btn{min-height:52px;font-size:.86rem;letter-spacing:.12em}
 .hero.hero2 .ph-path .btn:not(.primary){border-color:var(--deep);color:var(--deep);background:transparent}
 .hero.hero2 .ph-path .btn:not(.primary):hover{background:var(--deep);color:var(--ivory)}
+/* Hero: no squeezing of text; image top aligned with headline */
+@media (min-width:901px){
+.hero.hero2{height:auto;max-height:none}
+.hero.hero2 .hero-grid{max-height:none}
+.hero.hero2 .h2-copy{justify-content:flex-start}
+.hero.hero2 .h2-copy>*{flex-shrink:0}
+}
+@media (min-width:1101px){
+.hero.hero2 .hero-grid{align-items:start}
+.hero.hero2 .hero-img{align-self:start;margin-top:calc(.78rem * 1.5 + 16px)}
+}
