@@ -1348,3 +1348,10 @@ h2.mb-intake-head{margin:0 0 .4rem;line-height:1.08;font-size:clamp(1.7rem,1rem 
 .foot nav.foot-legal{gap:.3rem 1.2rem;margin:-.4rem 0 1.1rem}
 .foot nav.foot-legal a{font-size:.78rem;color:rgba(242,234,228,.88)}
 .foot nav.foot-legal a:hover{color:var(--dusty-aa)}
+
+/* Services: scope and responsibilities for manuals */
+.scope3{display:grid;gap:.9rem;margin:1.6rem 0 .6rem}
+.scope3>div{border-left:2px solid var(--dusty-aa);padding:.15rem 0 .15rem 1rem}
+.scope3 .tag{display:block;margin-bottom:.35rem}
+.scope3 p{margin:0;font-size:.92rem;line-height:1.6;color:rgba(242,234,228,.88)}
+.note-sm a{color:inherit}
