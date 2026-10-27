@@ -1366,3 +1366,36 @@ h2.mb-intake-head{margin:0 0 .4rem;line-height:1.08;font-size:clamp(1.7rem,1rem 
 @media (max-width:640px){.paths-hero{grid-template-columns:1fr}}
 .ph-path .btn{padding:.85rem 1rem;font-size:.84rem;white-space:nowrap}
 .ph-path .ph-sub{font-size:.74rem;letter-spacing:.08em;align-self:flex-start}
+
+/* Nav: plain text items, one button */
+@media (min-width:1101px){
+.nav{gap:.9rem}
+.nav .nav-ce,.nav .nav-ce:hover{border:0;padding:.5rem .6rem;margin-left:0;background:none;color:var(--charcoal)}
+.nav .nav-ce:hover{color:var(--deep)}
+.nav-tools-btn,.nav-tools-btn:hover,.nav-tools.open .nav-tools-btn{border:0;background:none;padding:.5rem .6rem;color:var(--charcoal)}
+.nav-tools-btn:hover,.nav-tools.open .nav-tools-btn{color:var(--deep)}
+}
+/* Hero: one spacing scale (8 / 16 / 24 / 48) */
+.hero.hero2{padding-top:48px;padding-bottom:48px}
+@media (min-width:1101px){.hero.hero2 .hero-grid{grid-template-columns:.82fr 1.18fr;align-items:center;gap:56px}}
+.hero.hero2 .hero-img{align-self:center;aspect-ratio:1/1;height:auto;min-height:0}
+.hero.hero2 .hero-img img{position:static;width:100%;height:100%;object-fit:cover;object-position:center}
+.hero.hero2 h1{font-size:clamp(2.2rem,1.2rem + 1.6vw,2.6rem);line-height:1.08;max-width:none}
+.hero.hero2 h1 em{white-space:normal;display:block;color:var(--deep);font-style:italic}
+.hero.hero2 .h1-kicker{display:block;font-family:var(--text);font-size:.78rem;font-weight:500;letter-spacing:.2em;text-transform:uppercase;color:var(--deep);margin-bottom:16px;line-height:1.5}
+.hero.hero2 .lead{font-size:1.08rem;margin-top:16px;max-width:500px;color:var(--gray,#6B665F);font-weight:300}
+.hero.hero2 .paths-hero{margin-top:24px;gap:16px;align-items:stretch}
+.hero.hero2 .ph-path{border:1px solid rgba(107,102,95,.22);background:rgba(255,255,255,.6);padding:24px;gap:8px}
+.hero.hero2 .ph-t{font-family:var(--display);font-weight:400;font-size:1.6rem;line-height:1.1;margin:0}
+.hero.hero2 .ph-path p{flex:0 0 auto}
+.hero.hero2 .ph-path .btn{margin-top:auto;padding:.9rem 1rem;min-height:48px}
+.hero.hero2 .ph-path p+.btn{margin-top:auto}
+.hero.hero2 .ph-path p{margin-bottom:16px}
+.hero.hero2 .ph-free{margin-top:24px;font-size:.95rem}
+.hero.hero2 .hero-qual{font-size:.74rem;margin-top:8px;opacity:.85;max-width:500px}
+.hero.hero2 .ph-path{border:0;background:#FBF6F3;border-radius:12px;padding:28px 26px 26px;gap:10px;box-shadow:0 1px 2px rgba(43,41,38,.04)}
+.hero.hero2 .ph-t{font-size:1.9rem;font-weight:500;line-height:1.1;color:var(--charcoal)}
+.hero.hero2 .ph-path p{font-size:1rem;line-height:1.55;color:var(--gray,#6B665F);margin-bottom:20px}
+.hero.hero2 .ph-path .btn{min-height:52px;font-size:.86rem;letter-spacing:.12em}
+.hero.hero2 .ph-path .btn:not(.primary){border-color:var(--deep);color:var(--deep);background:transparent}
+.hero.hero2 .ph-path .btn:not(.primary):hover{background:var(--deep);color:var(--ivory)}
