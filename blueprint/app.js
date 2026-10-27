@@ -271,7 +271,7 @@
       </div>
       <div class="panel" style="margin-top:1.5rem"><h3>Your binder, tab by tab</h3><ol class="toc">${toc.join("")}</ol>
         <p class="tiny" style="margin-top:.8rem">Every P&amp;P includes: ${ALWAYS_INCLUDED.map(esc).join(" · ")}.</p>
-        <div style="display:flex;gap:1rem;align-items:center;flex-wrap:wrap;margin-top:1rem"><a class="btn primary" id="buildManual" href="${esc(builderLink())}">Get My Manual When It Opens</a><span class="tiny">The Manual Builder Opens Soon. Join the Waitlist and Your ${S.state && S.state !== "MULTI" ? esc(STATE_NAMES[S.state]) + " Edition and " : ""}Tabs Are Saved With Your Request.</span></div></div>
+        <div style="display:flex;gap:1rem;align-items:center;flex-wrap:wrap;margin-top:1rem"><a class="btn primary" id="buildManual" href="${esc(builderLink())}">Build My Manual</a><span class="tiny">The Manual Builder Is Open Now. Your ${S.state && S.state !== "MULTI" ? esc(STATE_NAMES[S.state]) + " Edition and " : ""}Tabs Carry Over When You Start.</span></div></div>
       <p class="kudos">${esc(kudos())}</p>
       <form id="sendForm" class="send" novalidate>
         <div class="full"><h3>Send me this blueprint</h3><p class="small muted" style="margin:.3rem 0 0">Cindi replies within two business days to schedule the free 30-minute call. Free, no pitch. You get a written next step: a course, an audit, or nothing at all.</p></div>
@@ -347,7 +347,7 @@
         Promise.all([lead, copy]).then(() => {
           S.sent = true; const c = $("#confirm"); c.classList.add("show"); c.focus(); toast("Your Blueprint Was Sent.");
           try { if (typeof window.gtag === "function") window.gtag("event", "generate_lead", { form_name: "binder_blueprint", page_path: location.pathname }); (window.dataLayer = window.dataLayer || []).push({ event: "generate_lead", form_name: "binder_blueprint" }); } catch (e) {}
-        }).catch(() => { btn.disabled = false; toast("Sorry, That Didn’t Send. Please Try Again or Email cindiaestheticnurse@gmail.com."); });
+        }).catch(() => { btn.disabled = false; toast("Sorry, That Didn’t Send. Please Try Again or Email info@aestheticnursingpnp.com."); });
       };
     }
   }
