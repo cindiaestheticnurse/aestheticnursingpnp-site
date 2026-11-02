@@ -2,5 +2,7 @@ User-agent: *
 Allow: /
 Disallow: /assets/The-Accusation-Review-Findings-Brief.pdf
 Disallow: /assets/Med-Spa-Compliance-Readiness-Checklist.pdf
+Disallow: /assets/docs/The-Accusation-Review-2026-Summary.pdf
+Disallow: /assets/docs/Med-Spa-Compliance-Readiness-Checklist.pdf
 
 Sitemap: https://aestheticnursingpnp.com/sitemap.xml
