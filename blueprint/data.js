@@ -1,6 +1,6 @@
 /* ============================================================
    SINGLE SOURCE OF TRUTH — every fact, price and rule used by the
-   Binder Blueprint lives here, tagged to a source id in SOURCES.
+   State Blueprint lives here, tagged to a source id in SOURCES.
    Change a fact here and it changes everywhere (zero drift).
    ============================================================ */
 

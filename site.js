@@ -211,7 +211,7 @@
     };
     if (qp.get('build') === '1') { setMode(true); $('#mbTrial').hidden = false; }
     if (BUILDER) fetch(BUILDER + '/api/config', { cache:'no-store' }).then(r => r.json()).then(c => { if (c.ordering_open) setMode(true); }).catch(()=>{});
-    // Carry over Binder Blueprint selections (?state=CA&menu=neuro,ha)
+    // Carry over State Blueprint selections (?state=CA&menu=neuro,ha)
     const NAMES = window.STATE_NAMES || {};
     const stc = (qp.get('state')||'').toUpperCase(); let bpMenu = [];
     if (NAMES[stc]) { const s = form.elements.state; if (s) s.value = NAMES[stc]; }
@@ -220,7 +220,7 @@
     bpMenu = ids.map(id => byId[id]).filter(Boolean);
     ids.forEach(id => form.querySelectorAll('input[name="svc"],input[name="docs"]').forEach(b => { if (b.value.split(',').includes(id)) b.checked = true; }));
     if (ids.some(id => id === 'anc' || id.startsWith('anc-'))) form.querySelectorAll('input[name="anc"]').forEach(b => { b.checked = true; });
-    if (bpMenu.length || NAMES[stc]) { const p=$('#w_picked'); p.innerHTML='<b>From Your Binder Blueprint:</b> '+(NAMES[stc]?esc(NAMES[stc])+(bpMenu.length?' · ':''):'')+bpMenu.map(esc).join(', '); p.hidden=false;
+    if (bpMenu.length || NAMES[stc]) { const p=$('#w_picked'); p.innerHTML='<b>From Your State Blueprint:</b> '+(NAMES[stc]?esc(NAMES[stc])+(bpMenu.length?' · ':''):'')+bpMenu.map(esc).join(', '); p.hidden=false;
       if (ids.length) setTimeout(()=>{ $('#intake') && $('#intake').scrollIntoView({behavior:'smooth'}); }, 400); }
     const abbr = () => { const n = val('state'); return Object.keys(NAMES).find(k => NAMES[k] === n) || ''; };
     form.elements.state && form.elements.state.addEventListener('change', () => { const r = form.elements.region; if (r && !r.dataset.touched) r.value = abbr(); });
@@ -269,7 +269,7 @@
       'Documents: ' + (checked('docs').join(', ')||'Core Documents Only'),
       'Ancillary Treatments (Add-On, Includes All Five): ' + (checked('anc').length ? 'Yes' : 'None'),
       'Add-Ons: ' + (checked('addon').join(', ')||'None'),
-      bpMenu.length ? 'Binder Blueprint Menu: ' + bpMenu.join(', ') : '',
+      bpMenu.length ? 'State Blueprint Menu: ' + bpMenu.join(', ') : '',
       flags.length ? 'Missing Information Flagged: ' + flags.join(' | ') : 'No Missing Items Flagged.'].filter(Boolean).join('\n');
     const sendIntake = flags => {
       submit.disabled = true;

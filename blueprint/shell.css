@@ -1,4 +1,4 @@
-/* Main-site header and footer for the Binder Blueprint (namespaced so the Blueprint's own styles can't collide) */
+/* Main-site header and footer for the State Blueprint (namespaced so the Blueprint's own styles can't collide) */
 .sbt,.sbf{--charcoal:#2B2926;--dusty:#B87E7E;--dusty-aa:#BD8786;--ivory:#F2EAE4;--deep:#8A4F4F;--gray:#6B665F;--line:rgba(107,102,95,.38);--text:"Jost",system-ui,sans-serif;--ease:cubic-bezier(.2,.7,.2,1);font-family:var(--text)}
 .sb-wrap{max-width:1180px;margin:0 auto;padding:0 clamp(1rem,3vw,2rem)}
 .sb-sr{position:absolute!important;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
@@ -81,7 +81,7 @@ footer.sbf{background:var(--charcoal);color:rgba(242,234,228,.88);border-top:3px
 @media (min-width:901px){#view-blueprint .hero{align-items:start}#view-blueprint .hero-card{align-self:start;margin-top:calc(2.35rem + 5px)}}
 .sb-skip{position:absolute;left:1rem;top:-60px;z-index:100;background:#2B2926;color:#F2EAE4!important;padding:.7rem 1rem;font-family:"Jost",system-ui,sans-serif;font-size:.9rem;text-decoration:none}.sb-skip:focus{top:.6rem;outline:2px solid #8A4F4F;outline-offset:2px}
 
-/* Tools menu (Manual Builder, Binder Blueprint, State Manuals) */
+/* Tools menu (Manual Builder, State Blueprint, State Manuals) */
 .nav-tools{position:relative;display:flex;align-items:center}
 .nav-tools-btn{font:inherit;font-family:var(--text,'Jost',sans-serif);font-size:.9rem;font-weight:400;color:var(--charcoal);background:none;border:1px solid var(--dusty);padding:.45rem .8rem;cursor:pointer;display:inline-flex;align-items:center;gap:.45rem;white-space:nowrap;letter-spacing:0;text-transform:none}
 .nav-tools-btn:hover,.nav-tools.open .nav-tools-btn{background:var(--dusty-aa);border-color:var(--dusty-aa);color:var(--charcoal)}

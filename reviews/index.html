@@ -63,6 +63,27 @@
  ]
 }
 </script>
+<style>/* New-site footer */
+footer.sfoot{background:#221F1D;color:rgba(242,234,228,.7);font-family:'Jost',sans-serif;font-weight:400;line-height:normal}
+.sfoot-grid>div:nth-child(3) .sfoot-col{line-height:1.6}.sfoot-grid>div:nth-child(2) .sfoot-col{line-height:normal}
+.sfoot-grid{max-width:1200px;margin:0 auto;padding:clamp(36px,5.5vw,64px) 24px 28px;display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,220px),1fr));gap:44px}
+.sfoot-logo{display:block;width:100%;max-width:280px;height:auto}
+.sfoot p{margin:22px 0 0;font-size:14px;line-height:1.75;font-weight:300;max-width:34ch}
+.sfoot-h{font-size:10.5px;letter-spacing:.22em;color:#F2EAE4;margin-bottom:18px}
+.sfoot-col{display:flex;flex-direction:column;gap:11px;font-size:14.5px;line-height:1.6}
+.sfoot-col a{color:rgba(242,234,228,.7);text-decoration:none}.sfoot-col a[href^="tel"],.sfoot-col a[href^="mailto"]{color:#F2EAE4}
+.sfoot a:hover{color:#B87E7E}.sfoot-bar a{text-decoration:none}
+.sfoot-legal{max-width:1200px;margin:0 auto;padding:0 24px 20px;font-size:13px}
+.sfoot-legal a{color:#F2EAE4}
+.sfoot-bar{max-width:1200px;margin:0 auto;padding:24px;border-top:1px solid rgba(242,234,228,.12);display:flex;flex-wrap:wrap;gap:12px;justify-content:space-between;font-size:11.5px;letter-spacing:.14em}
+.sfoot-tag{color:#D9A9A9}
+.sfoot-col a:hover,.sfoot a:hover{color:#D9A9A9}
+footer.sfoot .sfoot-bar a{text-decoration:underline!important;text-underline-offset:3px}
+footer.sfoot p,footer.sfoot .sfoot-col,footer.sfoot .sfoot-col a,footer.sfoot .sfoot-col span{text-transform:none!important}
+footer.sfoot .sfoot-col a{color:rgba(242,234,228,.7)!important}footer.sfoot .sfoot-col a[href^="tel"],footer.sfoot .sfoot-col a[href^="mailto"]{color:#F2EAE4!important}
+footer.sfoot .sfoot-bar a{color:inherit!important}footer.sfoot .sfoot-tag,footer.sfoot .sfoot-tag *{color:#B87E7E!important}
+footer.sfoot a:hover{color:#D9A9A9!important}
+</style>
 </head>
 <body>
 <a class="skip" href="#main">Skip to Main Content</a>
@@ -72,7 +93,7 @@
     <button type="button" class="menu-btn" aria-expanded="false" aria-controls="primary-nav" aria-label="Open Menu"><span aria-hidden="true"></span></button>
     <nav aria-label="Primary" class="nav" id="primary-nav">
       <a href="../services/">Services</a>
-      <div class="nav-tools"><button type="button" class="nav-tools-btn" aria-expanded="false" aria-controls="tools-menu">Tools<span class="nav-caret" aria-hidden="true"></span></button><div class="nav-tools-menu" id="tools-menu"><a href="https://theaestheticmanual.com/">Manual Builder<small>Build Your State Manual Online</small></a><a href="../blueprint/">Binder Blueprint<small>Free 90-Second Binder Map</small></a><a href="../state-manuals/">State Manuals<small>What Each State Edition Covers</small></a></div></div>
+      <div class="nav-tools"><button type="button" class="nav-tools-btn" aria-expanded="false" aria-controls="tools-menu">Tools<span class="nav-caret" aria-hidden="true"></span></button><div class="nav-tools-menu" id="tools-menu"><a href="https://theaestheticmanual.com/">Manual Builder<small>Build Your State Manual Online</small></a><a href="../state-manuals/">State Manuals<small>What Each State Edition Covers</small></a></div></div>
       <a href="../about/">About Cindi</a>
       <a href="../research/">Research</a>
       <a href="../blog/">Blog</a>
@@ -136,14 +157,38 @@
   </div>
 </section>
 </main>
-<footer class="foot">
-  <div class="wrap">
-    <a href="../" class="foot-logo" aria-label="Aesthetic Nursing Policy &amp; Procedures, Inc. Home"><img src="../assets/site/logo-brand-dark.png" alt="Aesthetic Nursing Policy &amp; Procedures, Inc." width="300" height="49" loading="lazy"></a>
-    <nav aria-label="Footer"><a href="../services/">Services</a><a href="https://theaestheticmanual.com/">Manual Builder</a><a href="../state-manuals/">State Manuals</a><a href="../med-spa-compliance/">Compliance Guide</a><a href="../about/">About Cindi</a><a href="../research/">Research</a><a href="../blog/">Blog</a><a href="../reviews/">Reviews</a><a href="../blueprint/">Binder Blueprint</a><a href="../contact/">Contact</a><a href="https://aestheticnursingces.com/" target="_blank" rel="noopener">CE Courses ↗<span class="sr">(Opens in a New Tab)</span></a></nav>
-    <nav aria-label="Legal" class="foot-legal"><a href="../privacy/">Privacy Policy</a><a href="../terms/">Terms of Use</a><a href="../accessibility/">Accessibility</a></nav>
-    <p>Aesthetic Nursing Policy &amp; Procedures, Inc. · Cindi Vokey, BSN, RN, LNC · CA BRN-Approved CE Provider #18009 · Based in San Diego, CA · Serving Practices Nationwide</p>
-    <p>Consulting and Education Services, Not Legal Advice. Rules Vary by State.</p>
-    <p>Need Help Using This Site? Email <a href="mailto:info@aestheticnursingpnp.com">info@aestheticnursingpnp.com</a> or Call <a href="tel:+15084986604">508-498-6604</a>. See Our <a href="../accessibility/">Accessibility Statement</a> (Last Reviewed October 16, 2026).</p>
+<footer class="sfoot">
+  <div class="sfoot-grid">
+    <div>
+      <img src="/assets/site/logo-aesthetic-nursing-pnp.png" width="280" height="46" loading="lazy" alt="Aesthetic Nursing Policy &amp; Procedures, Inc." class="sfoot-logo">
+      <p>Aesthetic Nursing Policy &amp; Procedures, Inc. Evidence-based practice and state-specific guidelines for providers across the country.</p>
+    </div>
+    <div>
+      <div class="sfoot-h">SITE</div>
+      <div class="sfoot-col">
+        <a href="/">Home</a>
+        <a href="/services/">Solutions &amp; Pricing</a>
+        <a href="/about/">About</a>
+        <a href="/practice-manuals/">Practice Manuals</a>
+        <a href="/book/">Book a Consult</a>
+        <a href="/research/">Research</a>
+        <a href="https://theaestheticmanual.com/">Manual Builder</a>
+        <a href="/contact/">Contact</a>
+      </div>
+    </div>
+    <div>
+      <div class="sfoot-h">CONTACT</div>
+      <div class="sfoot-col">
+        <a href="tel:5084986604">508-498-6604</a>
+        <a href="mailto:info@aestheticnursingpnp.com" style="word-break:break-word">info@aestheticnursingpnp.com</a>
+        <span>1202 Kettner Blvd, Unit 202<br>San Diego, CA 92101</span>
+        <span>Sun – Sat, 10 AM – 8 PM</span>
+      </div>
+    </div>
+  </div>
+  <div class="sfoot-bar">
+    <div>© 2026 AESTHETIC NURSING POLICY &amp; PROCEDURES, INC. <span aria-hidden="true">·</span> <a href="/privacy/" style="color:inherit">PRIVACY POLICY</a> <span aria-hidden="true">·</span> <a href="/terms/" style="color:inherit">TERMS OF USE</a> <span aria-hidden="true">·</span> <a href="/accessibility/" style="color:inherit">ACCESSIBILITY</a></div>
+    <div class="sfoot-tag">BUILD · PRACTICE · PROVE THE STANDARD.</div>
   </div>
 </footer>
 <div class="toast" id="toast" role="status" aria-live="polite"></div>

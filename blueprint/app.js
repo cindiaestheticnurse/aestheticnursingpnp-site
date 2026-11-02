@@ -213,7 +213,7 @@
   function bpSummary() {
     const r = route(); const o = OFFERS[r.key]; const rd = readiness(); const g = gaps();
     const nm = S.state === "MULTI" ? "Multiple States" : (STATE_NAMES[S.state] || "");
-    const lines = ["THE BINDER BLUEPRINT · Aesthetic Nursing Policy & Procedures, Inc.", "",
+    const lines = ["THE STATE BLUEPRINT · Aesthetic Nursing Policy & Procedures, Inc.", "",
       "Name: " + S.contact.name.trim(), "Email: " + S.contact.email.trim(), "State: " + nm,
       "Role: " + ((ROLES.find(x => x.id === S.role) || {}).label || ""), "Licenses on Staff: " + S.lic.join(", "),
       "Locations: " + ((LOCATIONS.find(x => x.id === S.loc) || {}).label || ""), "",
@@ -342,7 +342,7 @@
           body: JSON.stringify({ service_id: "service_lwkxats", template_id: tpl, user_id: "ocGHBFbCh69YjNwsU", template_params: extra }) }).then(r => { if (!r.ok) throw new Error(r.status); });
         const lead = send("template_igi8str", { to_email: "cindiaestheticnurse@gmail.com", to_name: "Cindi", from_name: S.contact.name.trim(), from_email: S.contact.email.trim(), reply_to: S.contact.email.trim(),
           phone: "", practice_name: "", state: S.state === "MULTI" ? "Multiple States" : (STATE_NAMES[S.state] || ""), role: S.role ? (ROLES.find(x => x.id === S.role) || {}).label || "" : "",
-          interest: "Binder Blueprint", notes: text });
+          interest: "State Blueprint", notes: text });
         const copy = window.BP_VISITOR_TEMPLATE ? send(window.BP_VISITOR_TEMPLATE, { to_email: S.contact.email.trim(), to_name: S.contact.name.trim(), reply_to: "cindiaestheticnurse@gmail.com", blueprint: text }) : Promise.resolve();
         Promise.all([lead, copy]).then(() => {
           S.sent = true; const c = $("#confirm"); c.classList.add("show"); c.focus(); toast("Your Blueprint Was Sent.");
@@ -392,7 +392,7 @@
   /* ---------------- automation tables ---------------- */
   const FLOW = [
     { n: "01", name: "Attract", job: "Get found", tools: [["Signal · Walk-Through · Scar-Tissue posts", "The three TVGA archetypes, posted daily"], ["State pages + blog", "23 states, answer-first, crawlable"], ["Google Business Profile", "Local search and reviews"]] },
-    { n: "02", name: "Capture", job: "Start a conversation", tools: [["Keyword DM", "MAP, STATE, BINDER, REVIEW, KIT, LOCATIONS, HOURS"], ["Binder Blueprint", "This page. Prefilled from the DM link"], ["Leads Sheet row", "With keyword, UTM, route and priority"]] },
+    { n: "02", name: "Capture", job: "Start a conversation", tools: [["Keyword DM", "MAP, STATE, BINDER, REVIEW, KIT, LOCATIONS, HOURS"], ["State Blueprint", "This page. Prefilled from the DM link"], ["Leads Sheet row", "With keyword, UTM, route and priority"]] },
     { n: "03", name: "Convert", job: "Book and pay", tools: [["Gmail", "Blueprint email + alert to Cindi"], ["Google Calendar", "Free 30-minute readiness call"], ["Stripe", "Invoice for the routed offer"]] },
     { n: "04", name: "Deliver", job: "Do the work", tools: [["Drive client folder", "Created from a template per engagement"], ["Claude", "First drafts of P&P sections for Cindi to edit"], ["LMS", "CE, certificates, completion records"]] },
     { n: "05", name: "Measure", job: "Decide what's next", tools: [["Plausible", "Blueprint starts, finishes and sends as goals"], ["Command Center Sheet", "New qualified leads · consults booked, every Monday"], ["Search Console", "State-page clicks"]] }

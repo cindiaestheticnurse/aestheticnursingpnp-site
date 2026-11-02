@@ -135,22 +135,72 @@
  ]
 }
 </script>
+<style>/* New-site footer */
+footer.sfoot{background:#221F1D;color:rgba(242,234,228,.7);font-family:'Jost',sans-serif;font-weight:400;line-height:normal}
+.sfoot-grid>div:nth-child(3) .sfoot-col{line-height:1.6}.sfoot-grid>div:nth-child(2) .sfoot-col{line-height:normal}
+.sfoot-grid{max-width:1200px;margin:0 auto;padding:clamp(36px,5.5vw,64px) 24px 28px;display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,220px),1fr));gap:44px}
+.sfoot-logo{display:block;width:100%;max-width:280px;height:auto}
+.sfoot p{margin:22px 0 0;font-size:14px;line-height:1.75;font-weight:300;max-width:34ch}
+.sfoot-h{font-size:10.5px;letter-spacing:.22em;color:#F2EAE4;margin-bottom:18px}
+.sfoot-col{display:flex;flex-direction:column;gap:11px;font-size:14.5px;line-height:1.6}
+.sfoot-col a{color:rgba(242,234,228,.7);text-decoration:none}.sfoot-col a[href^="tel"],.sfoot-col a[href^="mailto"]{color:#F2EAE4}
+.sfoot a:hover{color:#B87E7E}.sfoot-bar a{text-decoration:none}
+.sfoot-legal{max-width:1200px;margin:0 auto;padding:0 24px 20px;font-size:13px}
+.sfoot-legal a{color:#F2EAE4}
+.sfoot-bar{max-width:1200px;margin:0 auto;padding:24px;border-top:1px solid rgba(242,234,228,.12);display:flex;flex-wrap:wrap;gap:12px;justify-content:space-between;font-size:11.5px;letter-spacing:.14em}
+.sfoot-tag{color:#D9A9A9}
+.sfoot-col a:hover,.sfoot a:hover{color:#D9A9A9}
+footer.sfoot .sfoot-bar a{text-decoration:underline!important;text-underline-offset:3px}
+footer.sfoot p,footer.sfoot .sfoot-col,footer.sfoot .sfoot-col a,footer.sfoot .sfoot-col span{text-transform:none!important}
+footer.sfoot .sfoot-col a{color:rgba(242,234,228,.7)!important}footer.sfoot .sfoot-col a[href^="tel"],footer.sfoot .sfoot-col a[href^="mailto"]{color:#F2EAE4!important}
+footer.sfoot .sfoot-bar a{color:inherit!important}footer.sfoot .sfoot-tag,footer.sfoot .sfoot-tag *{color:#B87E7E!important}
+footer.sfoot a:hover{color:#D9A9A9!important}
+header.snav{position:sticky;top:0;z-index:50;background:#2B2926;border-bottom:1px solid rgba(242,234,228,.12)}
+.snav-in{max-width:1200px;margin:0 auto;padding:clamp(12px,2vw,18px) clamp(14px,2vw,20px);display:flex;flex-wrap:wrap;align-items:center;column-gap:clamp(12px,2.4vw,28px);row-gap:12px}
+.snav-logo{display:block;line-height:1.05}.snav-logo img{display:block;height:clamp(34px,3.6vw,46px);width:auto;max-width:min(100%,300px);object-fit:contain}
+.snav-links{display:flex;align-items:center;gap:clamp(2px,1vw,10px);flex-wrap:wrap;flex:1 1 240px;min-width:0}
+.snav-links a{display:block;padding:8px 6px;font-family:'Jost',sans-serif;font-weight:400;font-size:clamp(10.5px,1.15vw,12.5px);letter-spacing:.04em;color:#F2EAE4;text-transform:uppercase;white-space:nowrap;text-decoration:none}
+.snav-links a:hover{color:#B87E7E}
+.snav-links a.on{box-shadow:inset 0 -1.5px 0 #B87E7E;padding-bottom:6px}
+.snav-car{font-size:9px;margin-left:2px;color:#B87E7E}
+.snav-dd{position:relative}
+.snav-panel{display:none;position:absolute;left:0;top:100%;min-width:250px;background:#221F1D;border:1px solid rgba(242,234,228,.14);border-top:2px solid #B87E7E;padding:10px 0;z-index:80;box-shadow:0 14px 30px rgba(0,0,0,.35)}
+@media (max-width:760px){.snav-panel{position:fixed;left:12px;right:12px;top:auto;min-width:0}}
+.snav-dd:hover .snav-panel,.snav-dd:focus-within .snav-panel{display:block}
+.snav-links .snav-panel a{padding:9px 18px;font-size:13px;letter-spacing:.02em;text-transform:none}
+.snav-links .snav-panel a:hover{color:#D9A9A9;background:rgba(242,234,228,.05)}
+.snav-sub{padding:12px 18px 4px;font-family:'Jost',sans-serif;font-size:10.5px;letter-spacing:.2em;color:#B87E7E;text-transform:uppercase;border-top:1px solid rgba(242,234,228,.1);margin-top:6px}
+.snav-links .snav-panel a.snav-indent{padding-left:30px;font-size:12.5px;color:rgba(242,234,228,.82)}
+.snav-cta{background:#8A4F4F;color:#F2EAE4;padding:12px 14px;font-family:'Jost',sans-serif;font-weight:400;font-size:clamp(9.5px,1.1vw,10.5px);letter-spacing:.08em;white-space:nowrap;text-decoration:none;text-transform:uppercase}
+.snav-cta:hover{background:#B87E7E;color:#F2EAE4}
+.snav a:focus-visible,.sfoot a:focus-visible{outline:2px solid #D9A9A9;outline-offset:2px}
+</style>
 </head>
 <body>
 <a class="skip" href="#main">Skip to Main Content</a>
-<header class="top">
-  <div class="wrap top-in">
-    <a href="../" class="brand"><img src="../assets/site/logo-brand.png" alt="Aesthetic Nursing Policy &amp; Procedures, Inc. Home" width="250" height="40"></a>
-    <button type="button" class="menu-btn" aria-expanded="false" aria-controls="primary-nav" aria-label="Open Menu"><span aria-hidden="true"></span></button>
-    <nav aria-label="Primary" class="nav" id="primary-nav">
-      <a href="../services/">Services</a>
-      <div class="nav-tools is-current"><button type="button" class="nav-tools-btn" aria-expanded="false" aria-controls="tools-menu">Tools<span class="nav-caret" aria-hidden="true"></span></button><div class="nav-tools-menu" id="tools-menu"><a href="https://theaestheticmanual.com/">Manual Builder<small>Build Your State Manual Online</small></a><a href="../blueprint/">Binder Blueprint<small>Free 90-Second Binder Map</small></a><a href="../state-manuals/">State Manuals<small>What Each State Edition Covers</small></a></div></div>
-      <a href="../about/">About Cindi</a>
-      <a href="../research/">Research</a>
+<header class="snav">
+  <div class="snav-in">
+    <a class="snav-logo" href="../" aria-label="Aesthetic Nursing Policy and Procedures, Inc. — go to home page"><img src="../assets/site/logo-aesthetic-nursing-pnp.png" alt="Aesthetic Nursing Policy &amp; Procedures, Inc."></a>
+    <nav class="snav-links" aria-label="Primary">
+      <a href="../about/">About</a>
+      <div class="snav-dd"><a href="../services/" aria-haspopup="true">Solutions <span class="snav-car" aria-hidden="true">&#9662;</span></a>
+        <div class="snav-panel"><a href="../services/">Solutions &amp; Paths</a><a href="../practice-manuals/">Practice Manuals</a></div></div>
+      <div class="snav-dd"><a href="../research/" aria-haspopup="true">Tools <span class="snav-car" aria-hidden="true">&#9662;</span></a>
+        <div class="snav-panel"><a href="../research/">Research: The Accusation Review</a><a href="../#practice-assessment">Practice Assessment (PDF Download)</a>
+          <div class="snav-sub">State-Specific Manuals</div>
+          <a class="snav-indent" href="../state-manuals/">All State Manuals</a>
+          <a class="snav-indent" href="../state-manuals/arizona/">Arizona</a>
+          <a class="snav-indent" href="../state-manuals/california/">California</a>
+          <a class="snav-indent" href="../state-manuals/florida/">Florida</a>
+          <a class="snav-indent" href="../state-manuals/new-york/">New York</a>
+          <a class="snav-indent" href="../state-manuals/texas/">Texas</a></div></div>
+      <div class="snav-dd"><a href="https://theaestheticmanual.com/" class="on" aria-haspopup="true">Manual Builder <span class="snav-car" aria-hidden="true">&#9662;</span></a>
+        <div class="snav-panel"><a href="https://theaestheticmanual.com/">Start Your Manual</a><a href="./" aria-current="page">See How It Works</a></div></div>
       <a href="../blog/">Blog</a>
-      <a href="https://aestheticnursingces.com/" class="nav-ce" target="_blank" rel="noopener">CE Courses ↗<span class="sr">(Opens in a New Tab)</span></a>
+      <a href="https://aestheticnursingces.com" target="_blank" rel="noopener">CE Courses</a>
+      <a href="../book/">Book</a>
     </nav>
-    <a href="../contact/" class="btn primary sm top-book">Book a Free Consult</a>
+    <a class="snav-cta" href="../contact/">Assess Your Practice</a>
   </div>
 </header>
 <main id="main" tabindex="-1">
@@ -192,33 +242,6 @@
       <a href="https://theaestheticmanual.com/" class="btn primary" data-builder-link>Start Building My Manual →</a>
     </div>
     <figure class="mb-vid"><video controls playsinline muted preload="metadata" poster="../assets/manual-builder/walkthrough-poster.jpg" aria-label="30-Second Manual Builder Walkthrough"><source src="../assets/site/manual-builder-walkthrough-30s.mp4" type="video/mp4"></video></figure>
-  </div>
-</section>
-
-<section class="band paper">
-  <div class="wrap">
-    <span class="eyebrow">Is It Right for You?</span>
-    <h2 class="mb">Three Ways to <em>Get Started.</em></h2>
-    <div class="ways mbx-ways">
-      <div class="way">
-        <i>Build It Yourself Online</i>
-        <h3>Manual Builder</h3>
-        <p>For RNs, NPs, PAs and Practice Owners Working With a Medical Director Who Know Their State and Treatment Menu. Self-Serve, Paid Online and Ready Right Away.</p>
-        <p class="mbx-way-cta"><a href="https://theaestheticmanual.com/" class="text-link" data-builder-link>Start Building →</a></p>
-      </div>
-      <div class="way">
-        <i>Have Cindi Build It With You</i>
-        <h3>Custom Manual by Cindi</h3>
-        <p>For New Practices, Multi-Location or Multi-State Groups, Unusual Oversight Structures, or Anyone Who Wants Cindi to Review Their Practice and Tailor the Manual With Them.</p>
-        <p class="mbx-way-cta"><a href="../services/#manual" class="text-link">See Custom Manuals →</a></p>
-      </div>
-      <div class="way">
-        <i>Not Sure Yet?</i>
-        <h3>Start With the Blueprint</h3>
-        <p>Pick Your State and Treatment Menu in 90 Seconds to See What Your Binder Should Include. Your Choices Carry Straight Into the Manual Builder.</p>
-        <p class="mbx-way-cta"><a href="../blueprint/" class="text-link">Try the Binder Blueprint →</a></p>
-      </div>
-    </div>
   </div>
 </section>
 
@@ -326,14 +349,38 @@
 </section>
 
 </main>
-<footer class="foot">
-  <div class="wrap">
-    <a href="../" class="foot-logo" aria-label="Aesthetic Nursing Policy &amp; Procedures, Inc. Home"><img src="../assets/site/logo-brand-dark.png" alt="Aesthetic Nursing Policy &amp; Procedures, Inc." width="300" height="49" loading="lazy"></a>
-    <nav aria-label="Footer"><a href="../services/">Services</a><a href="https://theaestheticmanual.com/">Manual Builder</a><a href="../state-manuals/">State Manuals</a><a href="../med-spa-compliance/">Compliance Guide</a><a href="../about/">About Cindi</a><a href="../research/">Research</a><a href="../blog/">Blog</a><a href="../reviews/">Reviews</a><a href="../blueprint/">Binder Blueprint</a><a href="../contact/">Contact</a><a href="https://aestheticnursingces.com/" target="_blank" rel="noopener">CE Courses ↗<span class="sr">(Opens in a New Tab)</span></a></nav>
-    <nav aria-label="Legal" class="foot-legal"><a href="../privacy/">Privacy Policy</a><a href="../terms/">Terms of Use</a><a href="../accessibility/">Accessibility</a></nav>
-    <p>Aesthetic Nursing Policy &amp; Procedures, Inc. · Cindi Vokey, BSN, RN, LNC · CA BRN-Approved CE Provider #18009 · Based in San Diego, CA · Serving Practices Nationwide</p>
-    <p>Consulting and Education Services, Not Legal Advice. Rules Vary by State.</p>
-    <p>Need Help Using This Site? Email <a href="mailto:info@aestheticnursingpnp.com">info@aestheticnursingpnp.com</a> or Call <a href="tel:+15084986604">508-498-6604</a>. See Our <a href="../accessibility/">Accessibility Statement</a> (Last Reviewed October 16, 2026).</p>
+<footer class="sfoot">
+  <div class="sfoot-grid">
+    <div>
+      <img src="/assets/site/logo-aesthetic-nursing-pnp.png" width="280" height="46" loading="lazy" alt="Aesthetic Nursing Policy &amp; Procedures, Inc." class="sfoot-logo">
+      <p>Aesthetic Nursing Policy &amp; Procedures, Inc. Evidence-based practice and state-specific guidelines for providers across the country.</p>
+    </div>
+    <div>
+      <div class="sfoot-h">SITE</div>
+      <div class="sfoot-col">
+        <a href="/">Home</a>
+        <a href="/services/">Solutions &amp; Pricing</a>
+        <a href="/about/">About</a>
+        <a href="/practice-manuals/">Practice Manuals</a>
+        <a href="/book/">Book a Consult</a>
+        <a href="/research/">Research</a>
+        <a href="https://theaestheticmanual.com/">Manual Builder</a>
+        <a href="/contact/">Contact</a>
+      </div>
+    </div>
+    <div>
+      <div class="sfoot-h">CONTACT</div>
+      <div class="sfoot-col">
+        <a href="tel:5084986604">508-498-6604</a>
+        <a href="mailto:info@aestheticnursingpnp.com" style="word-break:break-word">info@aestheticnursingpnp.com</a>
+        <span>1202 Kettner Blvd, Unit 202<br>San Diego, CA 92101</span>
+        <span>Sun – Sat, 10 AM – 8 PM</span>
+      </div>
+    </div>
+  </div>
+  <div class="sfoot-bar">
+    <div>© 2026 AESTHETIC NURSING POLICY &amp; PROCEDURES, INC. <span aria-hidden="true">·</span> <a href="/privacy/" style="color:inherit">PRIVACY POLICY</a> <span aria-hidden="true">·</span> <a href="/terms/" style="color:inherit">TERMS OF USE</a> <span aria-hidden="true">·</span> <a href="/accessibility/" style="color:inherit">ACCESSIBILITY</a></div>
+    <div class="sfoot-tag">BUILD · PRACTICE · PROVE THE STANDARD.</div>
   </div>
 </footer>
 <div class="toast" id="toast" role="status" aria-live="polite"></div>
@@ -344,7 +391,7 @@
 <script src="../site.js?v=7"></script>
 <script>
 (function(){
-  // Carry Binder Blueprint selections (?state=CA&menu=neuro,ha) to the Manual Builder
+  // Carry State Blueprint selections (?state=CA&menu=neuro,ha) to the Manual Builder
   var q=new URLSearchParams(location.search), out=new URLSearchParams();
   if(q.get('state'))out.set('state',q.get('state'));
   if(q.get('menu'))out.set('menu',q.get('menu'));
@@ -354,7 +401,7 @@
   (window.MENU||[]).forEach(function(g){(g.items||[]).forEach(function(i){by[i.id]=i.name})});
   var menu=(q.get('menu')||'').split(',').map(function(x){return by[x.trim()]}).filter(Boolean);
   var p=document.getElementById('mbxPicked');
-  if(p&&(menu.length||N[st])){p.textContent='';var b=document.createElement('b');b.textContent='Your Binder Blueprint Choices Carry Over: ';p.appendChild(b);
+  if(p&&(menu.length||N[st])){p.textContent='';var b=document.createElement('b');b.textContent='Your State Blueprint Choices Carry Over: ';p.appendChild(b);
     p.appendChild(document.createTextNode([N[st]].concat(menu).filter(Boolean).join(' · ')));p.hidden=false}
 })();
 </script>

@@ -3,7 +3,7 @@
 Public marketing site for Aesthetic Nursing Policy & Procedures, Inc.
 
 - `index.html` — homepage (Accusation Review, self-audit, consulting, CE, RN-to-Owner, contact)
-- `blueprint/` — the free Binder Blueprint (90-second state + menu tool)
+- `blueprint/` — the free State Blueprint (90-second state + menu tool)
 - `assets/` — images and the Findings Brief PDF
 
 Hosting: GitHub Pages (Settings → Pages → Deploy from branch `main`, folder `/root`).

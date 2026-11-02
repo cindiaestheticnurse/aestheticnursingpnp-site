@@ -1,4 +1,4 @@
-/* Homepage additions — built on the Binder Blueprint design system (styles.css) */
+/* Homepage additions — built on the State Blueprint design system (styles.css) */
 h1,h2,h3{overflow-wrap:normal;word-break:normal;hyphens:none}
 .skip{position:absolute;left:-999px;top:0;background:var(--ink);color:var(--paper);padding:.6rem 1rem;z-index:99}
 .skip:focus{left:1rem;top:1rem}
