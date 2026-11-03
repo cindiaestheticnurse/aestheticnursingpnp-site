@@ -59,6 +59,14 @@
 .mbx-road li{border-top-color:var(--dusty)!important}.mbx-road li::before{color:var(--dusty-aa)!important}.mbx-road li::after{background:var(--dusty)!important}.mbx-road b{color:var(--charcoal)}.mbx-road span{color:var(--charcoal)!important}
 .cta-body .btn:not(.primary){border-color:var(--ivory);color:var(--ivory)}.cta-body .btn:not(.primary):hover{background:var(--ivory);color:var(--charcoal)}
 .mbx-important{margin-top:2.4rem;max-width:52em}
+.mbx-aotable{margin-top:1.6rem;overflow-x:auto}
+.mbx-aotable table{width:100%;border-collapse:collapse;border:1px solid var(--dusty,#B87E7E);color:var(--charcoal,#2B2926)}
+.mbx-aotable th,.mbx-aotable td{padding:.85rem 1rem;border-bottom:1px solid rgba(184,126,126,.55);text-align:left;vertical-align:top}
+.mbx-aotable thead th{background:#2B2926;color:#F2EAE4;font-size:.78rem;letter-spacing:.12em;text-transform:uppercase;font-weight:500}
+.mbx-aotable tbody th{font-family:"Cormorant Garamond",serif;font-size:1.3rem;font-weight:600;line-height:1.15}
+.mbx-aotable tbody td:nth-child(3){white-space:nowrap;font-weight:500}
+.mbx-aotable tbody td:nth-child(n+4){color:#8A4F4F;font-weight:500;white-space:nowrap}
+@media (max-width:760px){.mbx-aotable thead{position:absolute;left:-9999px}.mbx-aotable table,.mbx-aotable tbody,.mbx-aotable tr,.mbx-aotable th,.mbx-aotable td{display:block;width:100%}.mbx-aotable tr{border-bottom:1px solid var(--dusty,#B87E7E)}.mbx-aotable tbody th,.mbx-aotable td{border:0;padding:.35rem 1rem}.mbx-aotable tbody th{padding-top:1rem}.mbx-aotable td::before{content:attr(data-l) ": ";font-weight:500;color:#2B2926}.mbx-aotable tbody td:last-child{padding-bottom:1rem}.mbx-aotable tbody td:nth-child(n+3){white-space:normal}}
 .faq-grid>div:first-child p{margin-top:1rem}
 @media (max-width:900px){.mbx-ways{grid-template-columns:1fr}.mbx-facts{grid-template-columns:1fr}.mbx-facts div{border-left:0;border-top:1px solid var(--dusty)}.mbx-facts div:first-child{border-top:0}}
 .byb{display:grid;grid-template-columns:repeat(3,1fr);gap:1rem}.byb>div{border:1px solid var(--dusty);padding:1.2rem 1.3rem;background:#fff}.byb b{display:block;font-family:var(--display);font-size:1.3rem;font-weight:500;line-height:1.2;margin-bottom:.5rem}.byb p{margin:0;font-size:.93rem;line-height:1.55}@media (max-width:900px){.byb{grid-template-columns:1fr}}
@@ -265,6 +273,7 @@ header.snav{position:sticky;top:0;z-index:50;background:#2B2926;border-bottom:1p
       <h3>Add What You Need</h3>
       <div class="tabs-list">
         <div><i>Included · No Charge</i><b>Free Manual Review on Zoom</b><span>Check the Box at Checkout to Walk Through Your New Manual With Cindi. Reviewing a Manual You Already Have Is a <a href="../services/#assessment" class="text-link">Compliance Readiness Assessment</a> (From $950).</span></div>
+        <div><i>At Checkout · Per Treatment</i><b>Add-Ons</b><span>Consents, Patient Instructions, Good Faith Exams &amp; Intake, Competencies, Charting Templates and the Aesthetic Charting Document, Matched to Your Treatments. <a href="#addons" class="text-link">See Add-On Pricing →</a></span></div>
         <div><i>At Checkout · $250</i><b>DocuSign Signing</b><span>Send the Final Manual From My Manuals to Your Medical Director and Primary Provider. Either May Sign First.</span></div>
         <div><i>Treatment Menu</i><b>Ancillary Treatments Bundle</b><span>HSV-1, Skin Infection, Topical Numbing Cream, Mucosal Block and Intralesional Injections as One Selection.</span></div>
         <div><i>Ask Cindi</i><b>Practice Forms &amp; Records</b><span>Consent Forms, Competency Records, Patient Instructions, Good Faith Exam &amp; Intake, Fitzpatrick Skin Scale and Administering an Injection (for Patients), as Editable Word Documents.</span></div>
@@ -274,12 +283,34 @@ header.snav{position:sticky;top:0;z-index:50;background:#2B2926;border-bottom:1p
   </div>
 </section>
 
+<section class="band paper" id="addons">
+  <div class="wrap">
+    <span class="eyebrow">Add-Ons</span>
+    <h2 class="mb">Add-Ons for <em>Each Treatment You Pick.</em></h2>
+    <p>Add-Ons Are Added on <a href="https://theaestheticmanual.com/" class="text-link" data-builder-link>TheAestheticManual.com</a> at Checkout, Matched to Each Treatment You Pick for Your Manual. Each Add-On Is Priced per Treatment, and Your Add-Ons Are Emailed to You From info@aestheticnursingpnp.com.</p>
+    <div class="mbx-aotable">
+      <table>
+        <thead><tr><th scope="col">Add-Ons</th><th scope="col">Description</th><th scope="col">Price</th><th scope="col">Buy 3–10 Treatments</th><th scope="col">Buy 11 or More Treatments</th></tr></thead>
+        <tbody>
+        <tr><th scope="row">Consents</th><td data-l="Description">For Each Treatment or Procedure Provided, Following Strict Guidelines</td><td data-l="Price">$15/Each</td><td data-l="Buy 3–10 Treatments">Get 15% Off</td><td data-l="Buy 11 or More Treatments">Get 25% Off</td></tr>
+        <tr><th scope="row">Patient Instructions</th><td data-l="Description">Patient Facing Materials</td><td data-l="Price">$5/Each</td><td data-l="Buy 3–10 Treatments">Get 15% Off</td><td data-l="Buy 11 or More Treatments">Get 25% Off</td></tr>
+        <tr><th scope="row">Good Faith Exams &amp; Intake</th><td data-l="Description">Assessments for Patients</td><td data-l="Price">$50/Each</td><td data-l="Buy 3–10 Treatments">Get 15% Off</td><td data-l="Buy 11 or More Treatments">Get 25% Off</td></tr>
+        <tr><th scope="row">Competencies</th><td data-l="Description">Documented Training of Each Treatment, for Each Provider</td><td data-l="Price">$15/Each</td><td data-l="Buy 3–10 Treatments">Get 15% Off</td><td data-l="Buy 11 or More Treatments">Get 25% Off</td></tr>
+        <tr><th scope="row">Charting Templates</th><td data-l="Description">Comprehensive Charting Templates for Each Treatment</td><td data-l="Price">$10/Each</td><td data-l="Buy 3–10 Treatments">Get 15% Off</td><td data-l="Buy 11 or More Treatments">Get 25% Off</td></tr>
+        <tr><th scope="row">Aesthetic Charting Document</th><td data-l="Description">Paper Charting Template for Injectables</td><td data-l="Price">$20/Each</td><td data-l="Buy 3–10 Treatments">Get 15% Off</td><td data-l="Buy 11 or More Treatments">Get 25% Off</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="cta-row"><a href="https://theaestheticmanual.com/" class="btn primary" data-builder-link>Add Add-Ons at Checkout →</a></div>
+  </div>
+</section>
+
 <section class="band" id="start">
   <div class="wrap">
     <span class="eyebrow">How It Works</span>
     <h2 class="mb">Order Online. <em>Download Right Away.</em></h2>
     <ol class="road mbx-road">
-      <li><b>Build</b><span>On TheAestheticManual.com, Enter Your Practice, Medical Director, State, Treatments, Logo and Cover. Your Price Updates as You Choose.</span></li>
+      <li><b>Build</b><span>On TheAestheticManual.com, Enter Your Practice, Medical Director, State, Treatments, Add-Ons, Logo and Cover. Your Price Updates as You Choose.</span></li>
       <li><b>Pay</b><span>Secure Checkout Through Square. Your Manual Is Built on Our Secure Server After Payment.</span></li>
       <li><b>Download</b><span>Open My Manuals on the Aesthetic Nursing CE Site for Your Fillable Word Manual and Signing-Ready PDF. A Link Is Also Emailed to You.</span></li>
       <li><b>Review &amp; Sign</b><span>Review It With Your Medical Director Using the Manual Review Checklist, Then Sign in Either Order. Legal Review Where Appropriate.</span></li>
