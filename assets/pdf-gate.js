@@ -9,9 +9,9 @@
       re: /Med-Spa-Compliance-Readiness-Checklist\.pdf/i,
       file: 'assets/docs/Med-Spa-Compliance-Readiness-Checklist.pdf',
       eyebrow: 'Free Download',
-      title: 'Practice Assessment',
-      lead: 'Enter your name and email to download the Practice Assessment. We\u2019ll also email you the link.',
-      button: 'Download the Practice Assessment'
+      title: 'Med Spa Compliance Readiness Checklist',
+      lead: 'Enter your name and email to download the Med Spa Compliance Readiness Checklist. We\u2019ll also email you the link.',
+      button: 'Download the Checklist'
     },
     research: {
       re: /The-Accusation-Review-2026-Summary\.pdf/i,
